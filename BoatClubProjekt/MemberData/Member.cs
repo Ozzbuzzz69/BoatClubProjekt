@@ -25,5 +25,9 @@ namespace BoatClubLibrary.MemberData
             email = Email;
         
         }
+        public override string ToString()
+        {
+            return $"ID: {Id} Name: {Name} Address: {Address} Birthday: {Birthday} Email: {Email} Membership Type: {MembershipType}";
+        }
     }
 }

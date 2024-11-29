@@ -9,7 +9,7 @@ namespace BoatClubLibrary.MockData
 {
     public class MockMembers
     {
-        private static List<Member> members = new List<Member>()
+        public static List<Member> members = new List<Member>()
         {
             new Member("Junior", "12/29/2016", "Silas", "Langtvæk 33", "testost@mail.com"),
             new Member("Normal", "12/29/1995", "Jens", "Langtvæk 44", "testost1@mail.com"),

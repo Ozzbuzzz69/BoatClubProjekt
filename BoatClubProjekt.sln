@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35431.28
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoatClubLibrary", "BoatClubProjekt\BoatClubLibrary.csproj", "{F7684117-F7B7-413F-B6A2-3AC8A352F627}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoatClubLibrary", "BoatClubProjekt\BoatClubLibrary.csproj", "{F7684117-F7B7-413F-B6A2-3AC8A352F627}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoatConsole", "BoatConsole\BoatConsole.csproj", "{CB846FAE-08C0-4B45-95EE-3CEDEE2F219C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoatConsole", "BoatConsole\BoatConsole.csproj", "{CB846FAE-08C0-4B45-95EE-3CEDEE2F219C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoatClubWebsite", "BoatClubWebsite\BoatClubWebsite.csproj", "{5B4C7276-CACD-4C53-BB8B-FFEF03730F61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoatClubWebsite", "BoatClubWebsite\BoatClubWebsite.csproj", "{5B4C7276-CACD-4C53-BB8B-FFEF03730F61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
