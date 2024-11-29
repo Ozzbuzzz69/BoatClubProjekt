@@ -8,9 +8,9 @@ namespace BoatClubLibrary
 {
     public abstract class Person
     {
-        protected string Name { get; set; }
-        protected string Address { get; set; }
-        protected string Email { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Email { get; set; }
 
         public Person() { }
         public Person(string name, string address, string email)

@@ -31,7 +31,9 @@ namespace BoatClubLibrary.MemberData.MemberService
                 {
                     if (m.Id == member.Id)
                     {
-                        
+                        m.Address = member.Address;
+                        m.Email = member.Email;
+                        m.MembershipType = member.MembershipType;
                     }
                 }
             }
