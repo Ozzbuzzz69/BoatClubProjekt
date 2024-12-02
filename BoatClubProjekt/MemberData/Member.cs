@@ -19,7 +19,7 @@ namespace BoatClubLibrary.MemberData
         [Display(Name = "Member Birthday")]
         public string Birthday { get; set; }
         public Member() { }
-        public Member(string membershipType, string birthday, string name, string address, string email, string telephoneNr) :  base(name, address, email, telephoneNr)
+        public Member(string name, string address, string email, string telephoneNr, string membershipType, string birthday) :  base(name, address, email, telephoneNr)
         {
             Id = ++NextId;
             membershipType = MembershipType;

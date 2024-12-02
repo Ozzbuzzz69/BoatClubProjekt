@@ -10,7 +10,7 @@ namespace BoatClubLibrary.BoatData
     {
         public Dictionary<int, Boat> Boats { get; set; } = new Dictionary<int, Boat>();
 
-        public bool CreateBoat(Boat boat)
+        public bool AddBoat(Boat boat)
         {
             if (boat != null)
             {
@@ -30,7 +30,7 @@ namespace BoatClubLibrary.BoatData
         }
 
         public bool UpdateBoat(int id, double rentalPrice, string type, string model, string name, 
-            int regNumber, int horsePower, int knots, double height, double length, double width)
+            int regNumber, int horsePower, int knots, double height, double length, double width, bool isRented)
         {
             if (Boats.ContainsKey(id))
             {
@@ -44,6 +44,7 @@ namespace BoatClubLibrary.BoatData
                 Boats[id].Height = height;
                 Boats[id].Length = length;
                 Boats[id].Width = width;
+                Boats[id].IsRented = isRented;
                 return true;
             }
             return false;
