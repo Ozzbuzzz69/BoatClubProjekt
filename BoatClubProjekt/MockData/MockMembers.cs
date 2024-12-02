@@ -11,9 +11,9 @@ namespace BoatClubLibrary.MockData
     {
         public static List<Member> members = new List<Member>()
         {
-            new Member("Junior", "12/29/2016", "Silas", "Langtvæk 33", "testost@mail.com"),
-            new Member("Normal", "12/29/1995", "Jens", "Langtvæk 44", "testost1@mail.com"),
-            new Member("Senior", "12/29/1969", "Ole", "Langtvæk 55", "testost2@mail.com")
+            new Member("Junior", "12/29/2016", "Silas", "Langtvæk 33", "testost@mail.com", "51515115"),
+            new Member("Normal", "12/29/1995", "Jens", "Langtvæk 44", "testost1@mail.com", "51515115"),
+            new Member("Senior", "12/29/1969", "Ole", "Langtvæk 55", "testost2@mail.com", "51515115")
         };
         public static List<Member> GetMockMembers()
         {

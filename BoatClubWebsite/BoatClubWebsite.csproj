@@ -10,4 +10,8 @@
     <ProjectReference Include="..\BoatClubProjekt\BoatClubLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Data\" />
+  </ItemGroup>
+
 </Project>

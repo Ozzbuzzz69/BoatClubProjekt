@@ -9,9 +9,9 @@ namespace BoatClubLibrary.MemberData.MemberService
     internal interface IMembeService
     {
         List<Member> GetMembers();
-        public void AddMember(Member member);
-        public void UpdateMember(Member member);
-        public Member DeleteMember(int id);
-        public Member GetMember(int id);
+        void AddMember(Member member);
+        void UpdateMember(Member member);
+        Member DeleteMember(int id);
+        Member GetMember(int id);
     }
 }

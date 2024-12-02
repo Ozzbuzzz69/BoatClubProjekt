@@ -1,0 +1,73 @@
+﻿@page
+@model BoatClubWebsite.Pages.Member.GetAllMembersModel
+@{
+}
+<h1>Members</h1>
+
+
+    <table class="table table-bordered table-hover table-striped">
+        <thread>
+          <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Birthday
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Telephone Number
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Membership Type
+            </th>
+          </tr>       
+        </thread>
+        <tbody>
+            @if (Model.Members != null)
+            {
+                foreach (var member in Model.Members)
+                {
+                    <tr>
+                        <td>
+                            @member.Id
+                        </td>
+                        <td>
+                            @member.Name
+                        </td>
+                        <td>
+                            @member.Birthday
+                        </td>
+                        <td>
+                            @member.Address
+                        </td>
+                        <td>
+                            @member.TelephoneNr
+                        </td>
+                        <td>
+                            @member.Email
+                        </td>
+                        <td>
+                            @member.MembershipType
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    
+    <div class="form-group">
+        <button type="button" class="btn btn-primary"><a class="link-dark" asp-page="CreateMember">Create Member Account</a></button>
+    </div>
+
+    <div>
+        <a asp-page="GetAllMembers">Back to member list</a>
+    </div>

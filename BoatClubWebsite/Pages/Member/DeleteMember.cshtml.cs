@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BoatClubWebsite.Pages.Member
 {
-    public class GetAllMembersModelModel : PageModel
+    public class DeleteMemberModel : PageModel
     {
         public void OnGet()
         {
