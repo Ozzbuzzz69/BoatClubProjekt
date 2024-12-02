@@ -12,7 +12,7 @@ namespace BoatClubLibrary.AdminData
         public int Id { get; set; }
         private bool IsAdmin { get; set; }
 
-        public Admin(string name, string telephoneNr, string address, string email, bool isAdmin) : base(name, address, email, telephoneNr)
+        public Admin(string name, string address, string email, string telephoneNr, bool isAdmin) : base(name, address, email, telephoneNr)
         {
             Id = ++NextId;
             IsAdmin = isAdmin;
