@@ -11,13 +11,15 @@ namespace BoatClubLibrary
         public string Name { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }
+        public string TelephoneNr { get; set; }
 
         public Person() { }
-        public Person(string name, string address, string email)
+        public Person(string name, string address, string email, string telephoneNr)
         {
             name = Name;
             address = Address;
             email = Email;
+            telephoneNr = TelephoneNr;
         }
     }
 }
