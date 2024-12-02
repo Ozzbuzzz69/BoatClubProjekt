@@ -19,5 +19,10 @@ namespace BoatClubLibrary.BlogData
             Id = NextId++;
             EventDescription = eventDescription;
         }
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, Event description: {EventDescription}";
+        }
     }
 }
