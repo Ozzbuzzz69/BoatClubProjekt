@@ -20,8 +20,7 @@ namespace BoatClubLibrary.AdminData
 
         public override string ToString()
         {
-            return $"id: {Id}, name: {Name}, adress {Address}, email: {Email}, telephonenr: {TelephoneNr} Isadmin {IsAdmin}";
+            return $"Id: {Id}, Name: {Name}, Address {Address}, Email: {Email}, Phonenumber: {TelephoneNr}, Admin: {IsAdmin}";
         }
-
     }
 }
