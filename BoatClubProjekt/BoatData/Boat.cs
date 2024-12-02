@@ -34,5 +34,10 @@ namespace BoatClubLibrary.BoatData
             Length = length;
             Width = width;
         }
+        public override string ToString()
+        {
+            return $"id: {Id}, rentalprice: {RentalPrice}, type: {Type}, model: {Model}, name: {Name}, regnumber: {RegNumber}, horsepower: {HorsePower}, knots: {Knots}, height: {Height}, length: {Length}, width: {Width}";
+        }
+
     }
 }
