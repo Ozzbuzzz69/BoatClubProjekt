@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoatClubLibrary.MemberData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,9 @@ namespace BoatClubLibrary.BlogData
     {
         public Dictionary<int, Post> Posts {  get; set; } = new Dictionary<int, Post>();
 
-        public bool CreatePost(string eventDescription)
+        public bool CreatePost(string eventDescription, DateTime eventDate)
         {
-            Post post = new Post(eventDescription);
+            Post post = new Post(eventDescription, eventDate);
             Posts.TryAdd(post.Id, post);
             return true;
         }
@@ -26,11 +27,12 @@ namespace BoatClubLibrary.BlogData
             return null;
         }
 
-        public bool UpdatePost(int id, string eventDescription)
+        public bool UpdatePost(int id, string eventDescription, DateTime eventDate)
         {
             if (Posts.ContainsKey(id))
             {
                 Posts[id].EventDescription = eventDescription;
+                Posts[id].EventDate = eventDate;
                 return true;
             }
             return false;
@@ -44,6 +46,11 @@ namespace BoatClubLibrary.BlogData
                 return true;
             }
             return false;
+        }
+
+        public Member? GetJoinedMembers()
+        {
+            return null;
         }
 
         public void ReadAllPosts()
