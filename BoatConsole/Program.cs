@@ -8,13 +8,13 @@ using BoatClubLibrary.MockData;
 
 Blog blog = new Blog();
 
+DateTime dt = new DateTime();
 
-
-//Console.WriteLine(blog.CreatePost("test", ));
+Console.WriteLine(blog.CreatePost("test", dt));
 
 Console.WriteLine(blog.ReadPost(1));
 
-//Console.WriteLine(blog.CreatePost("test2"));
+Console.WriteLine(blog.CreatePost("test2", dt));
 
 Console.WriteLine(blog.ReadPost(2));
 
