@@ -13,7 +13,7 @@ namespace BoatClubLibrary.BlogData
 
         public string EventDescription { get; set; }
 
-        public DateTime PostDate { get; set; }
+        public DateTime PostDate { get; }
 
         public DateTime EventDate { get; set; }
 
@@ -21,11 +21,11 @@ namespace BoatClubLibrary.BlogData
 
         private static int NextId = 1;
 
-        public Post(string eventDescription, DateTime postDate, DateTime eventDate)
+        public Post(string eventDescription, DateTime eventDate)
         {
             Id = NextId++;
             EventDescription = eventDescription;
-            PostDate = postDate;
+            PostDate = DateTime.Now;
             EventDate = eventDate;
         }
 
