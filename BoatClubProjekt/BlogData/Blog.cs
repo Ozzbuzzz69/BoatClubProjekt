@@ -10,14 +10,11 @@ namespace BoatClubLibrary.BlogData
     {
         public Dictionary<int, Post> Posts {  get; set; } = new Dictionary<int, Post>();
 
-        public bool CreatePost(Post post)
+        public bool CreatePost(string eventDescription)
         {
-            if (post != null)
-            {
-                Posts.TryAdd(post.Id, post);
-                return true;
-            }
-            return false;
+            Post post = new Post(eventDescription);
+            Posts.TryAdd(post.Id, post);
+            return true;
         }
 
         public Post? ReadPost(int id)
@@ -47,6 +44,14 @@ namespace BoatClubLibrary.BlogData
                 return true;
             }
             return false;
+        }
+
+        public void ReadAllPosts()
+        {
+            foreach (Post p in Posts.Values)
+            {
+                Console.WriteLine(p);
+            }
         }
     }
 }
