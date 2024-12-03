@@ -10,8 +10,9 @@ namespace BoatClubLibrary.BlogData
     {
         public Dictionary<int, Post> Posts {  get; set; } = new Dictionary<int, Post>();
 
-        public bool CreatePost(Post post)
+        public bool CreatePost(string eventDescription)
         {
+            Post post = new Post(eventDescription);
             if (post != null)
             {
                 Posts.TryAdd(post.Id, post);
