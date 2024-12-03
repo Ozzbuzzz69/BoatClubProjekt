@@ -13,12 +13,8 @@ namespace BoatClubLibrary.BlogData
         public bool CreatePost(string eventDescription)
         {
             Post post = new Post(eventDescription);
-            if (post != null)
-            {
-                Posts.TryAdd(post.Id, post);
-                return true;
-            }
-            return false;
+            Posts.TryAdd(post.Id, post);
+            return true;
         }
 
         public Post? ReadPost(int id)
