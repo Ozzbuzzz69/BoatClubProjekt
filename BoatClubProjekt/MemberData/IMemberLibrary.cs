@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoatClubLibrary.MemberData
 {
-    internal interface IMemberLibrary
+    public interface IMemberLibrary
     {
         public void Add(Member member);
 
@@ -17,5 +17,7 @@ namespace BoatClubLibrary.MemberData
         public void PrintAllMembers();
 
         public Member GetMember(int memberId);
+
+        public Member CreateMember();
     }
 }

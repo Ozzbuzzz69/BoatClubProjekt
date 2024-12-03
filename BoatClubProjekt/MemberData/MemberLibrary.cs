@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoatClubLibrary.MemberData
 {
-    internal class MemberLibrary : IMemberLibrary
+    public class MemberLibrary : IMemberLibrary
     {
         public Dictionary<int, Member> MemberList = new Dictionary<int, Member>();
 
@@ -46,6 +46,11 @@ namespace BoatClubLibrary.MemberData
         public Member GetMember(int memberId)
         {
             return MemberList[memberId];
+        }
+
+        public Member CreateMember()
+        {
+            return null;
         }
     }
 }
