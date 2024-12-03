@@ -5,9 +5,7 @@ VisualStudioVersion = 17.11.35431.28
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoatClubLibrary", "BoatClubProjekt\BoatClubLibrary.csproj", "{F7684117-F7B7-413F-B6A2-3AC8A352F627}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoatConsole", "BoatConsole\BoatConsole.csproj", "{CB846FAE-08C0-4B45-95EE-3CEDEE2F219C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoatClubWebsite1", "BoatClubWebsite1\BoatClubWebsite1.csproj", "{BE13C35F-C44A-4B91-B15B-72CD302110F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoatClubWebsite1", "BoatClubWebsite1\BoatClubWebsite1.csproj", "{BE13C35F-C44A-4B91-B15B-72CD302110F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		{F7684117-F7B7-413F-B6A2-3AC8A352F627}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7684117-F7B7-413F-B6A2-3AC8A352F627}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7684117-F7B7-413F-B6A2-3AC8A352F627}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CB846FAE-08C0-4B45-95EE-3CEDEE2F219C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CB846FAE-08C0-4B45-95EE-3CEDEE2F219C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CB846FAE-08C0-4B45-95EE-3CEDEE2F219C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CB846FAE-08C0-4B45-95EE-3CEDEE2F219C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BE13C35F-C44A-4B91-B15B-72CD302110F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BE13C35F-C44A-4B91-B15B-72CD302110F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE13C35F-C44A-4B91-B15B-72CD302110F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
