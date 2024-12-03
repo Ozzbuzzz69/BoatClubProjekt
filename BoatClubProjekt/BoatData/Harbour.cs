@@ -12,7 +12,9 @@ namespace BoatClubLibrary.BoatData
 
         public bool CreateBoat(double rentalPrice, string type, string model, string name, int regNumber, int horsePower, int knots, double height, double length, double width, bool isRented)
         {
-            if ()
+            Boat boat = new Boat(rentalPrice,type,model,name,regNumber,horsePower,knots,height,length,width,isRented); 
+            Boats.TryAdd(boat.Id,boat);
+            return true;
         }
 
         public bool AddBoat(Boat boat)
