@@ -53,6 +53,5 @@ namespace BoatClubLibrary.BlogData
                 Console.WriteLine(p);
             }
         }
-
     }
 }
