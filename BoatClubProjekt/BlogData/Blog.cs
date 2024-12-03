@@ -45,5 +45,14 @@ namespace BoatClubLibrary.BlogData
             }
             return false;
         }
+
+        public void ReadAllPosts()
+        {
+            foreach (Post p in Posts.Values)
+            {
+                Console.WriteLine(p);
+            }
+        }
+
     }
 }
