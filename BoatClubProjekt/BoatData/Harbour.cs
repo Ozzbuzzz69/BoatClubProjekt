@@ -10,6 +10,11 @@ namespace BoatClubLibrary.BoatData
     {
         public Dictionary<int, Boat> Boats { get; set; } = new Dictionary<int, Boat>();
 
+        public bool CreateBoat(double rentalPrice, string type, string model, string name, int regNumber, int horsePower, int knots, double height, double length, double width, bool isRented)
+        {
+            if ()
+        }
+
         public bool AddBoat(Boat boat)
         {
             if (boat != null)
