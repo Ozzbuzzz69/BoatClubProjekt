@@ -47,10 +47,5 @@ namespace BoatClubLibrary.MemberData
         {
             return MemberList[memberId];
         }
-
-        public Member CreateMember()
-        {
-            return null;
-        }
     }
 }

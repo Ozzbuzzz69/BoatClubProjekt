@@ -17,7 +17,5 @@ namespace BoatClubLibrary.MemberData
         public void PrintAllMembers();
 
         public Member GetMember(int memberId);
-
-        public Member CreateMember();
     }
 }
