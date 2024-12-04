@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoatClubLibrary.BoatData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,12 @@ namespace BoatClubLibrary.MemberData
     public class MemberLibrary : IMemberLibrary
     {
         public Dictionary<int, Member> MemberList = new Dictionary<int, Member>();
+        public List<Boat> _bookableBoats;
 
-        public MemberLibrary() { }
+        public MemberLibrary()
+        {
+            _bookableBoats = Harbour.GetBoats().ToList();  
+        }
 
         public void Add(Member member)
         {

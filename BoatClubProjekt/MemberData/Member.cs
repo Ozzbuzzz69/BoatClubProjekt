@@ -12,8 +12,6 @@ namespace BoatClubLibrary.MemberData
 {
     public class Member : Person
     {
-        public List<Boat> _bookableBoats;
-
         private static int  NextId = 0;
         [Display(Name = "Member Id")]
         public int Id { get; set; }
@@ -32,7 +30,6 @@ namespace BoatClubLibrary.MemberData
             isBanned = IsBanned;
             isRenting = IsRenting;
         }
-        
         
         public override string ToString()
         {
