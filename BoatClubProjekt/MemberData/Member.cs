@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoatClubLibrary.BoatData;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace BoatClubLibrary.MemberData
 {
     public class Member : Person
     {
+        public List<Boat> _bookableBoats;
+
         private static int  NextId = 0;
         [Display(Name = "Member Id")]
         public int Id { get; set; }
@@ -28,9 +31,9 @@ namespace BoatClubLibrary.MemberData
             birthday = Birthday;
             isBanned = IsBanned;
             isRenting = IsRenting;
-            
-        
         }
+        
+        
         public override string ToString()
         {
             return $"ID: {Id} Name: {Name} Address: {Address} Birthday: {Birthday} Email: {Email} Membership Type: {MembershipType}";
