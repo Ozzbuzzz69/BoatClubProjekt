@@ -13,11 +13,11 @@ namespace BoatClubLibrary.MemberData
     public class Member : Person
     {
         private static int  NextId = 0;
-        [Display(Name = "Member Id")]
+        
         public int Id { get; set; }
-        [Display(Name = "Membership Type")]
+        
         public string MembershipType { get; set; }
-        [Display(Name = "Member Birthday")]
+        
         public string Birthday { get; set; }
         public bool IsBanned { get; set; }
         public bool IsRenting { get; set; }

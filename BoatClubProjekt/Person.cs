@@ -9,13 +9,13 @@ namespace BoatClubLibrary
 {
     public abstract class Person
     {
-        [Display(Name = "Name")]
+        
         public string Name { get; set; }
-        [Display(Name = "Address")]
+        
         public string Address { get; set; }
-        [Display(Name = "Email")]
+        
         public string Email { get; set; }
-        [Display(Name = "Phone number")]
+        
         public string TelephoneNr { get; set; }
 
         public Person() { }
