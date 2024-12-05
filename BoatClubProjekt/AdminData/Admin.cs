@@ -8,9 +8,9 @@ namespace BoatClubLibrary.AdminData
 {
     public class Admin : Person
     {
-        private static int NextId = 0;
-        public int Id { get; set; }
         private bool IsAdmin { get; set; }
+
+        private static int NextId = 0;
 
         public Admin(string name, string address, string email, string telephoneNr, bool isAdmin) : base(name, address, email, telephoneNr)
         {

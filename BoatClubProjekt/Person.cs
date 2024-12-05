@@ -9,6 +9,7 @@ namespace BoatClubLibrary
 {
     public abstract class Person
     {
+        public int Id { get; set; }
         
         public string Name { get; set; }
         
@@ -19,6 +20,7 @@ namespace BoatClubLibrary
         public string TelephoneNr { get; set; }
 
         public Person() { }
+
         public Person(string name, string address, string email, string telephoneNr)
         {
             name = Name;
