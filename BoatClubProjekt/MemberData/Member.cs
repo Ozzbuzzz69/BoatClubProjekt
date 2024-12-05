@@ -16,19 +16,16 @@ namespace BoatClubLibrary.MemberData
         
         public string Birthday { get; set; }
 
-        public bool IsBanned { get; set; }
-
         public bool IsRenting { get; set; }
 
         private static int NextId = 0;
 
         public Member() { }
-        public Member(string name, string address, string email, string telephoneNr, string membershipType, string birthday, bool isBanned, bool isRenting) :  base(name, address, email, telephoneNr)
+        public Member(string name, string address, string email, string telephoneNr, string membershipType, string birthday, bool isRenting) :  base(name, address, email, telephoneNr)
         {
             Id = ++NextId;
             membershipType = MembershipType;
             birthday = Birthday;
-            isBanned = IsBanned;
             isRenting = IsRenting;
         }
         
