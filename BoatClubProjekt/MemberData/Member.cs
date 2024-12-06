@@ -31,9 +31,9 @@ namespace BoatClubLibrary.MemberData
             string birthday, bool isRenting) :  base(name, address, email, phoneNumber)
         {
             Id = ++NextId;
-            membershipType = MembershipType;
-            birthday = Birthday;
-            isRenting = IsRenting;
+            MembershipType = membershipType;
+            Birthday = birthday;
+            IsRenting = isRenting;
         }
         
         public override string ToString()

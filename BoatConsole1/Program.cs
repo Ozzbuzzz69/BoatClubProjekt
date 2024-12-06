@@ -16,6 +16,6 @@ blog.CreatePost("test", dt);
 
 Console.WriteLine(blog.ReadPost(1));
 
-member.Add(new Member("Test", "Test", "Test,", "Test", MembershipType.Familie, "Test", true));
+member.CreateMember(new Member("Test", "Test", "Test,", "Test", MembershipType.Familie, "Test", true));
 
-member.ReadMember(1);
+Console.WriteLine(member.ReadMember(1));
