@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoatClubLibrary.BoatData
 {
-    public class Harbour
+    public class BoatRepo
     {
         public static Dictionary<int, Boat> Boats = new Dictionary<int, Boat>();
 

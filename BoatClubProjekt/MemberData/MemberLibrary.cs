@@ -14,7 +14,7 @@ namespace BoatClubLibrary.MemberData
 
         public MemberLibrary()
         {
-            _bookableBoats = Harbour.GetBoats().ToList();  
+            _bookableBoats = BoatRepo.GetBoats().ToList();  
         }
 
         public void Add(Member member)
