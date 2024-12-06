@@ -10,7 +10,7 @@ namespace BoatClubLibrary.BoatData
     {
         public static Dictionary<int, Boat> Boats = new Dictionary<int, Boat>();
 
-        public bool AddBoat(Boat boat)
+        public bool CreateBoat(Boat boat)
         {
             if (boat != null)
             {
@@ -29,13 +29,14 @@ namespace BoatClubLibrary.BoatData
             return null;
         }
 
-        public Boat UpdateBoat(int boatId, Boat boat)
+        public Boat? UpdateBoat(int boatId, Boat boat)
         {
             if (Boats.ContainsKey(boatId))
             {
                 Boats[boatId] = boat;
+                return boat;
             }
-                return boat; 
+            return null;
         }
 
         public bool DeleteBoat(int id)
@@ -46,6 +47,19 @@ namespace BoatClubLibrary.BoatData
                 return true;
             }
             return false;
+        }
+
+        public void SearchBoat()
+        {
+            // tilføj kode
+        }
+
+        public void ReadAllBoats()
+        {
+            foreach (Boat b in Boats.Values)
+            {
+                Console.WriteLine(b);
+            }
         }
 
         public static IEnumerable<Boat> GetBoats()
