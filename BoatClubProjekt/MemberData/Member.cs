@@ -38,7 +38,8 @@ namespace BoatClubLibrary.MemberData
         
         public override string ToString()
         {
-            return $"ID: {Id} Name: {Name} Address: {Address} Birthday: {Birthday} Email: {Email} Membership Type: {MembershipType}";
+            return $"ID: {Id} Name: {Name} Address: {Address} Birthday: {Birthday} " +
+                $"Email: {Email} Membership Type: {MembershipType}, Is renting: {IsRenting}";
         }
     }
 }
