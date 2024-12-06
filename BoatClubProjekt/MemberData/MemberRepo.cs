@@ -17,21 +17,29 @@ namespace BoatClubLibrary.MemberData
         //    _bookableBoats = BoatRepo.GetBoats().ToList();  
         //}
 
-        public void Add(Member member)
+        public void CreateMember(Member member)
         {
             MemberList.TryAdd(member.Id, member);
         }
 
-        public bool Remove(Member member)
+        public bool DeleteMember(int memberId)
         {
-            if (MemberList.ContainsValue(member))
+            if (MemberList.ContainsKey(memberId))
             {
-                MemberList.Remove(member.Id);
+                MemberList.Remove(memberId);
+                return true;
             }
             return false;
         }
         
-        public Member Update(int memberId, Member member)
+        public void UpdateTilRazor(Member member)
+        {
+            if (MemberList.ContainsKey(member.Id))
+            {
+                MemberList[member.Id] = member;
+            }
+        }
+        public Member UpdateMember(int memberId, Member member)
         {
             if (MemberList.ContainsKey(memberId))
             {
@@ -48,7 +56,7 @@ namespace BoatClubLibrary.MemberData
             }
         }
 
-        public Member GetMember(int memberId)
+        public Member ReadMember(int memberId)
         {
             return MemberList[memberId];
         }
