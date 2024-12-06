@@ -8,9 +8,9 @@ namespace BoatClubLibrary.Bookingdata
 {
     public class BookingRepo
     {
-        public static Dictionary<int, Booking> Bookings = new Dictionary<int, Booking>();
+        public Dictionary<int, Booking> Bookings = new Dictionary<int, Booking>();
 
-        public bool AddBooking(Booking booking)
+        public bool CreateBooking(Booking booking)
         {
             if (booking != null)
             {
@@ -27,7 +27,7 @@ namespace BoatClubLibrary.Bookingdata
             }
             return null;
         }
-        public Booking? UpdateBooking(int bookingid,  Booking booking)
+        public Booking? UpdateBooking(int bookingid, Booking booking)
         {
             if (Bookings.ContainsKey(bookingid))
             {

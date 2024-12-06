@@ -8,7 +8,7 @@ namespace BoatClubLibrary.BoatData
 {
     public class BoatRepo
     {
-        public static Dictionary<int, Boat> Boats = new Dictionary<int, Boat>();
+        public Dictionary<int, Boat> Boats = new Dictionary<int, Boat>();
 
         public bool CreateBoat(Boat boat)
         {
