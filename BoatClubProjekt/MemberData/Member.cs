@@ -10,10 +10,16 @@ using System.Xml.Linq;
 
 namespace BoatClubLibrary.MemberData
 {
+    public enum MembershipType
+    {
+        Junior,
+        Senior,
+        Familie
+    }
+
     public class Member : Person
     {   
-        public string MembershipType { get; set; }
-        
+        public MembershipType MembershipType { get; set; }
         public string Birthday { get; set; }
 
         public bool IsRenting { get; set; }
@@ -21,7 +27,7 @@ namespace BoatClubLibrary.MemberData
         private static int NextId = 0;
 
         public Member() { }
-        public Member(string name, string address, string email, string phoneNumber, string membershipType, string birthday, bool isRenting) :  base(name, address, email, phoneNumber)
+        public Member(string name, string address, string email, string phoneNumber, MembershipType membershipType, string birthday, bool isRenting) :  base(name, address, email, phoneNumber)
         {
             Id = ++NextId;
             membershipType = MembershipType;

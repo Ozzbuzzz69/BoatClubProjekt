@@ -8,13 +8,19 @@ namespace BoatClubLibrary.Bookingdata
 {
     public class Booking
     {
-        public static int NextId = 1;
         public int Id { get; set; }
+
+        private static int NextId = 1;
 
 
         public Booking()
         {
             Id = NextId++;
+        }
+
+        public override string ToString()
+        {
+            return $"id: {Id}";
         }
     }
 }
