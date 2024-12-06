@@ -16,5 +16,10 @@ namespace BoatClubLibrary.Bookingdata
         {
             Id = NextId++;
         }
+
+        public override string ToString()
+        {
+            return $"id: {Id}";
+        }
     }
 }
