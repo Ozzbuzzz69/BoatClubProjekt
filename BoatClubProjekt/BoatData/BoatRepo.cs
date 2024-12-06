@@ -62,7 +62,7 @@ namespace BoatClubLibrary.BoatData
             }
         }
 
-        public static IEnumerable<Boat> GetBoats()
+        public IEnumerable<Boat> GetBoats()
         {
             return Boats.Values;
         }

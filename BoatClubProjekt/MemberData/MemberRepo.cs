@@ -12,10 +12,10 @@ namespace BoatClubLibrary.MemberData
         public Dictionary<int, Member> MemberList = new Dictionary<int, Member>();
         public List<Boat> _bookableBoats;
 
-        public MemberRepo()
-        {
-            _bookableBoats = BoatRepo.GetBoats().ToList();  
-        }
+        //public MemberRepo()
+        //{
+        //    _bookableBoats = BoatRepo.GetBoats().ToList();  
+        //}
 
         public void Add(Member member)
         {
