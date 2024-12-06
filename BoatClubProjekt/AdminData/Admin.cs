@@ -12,7 +12,7 @@ namespace BoatClubLibrary.AdminData
 
         private static int NextId = 0;
 
-        public Admin(string name, string address, string email, string telephoneNr, bool isAdmin) : base(name, address, email, telephoneNr)
+        public Admin(string name, string address, string email, string phoneNumber, bool isAdmin) : base(name, address, email, phoneNumber)
         {
             Id = ++NextId;
             IsAdmin = isAdmin;
@@ -20,7 +20,7 @@ namespace BoatClubLibrary.AdminData
 
         public override string ToString()
         {
-            return $"Id: {Id}, Name: {Name}, Address {Address}, Email: {Email}, Phonenumber: {TelephoneNr}, Admin: {IsAdmin}";
+            return $"Id: {Id}, Name: {Name}, Address {Address}, Email: {Email}, Phonenumber: {PhoneNumber}, Admin: {IsAdmin}";
         }
     }
 }

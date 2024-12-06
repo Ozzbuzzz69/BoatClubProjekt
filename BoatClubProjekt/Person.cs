@@ -17,16 +17,16 @@ namespace BoatClubLibrary
         
         public string Email { get; set; }
         
-        public string TelephoneNr { get; set; }
+        public string PhoneNumber { get; set; }
 
         public Person() { }
 
-        public Person(string name, string address, string email, string telephoneNr)
+        public Person(string name, string address, string email, string phoneNumber)
         {
             name = Name;
             address = Address;
             email = Email;
-            telephoneNr = TelephoneNr;
+            phoneNumber = PhoneNumber;
         }
     }
 }

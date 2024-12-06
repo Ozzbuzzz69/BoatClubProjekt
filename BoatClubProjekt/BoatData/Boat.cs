@@ -8,7 +8,6 @@ namespace BoatClubLibrary.BoatData
 {
     public class Boat
     {
-        private static int NextId = 1;
         public int Id { get; set; }
         public double RentalPrice { get; set; }
         public string Type { get; set; }
@@ -21,8 +20,10 @@ namespace BoatClubLibrary.BoatData
         public double Length { get; set; }
         public double Width { get; set; }
         public bool IsRented { get; set; }
+        public string Log {  get; set; }
+        private static int NextId = 1;
 
-        public Boat(double rentalPrice, string type, string model, string name, int regNumber, int horsePower, int knots, double height, double length, double width, bool isRented)
+        public Boat(double rentalPrice, string type, string model, string name, int regNumber, int horsePower, int knots, double height, double length, double width, bool isRented, string log)
         {
             Id = NextId++;
             RentalPrice = rentalPrice;
@@ -36,10 +37,11 @@ namespace BoatClubLibrary.BoatData
             Length = length;
             Width = width;
             IsRented = isRented;
+            Log = log;
         }
         public override string ToString()
         {
-            return $"id: {Id}, rentalprice: {RentalPrice}, type: {Type}, model: {Model}, name: {Name}, regnumber: {RegNumber}, horsepower: {HorsePower}, knots: {Knots}, height: {Height}, length: {Length}, width: {Width}, isrented: {IsRented}";
+            return $"id: {Id}, rentalprice: {RentalPrice}, type: {Type}, model: {Model}, name: {Name}, regnumber: {RegNumber}, horsepower: {HorsePower}, knots: {Knots}, height: {Height}, length: {Length}, width: {Width}, isrented: {IsRented}, Log {Log}";
         }
 
     }
