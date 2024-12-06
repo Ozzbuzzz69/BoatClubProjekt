@@ -28,7 +28,7 @@ namespace BoatClubLibrary.MemberData
 
         public Member() { }
         public Member(string name, string address, string email, string phoneNumber, MembershipType membershipType, 
-            string birthday, bool isRenting) :  base(name, address, email, phoneNumber)
+            string birthday, bool isRenting) : base(name, address, email, phoneNumber)
         {
             Id = ++NextId;
             MembershipType = membershipType;
