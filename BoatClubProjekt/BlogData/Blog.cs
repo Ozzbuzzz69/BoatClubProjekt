@@ -31,12 +31,11 @@ namespace BoatClubLibrary.BlogData
             return null;
         }
 
-        public bool UpdatePost(int id, string eventDescription, DateTime eventDate)
+        public bool UpdatePost(int id, Post post)
         {
             if (Posts.ContainsKey(id))
             {
-                Posts[id].EventDescription = eventDescription;
-                Posts[id].EventDate = eventDate;
+                Posts[id] = post;
                 return true;
             }
             return false;
