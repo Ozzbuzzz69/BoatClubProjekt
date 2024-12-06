@@ -23,10 +23,10 @@ namespace BoatClubLibrary
 
         public Person(string name, string address, string email, string phoneNumber)
         {
-            name = Name;
-            address = Address;
-            email = Email;
-            phoneNumber = PhoneNumber;
+            Name = name;
+            Address = address;
+            Email = email;
+            PhoneNumber = phoneNumber;
         }
     }
 }
