@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoatClubLibrary.MemberData
 {
-    public interface IMemberLibrary
+    public interface IMemberRepo
     {
         public void Add(Member member);
 

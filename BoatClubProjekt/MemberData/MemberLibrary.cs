@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace BoatClubLibrary.MemberData
 {
-    public class MemberLibrary : IMemberLibrary
+    public class MemberRepo : IMemberRepo
     {
         public Dictionary<int, Member> MemberList = new Dictionary<int, Member>();
         public List<Boat> _bookableBoats;
 
-        public MemberLibrary()
+        public MemberRepo()
         {
             _bookableBoats = BoatRepo.GetBoats().ToList();  
         }

@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="AdminData\AdminService\" />
-    <Folder Include="BoatData\BoatService\" />
   </ItemGroup>
 
 </Project>

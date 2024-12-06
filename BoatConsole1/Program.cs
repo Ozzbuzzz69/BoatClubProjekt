@@ -1,9 +1,9 @@
 ﻿using BoatClubLibrary.BlogData;
 using BoatClubLibrary.MemberData;
 
-MemberLibrary member = new MemberLibrary();
+MemberRepo member = new MemberRepo();
 
-member.Add(new Member("dsfs", "fdsf", "", "", " ", "", false, false));
+member.Add(new Member("dsfs", "fdsf", "", "", " ", "", false));
 
 member.PrintAllMembers();
 
