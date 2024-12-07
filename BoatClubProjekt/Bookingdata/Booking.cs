@@ -8,7 +8,7 @@ namespace BoatClubLibrary.Bookingdata
 {
     public class Booking
     {
-        private int Id { get; set; }
+        public int Id { get; set; }
 
         private static int NextId = 1;
 
