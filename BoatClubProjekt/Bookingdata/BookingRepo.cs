@@ -8,7 +8,7 @@ namespace BoatClubLibrary.Bookingdata
 {
     public class BookingRepo
     {
-        public Dictionary<int, Booking> Bookings = new Dictionary<int, Booking>();
+        public Dictionary<int, Booking> Bookings = new();
 
         public bool CreateBooking(Booking booking)
         {
@@ -21,15 +21,15 @@ namespace BoatClubLibrary.Bookingdata
         }
         public Booking? ReadBooking(int id)
         {
-            if (Bookings.ContainsKey(id))
+            if (Bookings.TryGetValue(id, out Booking? value))
             {
-                return Bookings[id];
+                return value;
             }
             return null;
         }
         public Booking? UpdateBooking(int bookingid, Booking booking)
         {
-            if (Bookings.ContainsKey(bookingid))
+            if (ReadBooking(bookingid) != null)
             {
                 Bookings[bookingid] = booking;
                 return booking;
@@ -38,7 +38,7 @@ namespace BoatClubLibrary.Bookingdata
         }
         public bool DeleteBooking(int id)
         {
-            if (Bookings.ContainsKey(id))
+            if (ReadBooking(id) != null)
             {
                 Bookings.Remove(id);
                 return true;
