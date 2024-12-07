@@ -1,4 +1,5 @@
 ﻿using BoatClubLibrary.BoatData;
+using BoatClubLibrary.Bookingdata;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace BoatClubLibrary.MemberData
 {
     public class MemberRepo : IMemberRepo
     {
-        public Dictionary<int, Member> MemberList = new Dictionary<int, Member>();
-        public List<Boat> _bookableBoats;
+        public Dictionary<int, Member> MemberList = new();
+        //public List<Boat> _bookableBoats;
 
         //public MemberRepo()
         //{
@@ -21,44 +22,55 @@ namespace BoatClubLibrary.MemberData
         {
             MemberList.TryAdd(member.Id, member);
         }
-
-        public bool DeleteMember(int memberId)
+        public Member? ReadMember(int memberId)
         {
-            if (MemberList.ContainsKey(memberId))
+            if (MemberList.TryGetValue(memberId, out Member? value))
             {
-                MemberList.Remove(memberId);
-                return true;
+                return value;
             }
-            return false;
+            return null;
         }
-        
+                
         public void UpdateTilRazor(Member member)
         {
-            if (MemberList.ContainsKey(member.Id))
+            if (ReadMember(member.Id) != null)
             {
                 MemberList[member.Id] = member;
             }
         }
         public Member UpdateMember(int memberId, Member member)
         {
-            if (MemberList.ContainsKey(memberId))
+            if (ReadMember(memberId) != null)
             {
                 MemberList[memberId] = member;
             }
             return member;
         }
-
-        public void PrintAllMembers()
+        public bool DeleteMember(int memberId)
         {
-            foreach (var m in MemberList)
+            if (ReadMember(memberId) != null)
             {
-                Console.WriteLine(m);
+                MemberList.Remove(memberId);
+                return true;
+            }
+            return false;
+        }
+        public void DeteleTilRazor(Member member)
+        {
+            if (ReadMember(member.Id) != null)
+            {
+                MemberList.Remove(member.Id);
             }
         }
 
-        public Member ReadMember(int memberId)
+        public void PrintAllMembers()
         {
-            return MemberList[memberId];
+            foreach (KeyValuePair<int, Member> member in MemberList)
+            {
+                Console.WriteLine(member);
+            }
         }
+
+
     }
 }

@@ -16,7 +16,7 @@ namespace BoatClubLibrary.MemberData
 
         public void PrintAllMembers();
 
-        public Member ReadMember(int memberId);
+        public Member? ReadMember(int memberId);
 
         public void UpdateTilRazor(Member member);
 
