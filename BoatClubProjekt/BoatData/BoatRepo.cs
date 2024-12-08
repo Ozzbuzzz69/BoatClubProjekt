@@ -1,6 +1,9 @@
-﻿using System;
+﻿using BoatClubLibrary.Bookingdata;
+using BoatClubLibrary.MemberData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,16 +25,16 @@ namespace BoatClubLibrary.BoatData
 
         public Boat? ReadBoat(int id)
         {
-            if (Boats.ContainsKey(id))
+            if (Boats.TryGetValue(id, out Boat? value))
             {
-                return Boats[id];
+                return value;
             }
             return null;
         }
 
         public Boat? UpdateBoat(int boatId, Boat boat)
         {
-            if (Boats.ContainsKey(boatId))
+            if (ReadBoat(boatId) != null)
             {
                 Boats[boatId] = boat;
                 return boat;
@@ -41,24 +44,43 @@ namespace BoatClubLibrary.BoatData
 
         public bool DeleteBoat(int id)
         {
-            if (Boats.ContainsKey(id))
+            if (ReadBoat(id) != null)
             {
                 Boats.Remove(id);
                 return true;
             }
             return false;
         }
-
-        public void SearchBoat()
+        
+        //Takes a criteria and finds the first boat with any criteria of that value
+        public Boat? SearchBoat(object criteria)
         {
-            // tilføj kode
+            if (criteria == null) return null;
+
+            foreach (KeyValuePair<int, Boat> boat in Boats)
+            {
+                foreach (PropertyInfo property in boat.Value.GetType().GetProperties())
+                {
+                    // Get the value of the property for the current boat
+                    object? propertyValue = property.GetValue(boat.Value);
+
+                    // Check if the property value matches the criteria
+                    if (propertyValue != null && propertyValue.Equals(criteria))
+                    {
+                        return boat.Value; // Found a match
+                    }
+                }
+            }
+
+            return null; // No match found
         }
+
 
         public void ReadAllBoats()
         {
-            foreach (Boat b in Boats.Values)
+            foreach (KeyValuePair<int, Boat> boat in Boats)
             {
-                Console.WriteLine(b);
+                Console.WriteLine(boat);
             }
         }
 
