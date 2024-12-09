@@ -31,7 +31,7 @@ namespace BoatClubLibrary.MemberData
             return null;
         }
                 
-        public void UpdateTilRazor(Member member)
+        public void UpdateForRazor(Member member)
         {
             if (ReadMember(member.Id) != null)
             {
