@@ -10,6 +10,11 @@ namespace BoatClubLibrary.Bookingdata
     {
         public Dictionary<int, Booking> Bookings = new();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="booking"></param>
+        /// <returns></returns>
         public bool CreateBooking(Booking booking)
         {
             if (booking != null)
@@ -19,6 +24,12 @@ namespace BoatClubLibrary.Bookingdata
             }
             return false;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Booking? ReadBooking(int id)
         {
             if (Bookings.TryGetValue(id, out Booking? value))
@@ -27,6 +38,13 @@ namespace BoatClubLibrary.Bookingdata
             }
             return null;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="bookingid"></param>
+        /// <param name="booking"></param>
+        /// <returns></returns>
         public Booking? UpdateBooking(int bookingid, Booking booking)
         {
             if (ReadBooking(bookingid) != null)
@@ -36,6 +54,12 @@ namespace BoatClubLibrary.Bookingdata
             }
             return null;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool DeleteBooking(int id)
         {
             if (ReadBooking(id) != null)

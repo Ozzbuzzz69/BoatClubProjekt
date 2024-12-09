@@ -11,6 +11,13 @@ namespace BoatClubLibrary.BlogData
     {
         public Dictionary<int, Post> Posts {  get; set; } = new Dictionary<int, Post>();
 
+        /// <summary>
+        /// Creates a new post with 2 string parameters, and checks if post i added to dictionary Posts through Id.
+        /// If so it returns true, otherwise it will return false.
+        /// </summary>
+        /// <param name="eventDescription"></param>
+        /// <param name="eventDate"></param>
+        /// <returns></returns>
         public bool CreatePost(string eventDescription, string eventDate)
         {
             Post post = new Post(eventDescription, eventDate);
@@ -22,6 +29,12 @@ namespace BoatClubLibrary.BlogData
             return false;
         }
 
+        /// <summary>
+        /// Checks if dictionary Posts contains the given id key, if so it returns the value connected with the key.
+        /// Otherwise it returns null.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Post? ReadPost(int id)
         {
             if (Posts.ContainsKey(id))
@@ -31,6 +44,13 @@ namespace BoatClubLibrary.BlogData
             return null;
         }
 
+        /// <summary>
+        /// Checks if dictionary Posts contains the given key id, if so the current value from that key is getting updated,
+        /// by setting the current value = the new values.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="post"></param>
+        /// <returns></returns>
         public bool UpdatePost(int id, Post post)
         {
             if (Posts.ContainsKey(id))
@@ -41,6 +61,11 @@ namespace BoatClubLibrary.BlogData
             return false;
         }
 
+        /// <summary>
+        /// Checks if dictionary Posts contains the given key id, if so remove the id from dictionary.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool DeletePost(int id)
         {
             if (Posts.ContainsKey(id))
@@ -51,11 +76,18 @@ namespace BoatClubLibrary.BlogData
             return false;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public Member? GetJoinedMembers()
         {
             return null;
         }
 
+        /// <summary>
+        /// Checking dictionary Posts for every post and displays them.
+        /// </summary>
         public void ReadAllPosts()
         {
             foreach (Post p in Posts.Values)
