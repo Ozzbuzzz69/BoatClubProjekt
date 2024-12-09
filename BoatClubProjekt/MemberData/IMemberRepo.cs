@@ -10,14 +10,16 @@ namespace BoatClubLibrary.MemberData
     {
         void CreateMember(Member member);
 
-        bool DeleteMember(int memberId);
+        Member? ReadMember(int memberId);
 
         Member UpdateMember(int memberId, Member member);
 
+        void UpdateForRazor(Member member);
+
+        bool DeleteMember(int memberId);
+
+        void DeteleForRazor(Member member);
+
         void PrintAllMembers();
-
-        Member? ReadMember(int memberId);
-
-        void UpdateTilRazor(Member member);
     }
 }
