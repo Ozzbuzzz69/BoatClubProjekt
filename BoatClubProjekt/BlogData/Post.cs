@@ -15,13 +15,13 @@ namespace BoatClubLibrary.BlogData
 
         public DateTime PostDate { get; }
 
-        public DateTime EventDate { get; set; }
+        public string EventDate { get; set; }
 
         public List<Member> JoinedMembers { get; set; } = new List<Member>();
 
         private static int NextId = 1;
 
-        public Post(string eventDescription, DateTime eventDate)
+        public Post(string eventDescription, string eventDate)
         {
             Id = NextId++;
             EventDescription = eventDescription;

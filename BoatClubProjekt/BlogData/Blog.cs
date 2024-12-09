@@ -11,7 +11,7 @@ namespace BoatClubLibrary.BlogData
     {
         public Dictionary<int, Post> Posts {  get; set; } = new Dictionary<int, Post>();
 
-        public bool CreatePost(string eventDescription, DateTime eventDate)
+        public bool CreatePost(string eventDescription, string eventDate)
         {
             Post post = new Post(eventDescription, eventDate);
             bool isAdded = Posts.TryAdd(post.Id, post);
