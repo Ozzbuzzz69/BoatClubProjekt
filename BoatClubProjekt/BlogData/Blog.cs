@@ -12,7 +12,7 @@ namespace BoatClubLibrary.BlogData
         public Dictionary<int, Post> Posts {  get; set; } = new Dictionary<int, Post>();
 
         /// <summary>
-        /// Creates a new post with 2 string parameters, and checks if post i added to dictionary Posts through Id.
+        /// Creates a new post, and checks if post i added to dictionary Posts through Id.
         /// If so it returns true, otherwise it will return false.
         /// </summary>
         /// <param name="eventDescription"></param>
