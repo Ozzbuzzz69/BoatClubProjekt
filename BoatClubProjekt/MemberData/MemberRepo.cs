@@ -55,7 +55,7 @@ namespace BoatClubLibrary.MemberData
             }
             return false;
         }
-        public void DeteleTilRazor(Member member)
+        public void DeteleForRazor(Member member)
         {
             if (ReadMember(member.Id) != null)
             {
