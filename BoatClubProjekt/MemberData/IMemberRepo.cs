@@ -8,17 +8,16 @@ namespace BoatClubLibrary.MemberData
 {
     public interface IMemberRepo
     {
-        public void CreateMember(Member member);
+        void CreateMember(Member member);
 
-        public bool DeleteMember(int memberId);
+        bool DeleteMember(int memberId);
 
-        public Member UpdateMember(int memberId, Member member);
+        Member UpdateMember(int memberId, Member member);
 
-        public void PrintAllMembers();
+        void PrintAllMembers();
 
-        public Member? ReadMember(int memberId);
+        Member? ReadMember(int memberId);
 
-        public void UpdateTilRazor(Member member);
-
+        void UpdateTilRazor(Member member);
     }
 }
