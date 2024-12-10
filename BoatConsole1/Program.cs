@@ -14,9 +14,9 @@ Blog blog = new Blog();
 DateTime dt = DateTime.Now;
 
 
-member.CreateMember(new Member("Test", "Test", "Test,", "Test", MembershipType.Familie, "Test", true));
+member.CreateMember(new Member("Test", "Test", "Test", "Test", MembershipType.Familie, "Test", true));
 
-Console.WriteLine(member.ReadMember(0));
+Console.WriteLine(member.ReadMember(1));
 
 BoatRepo boatRepo = new BoatRepo();
 
