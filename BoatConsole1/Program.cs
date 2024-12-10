@@ -1,4 +1,5 @@
 ﻿using BoatClubLibrary.BlogData;
+using BoatClubLibrary.BoatData;
 using BoatClubLibrary.MemberData;
 
 MemberRepo member = new MemberRepo();
@@ -12,10 +13,11 @@ Blog blog = new Blog();
 
 DateTime dt = DateTime.Now;
 
-blog.CreatePost("test", dt);
-
-Console.WriteLine(blog.ReadPost(1));
 
 member.CreateMember(new Member("Test", "Test", "Test,", "Test", MembershipType.Familie, "Test", true));
 
-Console.WriteLine(member.ReadMember(1));
+Console.WriteLine(member.ReadMember(0));
+
+BoatRepo boatRepo = new BoatRepo();
+
+Console.WriteLine(boatRepo.CreateBoat(new(1, "t", "t", "t", 3, 3, 3, 3, 3, 3, false, "t")));

@@ -24,7 +24,7 @@ namespace BoatClubLibrary.MemberData
 
         public bool IsRenting { get; set; }
 
-        private static int NextId = 0;
+        private static int NextId = 1;
 
         public Member() { }
         public Member(string name, string address, string email, string phoneNumber, MembershipType membershipType, 
