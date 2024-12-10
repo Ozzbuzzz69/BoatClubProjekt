@@ -29,6 +29,9 @@ Console.WriteLine("-----------------Test af Blog-----------------");
 
 Console.WriteLine("\n\n\n\n\n");
 
+
+
+
 Console.WriteLine("-----------------Test af BoatRepo-----------------");
 
 BoatRepo boatRepo = new BoatRepo();
@@ -62,3 +65,17 @@ Console.WriteLine("\n\n");
 Console.WriteLine("///////Search boat:");
 Console.WriteLine(boatRepo.SearchBoat(2500));
 Console.WriteLine("\n\n");
+
+
+Console.WriteLine("\n\n\n\n\n");
+Console.WriteLine("-----------------Test af Booking-----------------");
+
+
+
+
+
+
+
+
+Console.WriteLine("\n\n\n\n\n");
+Console.WriteLine("-----------------Test af MemberRepo-----------------");
