@@ -1,6 +1,4 @@
-﻿using BoatClubLibrary.BoatData;
-using BoatClubLibrary.MemberData;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,14 +10,14 @@ namespace BoatClubLibrary.Bookingdata
     {
         public int Id { get; set; }
 
-        public Member MemberId { get; set; }
+        public int MemberId { get; set; }
 
-        public Boat BoatId { get; set; }
+        public int BoatId { get; set; }
 
         private static int NextId = 1;
 
 
-        public Booking(Member memberId, Boat boatId)
+        public Booking(int memberId, int boatId)
         {
             Id = NextId++;
             MemberId = memberId;
