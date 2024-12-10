@@ -13,11 +13,12 @@ namespace BoatClubLibrary.BlogData
 
         /// <summary>
         /// Creates a new post, and checks if post i added to dictionary Posts through Id.
-        /// If so it returns true, otherwise it will return false.
         /// </summary>
         /// <param name="eventDescription"></param>
         /// <param name="eventDate"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// If so it returns true, otherwise it will return false.
+        /// </returns>
         public bool CreatePost(string eventDescription, string eventDate)
         {
             Post post = new Post(eventDescription, eventDate);
@@ -30,11 +31,13 @@ namespace BoatClubLibrary.BlogData
         }
 
         /// <summary>
-        /// Checks if dictionary Posts contains the given id key, if so it returns the value connected with the key.
-        /// Otherwise it returns null.
+        /// Checks if dictionary Posts contains the given id key.
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// If so it returns the value connected with the key.
+        /// Otherwise it returns null.
+        /// </returns>
         public Post? ReadPost(int id)
         {
             if (Posts.ContainsKey(id))
@@ -50,7 +53,9 @@ namespace BoatClubLibrary.BlogData
         /// </summary>
         /// <param name="id"></param>
         /// <param name="post"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// Returns true if Post is updated, if Post is not updated it returns false.
+        /// </returns>
         public bool UpdatePost(int id, Post post)
         {
             if (Posts.ContainsKey(id))
@@ -65,7 +70,9 @@ namespace BoatClubLibrary.BlogData
         /// Checks if dictionary Posts contains the given key id, if so remove the id from dictionary.
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// Returns true if Post is removed from dictionary, if not it returns false.
+        /// </returns>
         public bool DeletePost(int id)
         {
             if (Posts.ContainsKey(id))
