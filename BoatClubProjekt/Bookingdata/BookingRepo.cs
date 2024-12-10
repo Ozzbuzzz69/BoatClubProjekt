@@ -12,10 +12,12 @@ namespace BoatClubLibrary.Bookingdata
 
         /// <summary>
         /// Creates a new booking, and checks if the booking is valid and != null, if so the booking is 
-        /// added to the dictionary Bookings via the id. If the booking is not valid it returns null
+        /// added to the dictionary Bookings via the id.
         /// </summary>
         /// <param name="booking"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// If the booking is created it returns true, if the booking is not valid it returns null.
+        /// </returns>
         public bool CreateBooking(Booking booking)
         {
             if (booking != null)
@@ -27,11 +29,12 @@ namespace BoatClubLibrary.Bookingdata
         }
 
         /// <summary>
-        /// Checks if the dictionary Bookings has the given value of id, if so it returns the value,
-        /// otherwise it returns null
+        /// Checks if the dictionary Bookings has the given value of id.
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// If so it returns the value, otherwise it returns null.
+        /// </returns>
         public Booking? ReadBooking(int id)
         {
             if (Bookings.TryGetValue(id, out Booking? value))
@@ -43,11 +46,13 @@ namespace BoatClubLibrary.Bookingdata
 
         /// <summary>
         /// Checks if the ReadBooking method returned a value from the given id key, if so update the value in the given key
-        /// to a new value and return it. If ReadBooking returned null, return null.
+        /// to a new value.
         /// </summary>
         /// <param name="bookingid"></param>
         /// <param name="booking"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// If booking is updated it returns Booking, if there is no booking with bookingid it returns null.
+        /// </returns>
         public Booking? UpdateBooking(int bookingid, Booking booking)
         {
             if (ReadBooking(bookingid) != null)
@@ -60,10 +65,13 @@ namespace BoatClubLibrary.Bookingdata
 
         /// <summary>
         /// Checks if the ReadBooking method returned a value from the given id key, if so remove the id and value from 
-        /// dictionary Bookings. If ReadBooking returned null, return false.
+        /// dictionary Bookings.
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>
+        /// Returns true if booking with specifik id is deleted. 
+        /// If Bookings does not have a booking with specific id and is not deleted it returns false.
+        /// </returns>
         public bool DeleteBooking(int id)
         {
             if (ReadBooking(id) != null)
