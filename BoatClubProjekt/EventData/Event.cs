@@ -11,6 +11,8 @@ namespace BoatClubLibrary.EventData
     {
         public int Id { get; set; }
 
+        public DateTime PostDate { get; set; }
+
         public string EventDate { get; set; }
 
         public string EventDescription { get; set; }
@@ -22,13 +24,14 @@ namespace BoatClubLibrary.EventData
         public Event(string eventDate, string eventDescription)
         {
             Id = NextId++;
+            PostDate = DateTime.Now;
             EventDate = eventDate;
             EventDescription = eventDescription;
         }
 
         public override string ToString()
         {
-            return $"Id: {Id}, Event date: {EventDate}, Event description: {EventDescription}";
+            return $"Id: {Id}, Post date: {PostDate}, Event date: {EventDate}, Event description: {EventDescription}";
         }
     }
 }
