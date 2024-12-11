@@ -49,5 +49,10 @@ namespace BoatClubLibrary.EventData
             }
             return false;
         }
+
+        public string JoinEvent(int id, int memberId)
+        {
+            return "K"; //Tilføj kode
+        }
     }
 }
