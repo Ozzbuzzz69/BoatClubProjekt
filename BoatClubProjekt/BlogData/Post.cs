@@ -11,28 +11,23 @@ namespace BoatClubLibrary.BlogData
     {
         public int Id { get; set; }
 
-        public string EventDescription { get; set; }
+        public string Description { get; set; }
 
         public DateTime PostDate { get; }
 
-        public string EventDate { get; set; }
-
-        public List<Member> JoinedMembers { get; set; } = new List<Member>();
-
         private static int NextId = 1;
 
-        public Post(string eventDescription, string eventDate)
+        public Post(string description)
         {
             Id = NextId++;
-            EventDescription = eventDescription;
+            Description = description;
             PostDate = DateTime.Now;
-            EventDate = eventDate;
         }
 
         public override string ToString()
         {
-            return $"Id: {Id}, Event description: {EventDescription}, " +
-                $"Date of post: {PostDate}, Date of event: {EventDate}";
+            return $"Id: {Id}, Description: {Description}, " +
+                $"Date of post: {PostDate}";
         }
     }
 }

@@ -19,9 +19,9 @@ namespace BoatClubLibrary.BlogData
         /// <returns>
         /// If so it returns true, otherwise it will return false.
         /// </returns>
-        public bool CreatePost(string eventDescription, string eventDate)
+        public bool CreatePost(string Description)
         {
-            Post post = new Post(eventDescription, eventDate);
+            Post post = new Post(Description);
             bool isAdded = Posts.TryAdd(post.Id, post);
             if (isAdded == true)
             {
@@ -81,15 +81,6 @@ namespace BoatClubLibrary.BlogData
                 return true;
             }
             return false;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public Member? GetJoinedMembers()
-        {
-            return null;
         }
 
         /// <summary>
