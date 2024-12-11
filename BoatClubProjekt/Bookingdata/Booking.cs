@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoatClubLibrary.BoatData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,30 @@ namespace BoatClubLibrary.Bookingdata
             MemberId = memberId;
             BoatId = boatId;
         }
+
+        // Validate if the boat with the given ID exists in the repository
+        public bool ValidateBoat(int boatId)
+        {
+            return BoatRepo.ReadBoat(boatId) != null;
+        }
+        //Validate the boat of given ID is rentable
+        public bool BoatRentable(int boatId)
+        {
+            if (BoatRepo.ReadBoat(boatId) != null)
+            {
+                if (BoatRepo.ReadBoat(boatId)!.IsRented == false) return true;
+            }
+            return false;
+        }
+        public void RentBoat(int boatId)
+        {
+            BoatRepo.RentBoat(boatId);
+        }
+        public void UnrentBoat(int boatId)
+        {
+            BoatRepo.UnrentBoat(boatId);
+        }
+
 
         public override string ToString()
         {

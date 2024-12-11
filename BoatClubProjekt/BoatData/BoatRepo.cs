@@ -12,11 +12,11 @@ using System.Xml.Linq;
 
 namespace BoatClubLibrary.BoatData
 {
-    public class BoatRepo
+    public static class BoatRepo
     {
-        public Dictionary<int, Boat> Boats = new Dictionary<int, Boat>();
+        private static readonly Dictionary<int, Boat> Boats = new Dictionary<int, Boat>();
 
-        public bool CreateBoat(Boat boat)
+        public static bool CreateBoat(Boat boat)
         {
             if (boat != null)
             {
@@ -26,7 +26,7 @@ namespace BoatClubLibrary.BoatData
             return false;
         }
 
-        public Boat? ReadBoat(int id)
+        public static Boat? ReadBoat(int id)
         {
             if (Boats.TryGetValue(id, out Boat? value))
             {
@@ -35,7 +35,7 @@ namespace BoatClubLibrary.BoatData
             return null;
         }
 
-        public Boat? UpdateBoat(int boatId, Boat boat)
+        public static Boat? UpdateBoat(int boatId, Boat boat) //Den skal nok have en anden return type
         {
             if (ReadBoat(boatId) != null)
             {
@@ -45,7 +45,7 @@ namespace BoatClubLibrary.BoatData
             return null;
         }
 
-        public bool DeleteBoat(int id)
+        public static bool DeleteBoat(int id)
         {
             if (ReadBoat(id) != null)
             {
@@ -56,7 +56,7 @@ namespace BoatClubLibrary.BoatData
         }
         
         //Takes a criteria and finds the first boat with any criteria of that value
-        public Boat? SearchBoat(object criteria)
+        public static Boat? SearchBoat(object criteria)
         {
             if (criteria == null) return null;
 
@@ -79,7 +79,7 @@ namespace BoatClubLibrary.BoatData
         }
 
 
-        public void ReadAllBoats()
+        public static void ReadAllBoats()
         {
             foreach (KeyValuePair<int, Boat> boat in Boats)
             {
@@ -87,9 +87,19 @@ namespace BoatClubLibrary.BoatData
             }
         }
 
-        public IEnumerable<Boat> GetBoats()
+        public static IEnumerable<Boat> GetBoats()
         {
             return Boats.Values;
+        }
+
+        public static void RentBoat(int id)
+        {
+            if (ReadBoat(id) != null) { ReadBoat(id)!.IsRented = true; }
+        }
+
+        public static void UnrentBoat(int id)
+        {
+            if (ReadBoat(id) != null) { ReadBoat(id)!.IsRented = false;}
         }
     }
 }

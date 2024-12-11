@@ -1,4 +1,5 @@
 ﻿using BoatClubLibrary.BoatData;
+using BoatClubLibrary.Bookingdata;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -35,7 +36,23 @@ namespace BoatClubLibrary.MemberData
             Birthday = birthday;
             IsRenting = isRenting;
         }
-        
+
+        #region Booking without event
+        public bool BookBoat(int boatId) 
+        { 
+            Booking Booking = new Booking(Id, boatId);
+            if (Booking.ValidateBoat(boatId) && Booking.BoatRentable(boatId)) 
+            {
+                Booking.RentBoat(boatId);
+                return true;
+            }
+            return false;
+        }
+
+
+
+
+        #endregion
         public override string ToString()
         {
             return $"ID: {Id}, Name: {Name}, Address: {Address}, Birthday: {Birthday}, " +
@@ -43,3 +60,4 @@ namespace BoatClubLibrary.MemberData
         }
     }
 }
+
