@@ -10,6 +10,13 @@ namespace BoatClubLibrary.EventData
     {
         public Dictionary<int, Event> Events { get; set; } = new Dictionary<int, Event>();
 
+        /// <summary>
+        /// Adds event to Events if  e is not equal null, or an Event already contains Event with same Id.
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns>
+        /// Returns true if Event is added to Events, and returns false if e is null or not added.
+        /// </returns>
         public bool CreateEvent(Event e)
         {
             if (e != null)
@@ -20,6 +27,14 @@ namespace BoatClubLibrary.EventData
             return false;
         }
 
+
+        /// <summary>
+        /// Reads Event with given id, if Events contains key equal to argument.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// Returns Event if Events contains a key equal to id, otherwise it returns null.
+        /// </returns>
         public Event? ReadEvent(int id)
         {
             if (Events.ContainsKey(id))
@@ -29,6 +44,17 @@ namespace BoatClubLibrary.EventData
             return null;
         }
 
+
+        /// <summary>
+        /// Updates Event with matching key as id argument, and updates EventDate and EventDescription,
+        /// to eventDate and eventDescription given in argument.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="eventDate"></param>
+        /// <param name="eventDescription"></param>
+        /// <returns>
+        /// Returns true if Event is updated, otherwise it returns false.
+        /// </returns>
         public bool UpdateEvent(int id, string eventDate, string eventDescription)
         {
             if (Events.ContainsKey(id))
@@ -40,6 +66,14 @@ namespace BoatClubLibrary.EventData
             return false;
         }
 
+
+        /// <summary>
+        /// Deletes Event with key that matches id argument.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// Returns true if Event is deleted, otherwise it returns false.
+        /// </returns>
         public bool DeleteEvent(int id)
         {
             if (Events.ContainsKey(id))
