@@ -95,15 +95,10 @@ namespace BoatClubLibrary.MemberData
         }
 
 
-        /// <summary>
-        /// Prints all Members from Dictionary
-        /// </summary>
-        public static void PrintAllMembers()
+
+        public static List<Member> GetMembers()
         {
-            foreach (KeyValuePair<int, Member> member in MemberList)
-            {
-                Console.WriteLine(member);
-            }
+            return MemberList.Values.ToList();
         }
 
 

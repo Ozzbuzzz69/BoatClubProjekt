@@ -21,5 +21,6 @@ namespace BoatClubLibrary.MemberData
         void DeteleForRazor(Member member);
 
         void PrintAllMembers();
+        public  List<Member> GetMembers();
     }
 }
