@@ -52,7 +52,7 @@ namespace BoatClubLibrary.Bookingdata
         /// <param name="bookingid"></param>
         /// <param name="booking"></param>
         /// <returns>
-        /// If booking is updated it returns Booking, if there is no booking with bookingid it returns null.
+        /// If booking is updated it returns true, if there is no booking with bookingid it returns false.
         /// </returns>
         public static bool UpdateBooking(int bookingid, Booking booking)
         {
