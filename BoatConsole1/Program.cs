@@ -6,7 +6,6 @@ using BoatClubLibrary.MemberData;
 //member.Add(new Member("dsfs", "fdsf", "", "", , "", false));
 
 
-Console.WriteLine("diller");
 Blog blog = new Blog();
 
 DateTime dt = DateTime.Now;
