@@ -45,6 +45,43 @@ namespace BoatClubLibrary.BoatData
             return false;
         }
 
+        /// <summary>
+        /// Function takes an id and an attribute to change and gives it a new value
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="attribute"></param>
+        /// <param name="newValue"></param>
+        /// <returns></returns>
+        public static bool UpdateBoatAttribute(int id, string attribute, object newValue)
+        {
+            //check if boat exists
+            if (ReadBoat(id) is Boat boat) 
+            {
+                //set the property we are looking for
+                var property= boat.GetType().GetProperty(attribute);
+
+                //check not null
+                if (property == null) { return false; }
+                //check it can be written, so it can be changed
+                if (!property.CanWrite) { return false; }
+
+                try
+                {
+                    //set newValue to the type we looked for
+                    var newValueType = Convert.ChangeType(newValue, property.PropertyType);
+                    //set the value of newValue
+                    property.SetValue(boat, newValueType);
+
+                    //Use the newValue to make a new boat
+                    UpdateBoat(id, boat);
+                    return true;
+                }
+                //catch in case of something wrong
+                catch { return false; }
+            }
+            return false;
+        }
+
         public static bool DeleteBoat(int id)
         {
             if (ReadBoat(id) != null)
