@@ -36,9 +36,9 @@ namespace BoatClubLibrary.MemberData
         /// </returns>
         public static Member? ReadMember(int memberId)
         {
-            if (MemberList.TryGetValue(memberId, out Member? value))
+            if (MemberList.ContainsKey(memberId))
             {
-                return value;
+                return MemberList[memberId];
             }
             return null;
         }
