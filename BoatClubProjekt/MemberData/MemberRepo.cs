@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BoatClubLibrary.MemberData
 {
-    public class MemberRepo : IMemberRepo
+    public static class MemberRepo
     {
-        public Dictionary<int, Member> MemberList = new();
+        public static Dictionary<int, Member> MemberList = new();
         //public List<Boat> _bookableBoats;
 
         //public MemberRepo()
@@ -22,7 +22,7 @@ namespace BoatClubLibrary.MemberData
         /// Adds a member to Dictionary if the Dictionary does not already contain a member with same Id.
         /// </summary>
         /// <param name="member"></param>
-        public void CreateMember(Member member)
+        public static void CreateMember(Member member)
         {
             MemberList.TryAdd(member.Id, member);
         }
@@ -34,7 +34,7 @@ namespace BoatClubLibrary.MemberData
         /// <returns>
         /// Returns Member if the Dictionary contains a Member with given Id, if not it returns null.
         /// </returns>
-        public Member? ReadMember(int memberId)
+        public static Member? ReadMember(int memberId)
         {
             if (MemberList.TryGetValue(memberId, out Member? value))
             {
@@ -43,7 +43,7 @@ namespace BoatClubLibrary.MemberData
             return null;
         }
                 
-        public void UpdateForRazor(Member member)
+        public static void UpdateForRazor(Member member)
         {
             if (ReadMember(member.Id) != null)
             {
@@ -51,7 +51,7 @@ namespace BoatClubLibrary.MemberData
             }
         }
 
-        public Member UpdateMember(int memberId, Member member)
+        public static Member UpdateMember(int memberId, Member member)
         {
             if (ReadMember(memberId) != null)
             {
@@ -68,7 +68,7 @@ namespace BoatClubLibrary.MemberData
         /// If a Member has the same Id as argument and the Member has been removed it returns true.
         /// If no member has the Id it returns false.
         /// </returns>
-        public bool DeleteMember(int memberId)
+        public static bool DeleteMember(int memberId)
         {
             if (ReadMember(memberId) != null)
             {
@@ -77,7 +77,7 @@ namespace BoatClubLibrary.MemberData
             }
             return false;
         }
-        public void DeteleForRazor(Member member)
+        public static void DeteleForRazor(Member member)
         {
             if (ReadMember(member.Id) != null)
             {
@@ -89,7 +89,7 @@ namespace BoatClubLibrary.MemberData
         /// <summary>
         /// Prints all Members from Dictionary
         /// </summary>
-        public void PrintAllMembers()
+        public static void PrintAllMembers()
         {
             foreach (KeyValuePair<int, Member> member in MemberList)
             {

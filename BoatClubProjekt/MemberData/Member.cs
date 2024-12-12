@@ -48,7 +48,10 @@ namespace BoatClubLibrary.MemberData
             }
             return false;
         }
+        public Member? ViewCurrentSailors()
+        {
 
+        }
 
 
 

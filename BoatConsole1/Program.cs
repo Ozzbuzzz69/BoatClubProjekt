@@ -2,11 +2,10 @@
 using BoatClubLibrary.BoatData;
 using BoatClubLibrary.MemberData;
 
-MemberRepo member = new MemberRepo();
 
 //member.Add(new Member("dsfs", "fdsf", "", "", , "", false));
 
-member.PrintAllMembers();
+MemberRepo.PrintAllMembers();
 
 Console.WriteLine("diller");
 Blog blog = new Blog();
@@ -14,9 +13,9 @@ Blog blog = new Blog();
 DateTime dt = DateTime.Now;
 
 
-member.CreateMember(new Member("Test", "Test", "Test", "Test", MembershipType.Familie, "Test", true));
+MemberRepo.CreateMember(new Member("Test", "Test", "Test", "Test", MembershipType.Familie, "Test", true));
 
-Console.WriteLine(member.ReadMember(1));
+Console.WriteLine(MemberRepo.ReadMember(1));
 
 
 
