@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BoatClubLibrary.MemberData;
 
 namespace BoatClubLibrary.EventData
 {
     public class EventRepo
     {
+
         public Dictionary<int, Event> Events { get; set; } = new Dictionary<int, Event>();
+        
+           
+
+            
 
         /// <summary>
         /// Adds event to Events if  e is not equal null, or an Event already contains Event with same Id.
@@ -17,7 +23,7 @@ namespace BoatClubLibrary.EventData
         /// <returns>
         /// Returns true if Event is added to Events, and returns false if e is null or not added.
         /// </returns>
-        public bool CreateEvent(Event e)
+        public  bool CreateEvent(Event e)
         {
             if (e != null)
             {
@@ -35,7 +41,7 @@ namespace BoatClubLibrary.EventData
         /// <returns>
         /// Returns Event if Events contains a key equal to id, otherwise it returns null.
         /// </returns>
-        public Event? ReadEvent(int id)
+        public  Event? ReadEvent(int id)
         {
             if (Events.ContainsKey(id))
             {
@@ -55,7 +61,7 @@ namespace BoatClubLibrary.EventData
         /// <returns>
         /// Returns true if Event is updated, otherwise it returns false.
         /// </returns>
-        public bool UpdateEvent(int id, string eventDate, string eventDescription)
+        public  bool UpdateEvent(int id, string eventDate, string eventDescription)
         {
             if (Events.ContainsKey(id))
             {
@@ -74,7 +80,7 @@ namespace BoatClubLibrary.EventData
         /// <returns>
         /// Returns true if Event is deleted, otherwise it returns false.
         /// </returns>
-        public bool DeleteEvent(int id)
+        public  bool DeleteEvent(int id)
         {
             if (Events.ContainsKey(id))
             {
@@ -84,9 +90,14 @@ namespace BoatClubLibrary.EventData
             return false;
         }
 
-        public string JoinEvent(int id, int memberId)
+        public bool JoinEvent(int eventId, Member member)
         {
-            return "K"; //Tilføj kode
+            if (Events.ContainsKey(eventId))
+            {
+                Events[eventId].JoinedMembers.Add(member);
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -1,17 +1,19 @@
 ﻿using BoatClubLibrary.BlogData;
 using BoatClubLibrary.BoatData;
+using BoatClubLibrary.EventData;
 using BoatClubLibrary.MemberData;
 
 
 Blog blog = new Blog();
+EventRepo eventRepo = new EventRepo();
 
 DateTime dt = DateTime.Now;
 
 
-MemberRepo.CreateMember(new Member("Test", "Test", "Test", "Test", MembershipType.Familie, "Test", true));
-MemberRepo.CreateMember(new Member("Test", "hdfi", "Test", "Test", MembershipType.Familie, "Test", true));
-MemberRepo.CreateMember(new Member("Test", "ufufu", "Test", "Test", MembershipType.Familie, "Test", true));
-MemberRepo.CreateMember(new Member("Test", "1242324", "Test", "Test", MembershipType.Familie, "Test", true));
+Member meber1 = new Member("Test", "Test", "Test", "Test", MembershipType.Familie, "Test", true));
+Member meber2 = new Member("Test", "hdfi", "Test", "Test", MembershipType.Familie, "Test", true));
+Member meber3 = new Member("Test", "ufufu", "Test", "Test", MembershipType.Familie, "Test", true));
+Member meber4 = new Member("Test", "1242324", "Test", "Test", MembershipType.Familie, "Test", true));
 
 Console.WriteLine(MemberRepo.ReadMember(1));
 
@@ -87,3 +89,9 @@ foreach (Member m in MemberRepo.GetMembers())
 {
     Console.WriteLine(m);
 }
+
+
+Console.WriteLine("----------------Test af EventRepo------------------");
+
+
+eventRepo.JoinEvent(0, meber3);

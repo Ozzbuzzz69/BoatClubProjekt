@@ -10,7 +10,7 @@ namespace BoatClubLibrary.MemberData
 {
     public static class MemberRepo
     {
-        private static readonly Dictionary<int, Member> MemberList = new Dictionary<int, Member>();
+        private static Dictionary<int, Member> MemberList = new Dictionary<int, Member>();
         //public List<Boat> _bookableBoats;
 
         //public MemberRepo()
