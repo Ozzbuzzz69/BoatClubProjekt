@@ -82,16 +82,9 @@ namespace BoatClubLibrary.BlogData
             }
             return false;
         }
-
-        /// <summary>
-        /// Checking dictionary Posts for every post and displays them.
-        /// </summary>
-        public void ReadAllPosts()
+        public List<Post> GetPosts()
         {
-            foreach (Post p in Posts.Values)
-            {
-                Console.WriteLine(p);
-            }
+            return Posts.Values.ToList();
         }
     }
 }

@@ -117,13 +117,6 @@ namespace BoatClubLibrary.BoatData
         }
         */
 
-        public static void ReadAllBoats()
-        {
-            foreach (KeyValuePair<int, Boat> boat in Boats)
-            {
-                Console.WriteLine(boat); //Fjern console.writeline
-            }
-        }
 
         public static List<Boat> GetBoats()
         {

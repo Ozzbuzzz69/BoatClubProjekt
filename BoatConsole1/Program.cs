@@ -13,6 +13,9 @@ DateTime dt = DateTime.Now;
 
 
 MemberRepo.CreateMember(new Member("Test", "Test", "Test", "Test", MembershipType.Familie, "Test", true));
+MemberRepo.CreateMember(new Member("Test", "hdfi", "Test", "Test", MembershipType.Familie, "Test", true));
+MemberRepo.CreateMember(new Member("Test", "ufufu", "Test", "Test", MembershipType.Familie, "Test", true));
+MemberRepo.CreateMember(new Member("Test", "1242324", "Test", "Test", MembershipType.Familie, "Test", true));
 
 Console.WriteLine(MemberRepo.ReadMember(1));
 
@@ -73,10 +76,13 @@ Console.WriteLine("-----------------Test af Booking-----------------");
 
 
 
+MemberRepo.UpdateMember(2, new("Test", "osanc", "Test", "Test", MembershipType.Junior, "Test", true));
 
 
-
-
+foreach (Boat b in BoatRepo.GetBoats())
+{
+    Console.WriteLine(b);
+}
 
 Console.WriteLine("\n\n\n\n\n");
 Console.WriteLine("-----------------Test af MemberRepo-----------------");
