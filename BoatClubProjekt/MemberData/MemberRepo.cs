@@ -10,7 +10,7 @@ namespace BoatClubLibrary.MemberData
 {
     public static class MemberRepo
     {
-        public static Dictionary<int, Member> MemberList = new();
+        private static readonly Dictionary<int, Member> MemberList = new Dictionary<int, Member>();
         //public List<Boat> _bookableBoats;
 
         //public MemberRepo()
@@ -39,6 +39,15 @@ namespace BoatClubLibrary.MemberData
             if (MemberList.TryGetValue(memberId, out Member? value))
             {
                 return value;
+            }
+            return null;
+        }
+
+        public static List<Member>? ReadMemberList()
+        {
+            if (MemberList != null)
+            {
+                return MemberList.Values.ToList();
             }
             return null;
         }

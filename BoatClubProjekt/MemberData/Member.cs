@@ -48,9 +48,28 @@ namespace BoatClubLibrary.MemberData
             }
             return false;
         }
-        public Member? ViewCurrentSailors()
+        public List<Member>? ViewCurrentSailors()
         {
-
+            List<Member> Sailors = new();
+            if (MemberRepo.ReadMemberList() != null)
+            {
+                foreach (var Member in MemberRepo.ReadMemberList()!)
+                {
+                    if (Member.IsRenting) Sailors.Add(Member);
+                }
+            }
+            return Sailors;
+        }
+        public Member? ViewCurrentSailor(int Id)
+        {
+            if (MemberRepo.ReadMemberList() != null)
+            {
+                foreach (var Member in MemberRepo.ReadMemberList()!)
+                {
+                    if (Member.IsRenting && Member.Id==Id) return Member;
+                }
+            }
+            return null;
         }
 
 
