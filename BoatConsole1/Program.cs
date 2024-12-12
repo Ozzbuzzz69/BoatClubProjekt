@@ -10,10 +10,10 @@ EventRepo eventRepo = new EventRepo();
 DateTime dt = DateTime.Now;
 
 
-Member meber1 = new Member("Test", "Test", "Test", "Test", MembershipType.Familie, "Test", true));
-Member meber2 = new Member("Test", "hdfi", "Test", "Test", MembershipType.Familie, "Test", true));
-Member meber3 = new Member("Test", "ufufu", "Test", "Test", MembershipType.Familie, "Test", true));
-Member meber4 = new Member("Test", "1242324", "Test", "Test", MembershipType.Familie, "Test", true));
+Member meber1 = new Member("Test", "Test", "Test", "Test", MembershipType.Familie, "Test", true);
+Member meber2 = new Member("Test", "hdfi", "Test", "Test", MembershipType.Familie, "Test", true);
+Member meber3 = new Member("Test", "ufufu", "Test", "Test", MembershipType.Familie, "Test", true);
+Member meber4 = new Member("Test", "1242324", "Test", "Test", MembershipType.Familie, "Test", true);
 
 Console.WriteLine(MemberRepo.ReadMember(1));
 
