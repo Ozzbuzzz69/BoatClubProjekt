@@ -53,14 +53,14 @@ namespace BoatClubLibrary.Bookingdata
         /// <returns>
         /// If booking is updated it returns Booking, if there is no booking with bookingid it returns null.
         /// </returns>
-        public static Booking? UpdateBooking(int bookingid, Booking booking)
+        public static bool UpdateBooking(int bookingid, Booking booking)
         {
             if (ReadBooking(bookingid) != null)
             {
                 Bookings[bookingid] = booking;
-                return booking;
+                return true;
             }
-            return null;
+            return false;
         }
 
         /// <summary>

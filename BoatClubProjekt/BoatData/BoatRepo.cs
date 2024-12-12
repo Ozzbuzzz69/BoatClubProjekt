@@ -35,14 +35,14 @@ namespace BoatClubLibrary.BoatData
             return null;
         }
 
-        public static Boat? UpdateBoat(int boatId, Boat boat) //Den skal nok have en anden return type
+        public static bool UpdateBoat(int boatId, Boat boat) //Den skal nok have en anden return type
         {
             if (ReadBoat(boatId) != null)
             {
                 Boats[boatId] = boat;
-                return boat;
+                return true;
             }
-            return null;
+            return false;
         }
 
         public static bool DeleteBoat(int id)

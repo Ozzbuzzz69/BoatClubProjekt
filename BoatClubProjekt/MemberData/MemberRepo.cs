@@ -60,13 +60,14 @@ namespace BoatClubLibrary.MemberData
             }
         }
 
-        public static Member UpdateMember(int memberId, Member member)
+        public static bool UpdateMember(int memberId, Member member)
         {
             if (ReadMember(memberId) != null)
             {
                 MemberList[memberId] = member;
+                return true;
             }
-            return member;
+            return false;
         }
 
         /// <summary>
