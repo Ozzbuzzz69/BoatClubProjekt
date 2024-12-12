@@ -55,7 +55,7 @@ Console.WriteLine(BoatRepo.DeleteBoat(1));
 Console.WriteLine("\n\n");
 
 Console.WriteLine("///////Read all boats:");
-BoatRepo.ReadAllBoats();
+BoatRepo.GetBoats();
 Console.WriteLine("\n\n");
 
 Console.WriteLine("///////Search boat:");
