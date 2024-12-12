@@ -55,6 +55,7 @@ namespace BoatClubLibrary.BoatData
             return false;
         }
         
+        /* Remove, as it is too hard to explain
         //Takes a criteria and finds the first boat with any criteria of that value
         public static Boat? SearchBoat(object criteria)
         {
@@ -77,13 +78,13 @@ namespace BoatClubLibrary.BoatData
 
             return null; // No match found
         }
-
+        */
 
         public static void ReadAllBoats()
         {
             foreach (KeyValuePair<int, Boat> boat in Boats)
             {
-                Console.WriteLine(boat);
+                Console.WriteLine(boat); //Fjern console.writeline
             }
         }
 
