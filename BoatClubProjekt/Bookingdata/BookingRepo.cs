@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BoatClubLibrary.Bookingdata
 {
-    public class BookingRepo
+    public static class BookingRepo
     {
-        public Dictionary<int, Booking> Bookings = new();
+        public static Dictionary<int, Booking> Bookings = new();
 
         /// <summary>
         /// Creates a new booking, and checks if the booking is valid and != null, if so the booking is 
@@ -18,7 +18,7 @@ namespace BoatClubLibrary.Bookingdata
         /// <returns>
         /// If the booking is created it returns true, if the booking is not valid it returns null.
         /// </returns>
-        public bool CreateBooking(Booking booking)
+        public static bool CreateBooking(Booking booking)
         {
             if (booking != null)
             {
@@ -35,7 +35,7 @@ namespace BoatClubLibrary.Bookingdata
         /// <returns>
         /// If so it returns the value, otherwise it returns null.
         /// </returns>
-        public Booking? ReadBooking(int id)
+        public static Booking? ReadBooking(int id)
         {
             if (Bookings.TryGetValue(id, out Booking? value))
             {
@@ -53,7 +53,7 @@ namespace BoatClubLibrary.Bookingdata
         /// <returns>
         /// If booking is updated it returns Booking, if there is no booking with bookingid it returns null.
         /// </returns>
-        public Booking? UpdateBooking(int bookingid, Booking booking)
+        public static Booking? UpdateBooking(int bookingid, Booking booking)
         {
             if (ReadBooking(bookingid) != null)
             {
@@ -72,7 +72,7 @@ namespace BoatClubLibrary.Bookingdata
         /// Returns true if booking with specifik id is deleted. 
         /// If Bookings does not have a booking with specific id and is not deleted it returns false.
         /// </returns>
-        public bool DeleteBooking(int id)
+        public static bool DeleteBooking(int id)
         {
             if (ReadBooking(id) != null)
             {

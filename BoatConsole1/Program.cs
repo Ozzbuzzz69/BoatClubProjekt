@@ -61,7 +61,7 @@ BoatRepo.ReadAllBoats();
 Console.WriteLine("\n\n");
 
 Console.WriteLine("///////Search boat:");
-Console.WriteLine(BoatRepo.SearchBoat(2500));
+//Console.WriteLine(BoatRepo.SearchBoat(2500));
 Console.WriteLine("\n\n");
 
 
