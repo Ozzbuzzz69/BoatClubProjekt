@@ -7,7 +7,7 @@ using BoatClubLibrary.MemberData;
 
 namespace BoatClubLibrary.EventData
 {
-    public class EventRepo
+    public class EventRepo :IEventRepo
     {
 
         public Dictionary<int, Event> Events { get; set; } = new Dictionary<int, Event>();
