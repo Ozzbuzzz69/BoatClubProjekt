@@ -68,6 +68,35 @@ namespace BoatClubLibrary.MemberData
             }
             return member;
         }
+        public static bool UpdateMemberAttribute(int id, string attribute, object newValue)
+        {
+            //check if member exists
+            if (ReadMember(id) is Member member)
+            {
+                //set the property we are looking for
+                var property = member.GetType().GetProperty(attribute);
+
+                //check not null
+                if (property == null) { return false; }
+                //check it can be written, so it can be changed
+                if (!property.CanWrite) { return false; }
+
+                try
+                {
+                    //set newValue to the type we looked for
+                    var newValueType = Convert.ChangeType(newValue, property.PropertyType);
+                    //set the value of newValue
+                    property.SetValue(member, newValueType);
+
+                    //Use the newValue to make a new member
+                    UpdateMember(id, member);
+                    return true;
+                }
+                //catch in case of something wrong
+                catch { return false; }
+            }
+            return false;
+        }
 
         /// <summary>
         /// Deletes a Member with same Id as argument from Dictionary. 

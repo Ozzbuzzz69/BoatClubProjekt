@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoatClubLibrary.MemberData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,6 +62,35 @@ namespace BoatClubLibrary.Bookingdata
                 return booking;
             }
             return null;
+        }
+        public static bool UpdateBookingAttribute(int id, string attribute, object newValue)
+        {
+            //check if booking exists
+            if (ReadBooking(id) is Booking booking)
+            {
+                //set the property we are looking for
+                var property = booking.GetType().GetProperty(attribute);
+
+                //check not null
+                if (property == null) { return false; }
+                //check it can be written, so it can be changed
+                if (!property.CanWrite) { return false; }
+
+                try
+                {
+                    //set newValue to the type we looked for
+                    var newValueType = Convert.ChangeType(newValue, property.PropertyType);
+                    //set the value of newValue
+                    property.SetValue(booking, newValueType);
+
+                    //Use the newValue to make a new booking
+                    UpdateBooking(id, booking);
+                    return true;
+                }
+                //catch in case of something wrong
+                catch { return false; }
+            }
+            return false;
         }
 
         /// <summary>
