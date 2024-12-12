@@ -37,9 +37,9 @@ namespace BoatClubLibrary.Bookingdata
         /// </returns>
         public static Booking? ReadBooking(int id)
         {
-            if (Bookings.TryGetValue(id, out Booking? value))
+            if (Bookings.ContainsKey(id))
             {
-                return value;
+                return Bookings[id];
             }
             return null;
         }

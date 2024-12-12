@@ -28,9 +28,9 @@ namespace BoatClubLibrary.BoatData
 
         public static Boat? ReadBoat(int id)
         {
-            if (Boats.TryGetValue(id, out Boat? value))
+            if (Boats.ContainsKey(id))
             {
-                return value;
+                return Boats[id];
             }
             return null;
         }
