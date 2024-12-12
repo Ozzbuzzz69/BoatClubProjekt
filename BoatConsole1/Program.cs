@@ -3,9 +3,6 @@ using BoatClubLibrary.BoatData;
 using BoatClubLibrary.MemberData;
 
 
-//member.Add(new Member("dsfs", "fdsf", "", "", , "", false));
-
-
 Blog blog = new Blog();
 
 DateTime dt = DateTime.Now;
