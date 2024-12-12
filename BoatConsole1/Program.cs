@@ -5,7 +5,6 @@ using BoatClubLibrary.MemberData;
 
 //member.Add(new Member("dsfs", "fdsf", "", "", , "", false));
 
-MemberRepo.PrintAllMembers();
 
 Console.WriteLine("diller");
 Blog blog = new Blog();
@@ -64,7 +63,11 @@ Console.WriteLine("///////Search boat:");
 //Console.WriteLine(BoatRepo.SearchBoat(2500));
 Console.WriteLine("\n\n");
 
-
+Console.WriteLine("//////Get Boats");
+foreach (Boat b in BoatRepo.GetBoats())
+{
+    Console.WriteLine(b);
+}
 Console.WriteLine("\n\n\n\n\n");
 Console.WriteLine("-----------------Test af Booking-----------------");
 
@@ -77,3 +80,8 @@ Console.WriteLine("-----------------Test af Booking-----------------");
 
 Console.WriteLine("\n\n\n\n\n");
 Console.WriteLine("-----------------Test af MemberRepo-----------------");
+Console.WriteLine("/////Get Members");
+foreach (Member m in MemberRepo.GetMembers())
+{
+    Console.WriteLine(m);
+}

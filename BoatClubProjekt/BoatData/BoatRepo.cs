@@ -125,9 +125,9 @@ namespace BoatClubLibrary.BoatData
             }
         }
 
-        public static IEnumerable<Boat> GetBoats()
+        public static List<Boat> GetBoats()
         {
-            return Boats.Values;
+            return Boats.Values.ToList();
         }
 
         public static void RentBoat(int id)
