@@ -12,14 +12,18 @@ Console.WriteLine("////////Create Post:");
 Post post1 = new Post("Test1");
 Post post2 = new Post("Test2");
 Post post3 = new Post("Test3");
+blog.CreatePost(post1);
+blog.CreatePost(post2);
+blog.CreatePost(post3);
+blog.CreatePost(post3);
 
 Console.WriteLine("\n\n");
 Console.WriteLine("////////Read Post:");
-blog.ReadPost(1);
+Console.WriteLine(blog.ReadPost(1));
 
 Console.WriteLine("\n\n");
 Console.WriteLine("////////Update Post:");
-blog.UpdatePost(post3 = new Post("1 million beer"));
+blog.UpdatePost(3, new Post("1 million beer"));
 
 Console.WriteLine("\n\n");
 Console.WriteLine("////////Delete Post:");
@@ -27,7 +31,10 @@ blog.DeletePost(2);
 
 Console.WriteLine("\n\n");
 Console.WriteLine("////////Read all Post:");
-blog.ReadAllPosts();
+foreach (Post p in blog.ReadAllPosts())
+{
+    Console.WriteLine(p);
+}
 
 Console.WriteLine("\n\n\n\n\n");
 Console.WriteLine("-----------------Test af BoatRepo-----------------");
