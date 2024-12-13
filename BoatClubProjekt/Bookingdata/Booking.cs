@@ -25,7 +25,13 @@ namespace BoatClubLibrary.Bookingdata
             BoatId = boatId;
         }
 
-        // Validate if the boat with the given ID exists in the repository
+        /// <summary>
+        /// Validate if the boat with the given ID exists in the repository
+        /// </summary>
+        /// <param name="boatId"></param>
+        /// <returns>
+        /// 
+        /// </returns>
         public bool ValidateBoat(int boatId)
         {
             return BoatRepo.ReadBoat(boatId) != null;

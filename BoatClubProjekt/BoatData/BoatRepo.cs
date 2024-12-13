@@ -16,6 +16,15 @@ namespace BoatClubLibrary.BoatData
     {
         private static readonly Dictionary<int, Boat> Boats = new Dictionary<int, Boat>();
 
+
+        /// <summary>
+        /// Takes the parameter boat, and checks if the boat object isn't null. If the object is created correct
+        /// its added to the dictionary Boats.
+        /// </summary>
+        /// <param name="boat"></param>
+        /// <returns>
+        /// If the boat is added to the dictionary Boats it returns true, if not it returns false
+        /// </returns>
         public static bool CreateBoat(Boat boat)
         {
             if (boat != null)
@@ -142,16 +151,31 @@ namespace BoatClubLibrary.BoatData
         */
 
 
+        /// <summary>
+        /// Reads all the boats in Boats 
+        /// </summary>
+        /// <returns>
+        /// Returns the boats values in a list of boats
+        /// </returns>
         public static List<Boat> ReadAllBoats()
         {
             return Boats.Values.ToList();
         }
 
+        /// <summary>
+        /// Rents a boat by checking if the Readboat function isn't null and that the property IsRented isn't true.
+        /// </summary>
+        /// <param name="id"></param>
         public static void RentBoat(int id)
         {
             if (ReadBoat(id) != null) { ReadBoat(id)!.IsRented = true; }
         }
 
+
+        /// <summary>
+        /// Unrents a boat by checking if the Readboat function isn't null and that the property IsRented isn't false.
+        /// </summary>
+        /// <param name="id"></param>
         public static void UnrentBoat(int id)
         {
             if (ReadBoat(id) != null) { ReadBoat(id)!.IsRented = false;}

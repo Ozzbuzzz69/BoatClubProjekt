@@ -18,15 +18,9 @@ namespace BoatClubLibrary.BlogData
         /// <returns>
         /// If so it returns true, otherwise it will return false.
         /// </returns>
-        public bool CreatePost(string Description)
+        public void CreatePost(Post post)
         {
-            Post post = new Post(Description);
-            bool isAdded = Posts.TryAdd(post.Id, post);
-            if (isAdded == true)
-            {
-                return true;
-            }
-            return false;
+            Posts.TryAdd(post.Id, post);
         }
 
         /// <summary>
@@ -55,11 +49,11 @@ namespace BoatClubLibrary.BlogData
         /// <returns>
         /// Returns true if Post is updated, if Post is not updated it returns false.
         /// </returns>
-        public bool UpdatePost(int id, Post post)
+        public bool UpdatePost(Post post)
         {
-            if (Posts.ContainsKey(id))
+            if (Posts.ContainsKey(post.Id))
             {
-                Posts[id] = post;
+                Posts[post.Id] = post;
                 return true;
             }
             return false;
