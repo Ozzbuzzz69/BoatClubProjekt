@@ -114,6 +114,12 @@ namespace BoatClubLibrary.MemberData
             }
         }
 
+        /// <summary>
+        /// get members from the MemberList
+        /// </summary>
+        /// <returns>
+        /// Returns a list of the members values
+        /// </returns>
         public static List<Member> GetMembers()
         {
             return MemberList.Values.ToList();
