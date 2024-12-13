@@ -49,14 +49,20 @@ namespace BoatClubLibrary.BlogData
         /// <returns>
         /// Returns true if Post is updated, if Post is not updated it returns false.
         /// </returns>
-        public bool UpdatePost(int id, Post post)
+        public Post UpdatePost(int id, Post post)
         {
-            if (Posts.ContainsKey(id))
+            Post foundPost = null!;
+            foreach(Post p in Posts.Values)
             {
-                Posts[id] = post;
-                return true;
+                if (id == p.Id)
+                {
+                    p.Description = post.Description;
+                }
             }
-            return false;
+            if (foundPost == null) ;
+            Console.WriteLine("Post er der ikk");
+
+            return foundPost;
         }
 
         /// <summary>
