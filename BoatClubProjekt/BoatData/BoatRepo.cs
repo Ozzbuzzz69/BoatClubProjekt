@@ -142,7 +142,7 @@ namespace BoatClubLibrary.BoatData
         */
 
 
-        public static List<Boat> GetBoats()
+        public static List<Boat> ReadAllBoats()
         {
             return Boats.Values.ToList();
         }
