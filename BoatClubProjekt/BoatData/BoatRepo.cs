@@ -35,6 +35,14 @@ namespace BoatClubLibrary.BoatData
             return null;
         }
 
+        /// <summary>
+        /// Checks if a Boat with same Id as boatId exists, and if not equal null it updates boat.
+        /// </summary>
+        /// <param name="boatId"></param>
+        /// <param name="boat"></param>
+        /// <returns>
+        /// Returns true if updated, if not updated or Boat is null it returns false.
+        /// </returns>
         public static bool UpdateBoat(int boatId, Boat boat) //Den skal nok have en anden return type
         {
             if (ReadBoat(boatId) != null)
