@@ -82,7 +82,14 @@ namespace BoatClubLibrary.BlogData
             }
             return false;
         }
-        public List<Post> GetPosts()
+
+        /// <summary>
+        /// Reads all the posts in Posts.
+        /// </summary>
+        /// <returns>
+        /// Returns the posts values in a list of posts.
+        /// </returns>
+        public List<Post> ReadAllPosts()
         {
             return Posts.Values.ToList();
         }
