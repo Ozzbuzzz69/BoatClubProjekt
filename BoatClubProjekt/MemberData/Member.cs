@@ -38,12 +38,21 @@ namespace BoatClubLibrary.MemberData
         }
 
         #region Booking without event
+
+        /// <summary>
+        /// Takes the parameter boatid to create a new booking, it also checks if the boat is valid and if
+        /// the boat is rentable. It also checks if the member already did rent a boat via the property IsRenting.
+        /// </summary>
+        /// <param name="boatId"></param>
+        /// <returns>
+        /// Returns true if the booking goes through, if not it returns false
+        /// </returns>
         public bool BookBoat(int boatId) 
         {
             Booking Booking = new Booking(Id, boatId);
             if (BookingRepo.CreateBooking(Booking) == true)
             {
-                if (Booking.ValidateBoat(boatId) && Booking.BoatRentable(boatId))
+                if (Booking.ValidateBoat(boatId) && Booking.BoatRentable(boatId) && IsRenting == false)
                 {
                     Booking.RentBoat(boatId);
                     IsRenting = true;
@@ -52,6 +61,14 @@ namespace BoatClubLibrary.MemberData
             }
             return false;
         }
+
+        /// <summary>
+        /// Checks which members who has the property Isrenting true in the MemberRepo. If the property is true
+        /// the members are added as sailors to the list. 
+        /// </summary>
+        /// <returns>
+        /// Returns the members who is currently renting boats.
+        /// </returns>
         public List<Member>? ViewCurrentSailors()
         {
             List<Member> Sailors = new();
@@ -64,6 +81,15 @@ namespace BoatClubLibrary.MemberData
             }
             return Sailors;
         }
+
+        /// <summary>
+        /// checks if a member is renting a boat via Id. 
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns>
+        /// Returns the given member if the member is renting a boat and out sailing. if the members property is 
+        /// false then it returns null
+        /// </returns>
         public Member? ViewCurrentSailor(int Id)
         {
             if (MemberRepo.ReadMemberList() != null)

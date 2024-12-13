@@ -124,32 +124,6 @@ namespace BoatClubLibrary.BoatData
             }
             return false;
         }
-        
-        /* Remove, as it is too hard to explain
-        //Takes a criteria and finds the first boat with any criteria of that value
-        public static Boat? SearchBoat(object criteria)
-        {
-            if (criteria == null) return null;
-
-            foreach (KeyValuePair<int, Boat> boat in Boats)
-            {
-                foreach (PropertyInfo property in boat.Value.GetType().GetProperties())
-                {
-                    // Get the value of the property for the current boat
-                    object? propertyValue = property.GetValue(boat.Value);
-
-                    // Check if the property value matches the criteria
-                    if (propertyValue != null && propertyValue.Equals(criteria))
-                    {
-                        return boat.Value; // Found a match
-                    }
-                }
-            }
-
-            return null; // No match found
-        }
-        */
-
 
         /// <summary>
         /// Reads all the boats in Boats 
@@ -179,6 +153,83 @@ namespace BoatClubLibrary.BoatData
         public static void UnrentBoat(int id)
         {
             if (ReadBoat(id) != null) { ReadBoat(id)!.IsRented = false;}
+        }
+        /// <summary>
+        /// Function to take in the name of an attribute and a value for it and then find the
+        /// first object which matches the search.
+        /// </summary>
+        /// <param name="attribute"></param>
+        /// <param name="Value"></param>
+        /// <returns></returns>
+        public static Boat? SearchBoat(string attribute, object Value)
+        {
+            if (Boats.Count > 0)
+            {
+                foreach (KeyValuePair<int, Boat> boat in Boats)
+                {
+                    //set the property we are looking for
+                    var property = boat.Value.GetType().GetProperty(attribute.ToString());
+
+                    /* Skal nok slettes
+                    //set Value to the type we looked for
+                    var ValueType = Convert.ChangeType(Value, property.PropertyType);
+                    */
+
+                    //check not null
+                    if (property == null) { continue; }
+
+                    //go through each property to check its type and value for comparison with the search
+                    foreach (PropertyInfo bookingProperty in boat.Value.GetType().GetProperties())
+                    {
+                        if (bookingProperty.PropertyType == property.PropertyType)
+                        {
+                            //return correct value
+                            if (bookingProperty.GetValue(boat) == Value) return boat.Value;
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+        /// <summary>
+        /// Function to give the name of an attribute and a value for it, to then get
+        /// every object of matching the criteria
+        /// </summary>
+        /// <param name="attribute"></param>
+        /// <param name="Value"></param>
+        /// <returns></returns>
+        public static List<Boat> FilterBoats(string attribute, object Value)
+        {
+            List<Boat> list = new();
+
+            if (Boats.Count > 0)
+            {
+                foreach (KeyValuePair<int, Boat> boat in Boats)
+                {
+                    //set the property we are looking for
+                    var property = boat.Value.GetType().GetProperty(attribute.ToString());
+
+                    /* Skal nok slettes
+                    //set Value to the type we looked for
+                    var ValueType = Convert.ChangeType(Value, property.PropertyType);
+                    */
+
+                    //check not null
+                    if (property == null) { continue; }
+
+                    //go through each property to check its type and value for comparison with the search
+                    foreach (PropertyInfo bookingProperty in boat.Value.GetType().GetProperties())
+                    {
+                        if (bookingProperty.PropertyType == property.PropertyType)
+                        {
+                            //add correct value to list
+                            if (bookingProperty.GetValue(boat) == Value) list.Add(boat.Value);
+                        }
+                    }
+                }
+            }
+            //return finished list
+            return list;
         }
     }
 }
