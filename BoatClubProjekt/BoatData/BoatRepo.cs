@@ -26,6 +26,14 @@ namespace BoatClubLibrary.BoatData
             return false;
         }
 
+
+        /// <summary>
+        /// Checks if Boats contains a key similar to argument.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// If a Boat has the same key as argument is returns true, if not it returns false.
+        /// </returns>
         public static Boat? ReadBoat(int id)
         {
             if (Boats.ContainsKey(id))
@@ -90,6 +98,14 @@ namespace BoatClubLibrary.BoatData
             return false;
         }
 
+
+        /// <summary>
+        /// Deletes a boat with same Id as argument.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// If a Boat with same Id as argument is deleted it returns true, if not it returns false.
+        /// </returns>
         public static bool DeleteBoat(int id)
         {
             if (ReadBoat(id) != null)
