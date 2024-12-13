@@ -29,6 +29,16 @@ namespace BoatClubLibrary.EventData
             EventDescription = eventDescription;
         }
 
+        public string JoinedList()
+        {
+            string message = "Attending: ";
+            foreach (var member in JoinedMembers)
+            {
+                message += $"{member.Name}" + ", ";
+            }
+            return message;
+        }
+
         public override string ToString()
         {
             return $"Id: {Id}, Post date: {PostDate}, Event date: {EventDate}, Event description: {EventDescription}";

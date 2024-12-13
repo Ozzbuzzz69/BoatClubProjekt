@@ -49,6 +49,10 @@ namespace BoatClubLibrary.EventData
             }
             return null;
         }
+        public List<Event> ReadEvents()
+        {
+            return Events.Values.ToList();
+        }
 
 
         /// <summary>
@@ -107,6 +111,20 @@ namespace BoatClubLibrary.EventData
                 return true;
             }
             return false;
+        }
+
+        public bool LeaveEvent(int eventId, Member member)
+        {
+            if (!Events.ContainsKey(eventId)) return false;
+            Events[eventId].JoinedMembers.Remove(member); return true;
+        }
+
+        public override string ToString()
+        {
+            string message = "Current events: ";
+            foreach (KeyValuePair<int, Event> e in Events) { message += e.Value.ToString() + ", "; }
+            if (message.Length < 20) { return "No events available"; }
+            return message;
         }
     }
 }

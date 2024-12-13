@@ -1,5 +1,6 @@
 ﻿using BoatClubLibrary.BoatData;
 using BoatClubLibrary.Bookingdata;
+using BoatClubLibrary.EventData;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -100,6 +101,18 @@ namespace BoatClubLibrary.MemberData
                 }
             }
             return null;
+        }
+
+        public bool JoinEvent(int eventId, EventRepo repo)
+        {
+            if (MemberRepo.ReadMember(Id) != null)
+            {
+                if (repo.JoinEvent(eventId, MemberRepo.ReadMember(Id)))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
 
