@@ -14,8 +14,7 @@ namespace BoatClubLibrary.BlogData
         /// <summary>
         /// Creates a new post, and checks if post i added to dictionary Posts through Id.
         /// </summary>
-        /// <param name="eventDescription"></param>
-        /// <param name="eventDate"></param>
+        /// <param name="Description"></param>
         /// <returns>
         /// If so it returns true, otherwise it will return false.
         /// </returns>
