@@ -8,21 +8,34 @@ Blog blog = new Blog();
 EventRepo eventRepo = new EventRepo();
 
 Console.WriteLine("-----------------Test af Blog-----------------");
-Console.WriteLine("////////Creating Post:");
+Console.WriteLine("////////Create Post:");
 Post post1 = new Post("Test1");
 Post post2 = new Post("Test2");
 Post post3 = new Post("Test3");
 
+Console.WriteLine("\n\n");
+Console.WriteLine("////////Read Post:");
+blog.ReadPost(1);
 
+Console.WriteLine("\n\n");
+Console.WriteLine("////////Update Post:");
+blog.UpdatePost(post3 = new Post("1 million beer"));
 
+Console.WriteLine("\n\n");
+Console.WriteLine("////////Delete Post:");
+blog.DeletePost(2);
+
+Console.WriteLine("\n\n");
+Console.WriteLine("////////Read all Post:");
+blog.ReadAllPosts();
 
 Console.WriteLine("\n\n\n\n\n");
 Console.WriteLine("-----------------Test af BoatRepo-----------------");
 
 Console.WriteLine("////////Creating boats:");
-Boat boat1 = new Boat(3000, "Type1", "Model1", "Navn1", 1, 3000, 100, 100.1, 400.4, 200.2, false, "Log1")));
-Boat boat2 = new Boat(4000, "Type2", "Model2", "Navn2", 2, 4000, 200, 200.2, 500.5, 300.3, true, "Log2")));
-Boat boat3 = new Boat(5000, "Type3", "Model3", "Navn3", 3, 5000, 300, 300.3, 600.6, 400.4, false, "Log3")));
+Boat boat1 = new Boat(3000, "Type1", "Model1", "Navn1", 1, 3000, 100, 100.1, 400.4, 200.2, false, "Log1");
+Boat boat2 = new Boat(4000, "Type2", "Model2", "Navn2", 2, 4000, 200, 200.2, 500.5, 300.3, true, "Log2");
+Boat boat3 = new Boat(5000, "Type3", "Model3", "Navn3", 3, 5000, 300, 300.3, 600.6, 400.4, false, "Log3");
 Console.WriteLine("\n\n");
 
 Console.WriteLine("//////////Read boat:");
