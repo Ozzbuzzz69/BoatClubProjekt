@@ -114,6 +114,17 @@ namespace BoatClubLibrary.MemberData
             }
             return false;
         }
+        public bool LeaveEvent(int eventId, EventRepo repo)
+        {
+            if (MemberRepo.ReadMember(Id) != null)
+            {
+                if (repo.LeaveEvent(eventId, MemberRepo.ReadMember(Id)))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
 
 
