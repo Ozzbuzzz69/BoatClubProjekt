@@ -39,13 +39,16 @@ namespace BoatClubLibrary.MemberData
 
         #region Booking without event
         public bool BookBoat(int boatId) 
-        { 
+        {
             Booking Booking = new Booking(Id, boatId);
-            if (Booking.ValidateBoat(boatId) && Booking.BoatRentable(boatId)) 
+            if (BookingRepo.CreateBooking(Booking) == true)
             {
-                Booking.RentBoat(boatId);
-                IsRenting=true;
-                return true;
+                if (Booking.ValidateBoat(boatId) && Booking.BoatRentable(boatId))
+                {
+                    Booking.RentBoat(boatId);
+                    IsRenting = true;
+                    return true;
+                }
             }
             return false;
         }
