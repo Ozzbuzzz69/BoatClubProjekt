@@ -59,6 +59,10 @@ namespace BoatClubLibrary.MemberData
             return null;
         }
                 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="member"></param>
         public static void UpdateForRazor(Member member)
         {
             if (ReadMember(member.Id) != null)
@@ -67,6 +71,15 @@ namespace BoatClubLibrary.MemberData
             }
         }
 
+        /// <summary>
+        /// Checks if the ReadMember method returned a value from the given id key, if so update the value in the given key
+        /// to a new value.
+        /// </summary>
+        /// <param name="memberId"></param>
+        /// <param name="member"></param>
+        /// <returns>
+        /// returns the updated member
+        /// </returns>
         public static Member UpdateMember(int memberId, Member member)
         {
             if (ReadMember(memberId) != null)
