@@ -90,6 +90,15 @@ namespace BoatClubLibrary.EventData
             return false;
         }
 
+        /// <summary>
+        /// A member joins a event via the parameter eventId and the parameter member. It also checks if
+        /// the eventId exists in the dictionary Events.
+        /// </summary>
+        /// <param name="eventId"></param>
+        /// <param name="member"></param>
+        /// <returns>
+        /// returns true if the member is joining the event. If the member cant join the event it returns false.
+        /// </returns>
         public bool JoinEvent(int eventId, Member member)
         {
             if (Events.ContainsKey(eventId))

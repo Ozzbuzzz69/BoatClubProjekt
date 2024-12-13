@@ -43,6 +43,12 @@ namespace BoatClubLibrary.MemberData
             return null;
         }
 
+        /// <summary>
+        /// Reads all members in MembersList
+        /// </summary>
+        /// <returns>
+        /// Returns the members values in a list of members. If the Memberlist is null then it returns null
+        /// </returns>
         public static List<Member>? ReadMemberList()
         {
             if (MemberList != null)

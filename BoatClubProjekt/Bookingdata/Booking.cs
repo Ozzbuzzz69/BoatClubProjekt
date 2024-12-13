@@ -30,13 +30,20 @@ namespace BoatClubLibrary.Bookingdata
         /// </summary>
         /// <param name="boatId"></param>
         /// <returns>
-        /// 
         /// </returns>
         public bool ValidateBoat(int boatId)
         {
             return BoatRepo.ReadBoat(boatId) != null;
         }
-        //Validate the boat of given ID is rentable
+
+        /// <summary>
+        /// Validate the boat of given ID is rentable
+        /// </summary>
+        /// <param name="boatId"></param>
+        /// <returns>
+        /// if its rentable returns true, if its not then it returns false
+        /// </returns>
+        
         public bool BoatRentable(int boatId)
         {
             if (BoatRepo.ReadBoat(boatId) != null)
@@ -45,10 +52,20 @@ namespace BoatClubLibrary.Bookingdata
             }
             return false;
         }
+
+        /// <summary>
+        /// Rents a boat via the parameter boatId
+        /// </summary>
+        /// <param name="boatId"></param>
         public void RentBoat(int boatId)
         {
             BoatRepo.RentBoat(boatId);
         }
+
+        /// <summary>
+        /// Unrents a boat via the parameter boatId
+        /// </summary>
+        /// <param name="boatId"></param>
         public void UnrentBoat(int boatId)
         {
             BoatRepo.UnrentBoat(boatId);
