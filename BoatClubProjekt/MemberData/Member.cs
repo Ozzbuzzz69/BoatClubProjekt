@@ -44,6 +44,7 @@ namespace BoatClubLibrary.MemberData
             if (Booking.ValidateBoat(boatId) && Booking.BoatRentable(boatId)) 
             {
                 Booking.RentBoat(boatId);
+                IsRenting=true;
                 return true;
             }
             return false;
