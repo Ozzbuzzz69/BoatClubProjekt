@@ -47,9 +47,18 @@ namespace BoatClubLibrary.AdminData
         {
             return BoatRepo.DeleteBoat(id);
         }
-        public List<Boat> ReadAllBoats() { return BoatRepo.ReadAllBoats(); }
-        public void RentBoat(int id) { BoatRepo.RentBoat(id); }
-        public void UnrentBoat(int id) { BoatRepo.UnrentBoat(id); }
+        public List<Boat> ReadAllBoats() 
+        { 
+            return BoatRepo.ReadAllBoats(); 
+        }
+        public void RentBoat(int id) 
+        { 
+            BoatRepo.RentBoat(id); 
+        }
+        public void UnrentBoat(int id) 
+        { 
+            BoatRepo.UnrentBoat(id); 
+        }
         public Boat? SearchBoat(string attribute, object Value)
         {
             return BoatRepo.SearchBoat(attribute, Value);
@@ -63,14 +72,38 @@ namespace BoatClubLibrary.AdminData
         /// The member related functionalites admin has access to
         /// </summary>
         #region Member Management
-        public void CreateMember(Member member) { MemberRepo.CreateMember(member); }
-        public Member? ReadMember(int memberId) {  return MemberRepo.ReadMember(memberId);}
-        public List<Member>? ReadMemberList() { return MemberRepo.ReadMemberList(); }
-        public Member UpdateMember(int memberId, Member member) { return  MemberRepo.UpdateMember(memberId, member); }
-        public bool DeleteMember(int memberId) { return MemberRepo.DeleteMember(memberId); }
-        public List<Member> GetMembers() { return MemberRepo.GetMembers(); }
-        public Member? SearchMember(string attribute, object Value) { return MemberRepo.SearchMember(attribute, Value);}
-        public List<Member> FilterMember(string attribute, object Value) { return MemberRepo.FilterMember(attribute, Value); }
+        public void CreateMember(Member member) 
+        { 
+            MemberRepo.CreateMember(member); 
+        }
+        public Member? ReadMember(int memberId) 
+        { 
+            return MemberRepo.ReadMember(memberId);
+        }
+        public List<Member>? ReadMemberList() 
+        { 
+            return MemberRepo.ReadMemberList(); 
+        }
+        public Member UpdateMember(int memberId, Member member) 
+        { 
+            return  MemberRepo.UpdateMember(memberId, member); 
+        }
+        public bool DeleteMember(int memberId) 
+        { 
+            return MemberRepo.DeleteMember(memberId); 
+        }
+        public List<Member> GetMembers() 
+        { 
+            return MemberRepo.GetMembers(); 
+        }
+        public Member? SearchMember(string attribute, object Value) 
+        { 
+            return MemberRepo.SearchMember(attribute, Value);
+        }
+        public List<Member> FilterMember(string attribute, object Value) 
+        { 
+            return MemberRepo.FilterMember(attribute, Value); 
+        }
         #endregion
     }
 }
