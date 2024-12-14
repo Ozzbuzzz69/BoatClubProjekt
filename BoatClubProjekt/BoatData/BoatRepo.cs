@@ -14,7 +14,7 @@ namespace BoatClubLibrary.BoatData
 {
     public static class BoatRepo
     {
-        private static readonly Dictionary<int, Boat> Boats = new Dictionary<int, Boat>();
+        private static Dictionary<int, Boat> Boats = new Dictionary<int, Boat>();
 
 
         /// <summary>
