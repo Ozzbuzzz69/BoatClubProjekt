@@ -142,7 +142,10 @@ namespace BoatClubLibrary.BoatData
         /// <param name="id"></param>
         public static void RentBoat(int id)
         {
-            if (ReadBoat(id) != null) { ReadBoat(id)!.IsRented = true; }
+            if (ReadBoat(id) != null)
+            {
+                ReadBoat(id)!.IsRented = true; 
+            }
         }
 
 
@@ -152,7 +155,10 @@ namespace BoatClubLibrary.BoatData
         /// <param name="id"></param>
         public static void UnrentBoat(int id)
         {
-            if (ReadBoat(id) != null) { ReadBoat(id)!.IsRented = false;}
+            if (ReadBoat(id) != null) 
+            { 
+                ReadBoat(id)!.IsRented = false;
+            }
         }
         /// <summary>
         /// Function to take in the name of an attribute and a value for it and then find the
