@@ -107,5 +107,7 @@ foreach (Member m in MemberRepo.GetMembers())
 Console.WriteLine("\n\n\n\n\n");
 Console.WriteLine("----------------Test af EventRepo------------------");
 
-
+eventRepo.CreateEvent(new("3", "3"));
 eventRepo.JoinEvent(0, meber3);
+
+Console.WriteLine(eventRepo.ToString());

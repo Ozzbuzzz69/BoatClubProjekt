@@ -115,15 +115,25 @@ namespace BoatClubLibrary.EventData
 
         public bool LeaveEvent(int eventId, Member member)
         {
-            if (!Events.ContainsKey(eventId)) return false;
-            Events[eventId].JoinedMembers.Remove(member); return true;
+            if (!Events.ContainsKey(eventId))
+            {
+                return false;
+            }
+            Events[eventId].JoinedMembers.Remove(member);
+            return true;
         }
 
         public override string ToString()
         {
             string message = "Current events: ";
-            foreach (KeyValuePair<int, Event> e in Events) { message += e.Value.ToString() + ", "; }
-            if (message.Length < 20) { return "No events available"; }
+            foreach (KeyValuePair<int, Event> e in Events) 
+            { 
+                message += e.Value.ToString() + ", "; 
+            }
+            if (message.Length < 20) 
+            { 
+                return "No events available"; 
+            }
             return message;
         }
     }
