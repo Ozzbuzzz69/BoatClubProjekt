@@ -14,13 +14,18 @@ namespace BoatClubLibrary.BlogData
         /// <summary>
         /// Creates a new post, and checks if post i added to dictionary Posts through Id.
         /// </summary>
-        /// <param name="Description"></param>
+        /// <param name="post"></param>
         /// <returns>
         /// If so it returns true, otherwise it will return false.
         /// </returns>
-        public void CreatePost(Post post)
+        public bool CreatePost(Post post)
         {
-            Posts.TryAdd(post.Id, post);
+            if (post != null)
+            {
+                Posts.TryAdd(post.Id, post);
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
