@@ -23,6 +23,9 @@ namespace BoatClubLibrary.AdminData
             return $"Id: {Id}, Name: {Name}, Address {Address}, Email: {Email}, Phonenumber: {PhoneNumber}";
         }
 
+        /// <summary>
+        /// The boat related functionalites admin has access to
+        /// </summary>
         #region Boat Management
         public bool CreateBoat(Boat boat)
         {
@@ -56,7 +59,9 @@ namespace BoatClubLibrary.AdminData
             return BoatRepo.FilterBoats(attribute, Value);
         }
         #endregion
-
+        /// <summary>
+        /// The member related functionalites admin has access to
+        /// </summary>
         #region Member Management
         public void CreateMember(Member member) { MemberRepo.CreateMember(member); }
         public Member? ReadMember(int memberId) {  return MemberRepo.ReadMember(memberId);}
@@ -66,14 +71,6 @@ namespace BoatClubLibrary.AdminData
         public List<Member> GetMembers() { return MemberRepo.GetMembers(); }
         public Member? SearchMember(string attribute, object Value) { return MemberRepo.SearchMember(attribute, Value);}
         public List<Member> FilterMember(string attribute, object Value) { return MemberRepo.FilterMember(attribute, Value); }
-        #endregion
-
-        #region Event Management
-        // Kan ikke implementeres på samme måde da den ikke er static.
-        #endregion
-
-        #region Post Management
-        // Kan ikke implementeres på samme måde da den ikke er static.
         #endregion
     }
 }
