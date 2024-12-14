@@ -1,7 +1,10 @@
-﻿using BoatClubLibrary.BlogData;
+﻿using BoatClubLibrary.AdminData;
+using BoatClubLibrary.BlogData;
 using BoatClubLibrary.BoatData;
+using BoatClubLibrary.Bookingdata;
 using BoatClubLibrary.EventData;
 using BoatClubLibrary.MemberData;
+using BoatClubLibrary;
 
 
 Blog blog = new Blog();
