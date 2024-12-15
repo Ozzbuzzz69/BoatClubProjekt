@@ -46,6 +46,13 @@ namespace BoatClubLibrary.Bookingdata
             }
             return null;
         }
+
+        /// <summary>
+        /// Reads all the bookings from Bookings.
+        /// </summary>
+        /// <returns>
+        /// Returns a list of Booking values.
+        /// </returns>
         public static List<Booking> ReadAllBookings()
         {
             return Bookings.Values.ToList();
@@ -69,6 +76,7 @@ namespace BoatClubLibrary.Bookingdata
             }
             return false;
         }
+
         public static bool UpdateBookingAttribute(int id, string attribute, object newValue)
         {
             //check if booking exists
@@ -195,10 +203,5 @@ namespace BoatClubLibrary.Bookingdata
             //return finished list
             return list;
         }
-
-
-
-
-
     }
 }

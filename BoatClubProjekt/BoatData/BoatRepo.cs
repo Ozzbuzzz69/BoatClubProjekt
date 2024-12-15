@@ -60,7 +60,7 @@ namespace BoatClubLibrary.BoatData
         /// <returns>
         /// Returns true if updated, if not updated or Boat is null it returns false.
         /// </returns>
-        public static bool UpdateBoat(int boatId, Boat boat) //Den skal nok have en anden return type
+        public static bool UpdateBoat(int boatId, Boat boat)
         {
             if (ReadBoat(boatId) != null)
             {

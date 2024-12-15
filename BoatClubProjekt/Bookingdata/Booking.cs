@@ -43,12 +43,14 @@ namespace BoatClubLibrary.Bookingdata
         /// <returns>
         /// if its rentable returns true, if its not then it returns false
         /// </returns>
-        
         public bool BoatRentable(int boatId)
         {
             if (BoatRepo.ReadBoat(boatId) != null)
             {
-                if (BoatRepo.ReadBoat(boatId)!.IsRented == false) return true;
+                if (BoatRepo.ReadBoat(boatId)!.IsRented == false)
+                {
+                    return true;
+                }
             }
             return false;
         }

@@ -12,9 +12,6 @@ namespace BoatClubLibrary.EventData
 
         public Dictionary<int, Event> Events { get; set; } = new Dictionary<int, Event>();
         
-           
-
-            
 
         /// <summary>
         /// Adds event to Events if  e is not equal null, or an Event already contains Event with same Id.
@@ -49,6 +46,14 @@ namespace BoatClubLibrary.EventData
             }
             return null;
         }
+
+
+        /// <summary>
+        /// Readss all events from Events.
+        /// </summary>
+        /// <returns>
+        /// Returns a list of Event values.
+        /// </returns>
         public List<Event> ReadEvents()
         {
             return Events.Values.ToList();
@@ -113,6 +118,15 @@ namespace BoatClubLibrary.EventData
             return false;
         }
 
+
+        /// <summary>
+        /// The member given as argument leaves the event with the specifik eventId.
+        /// </summary>
+        /// <param name="eventId"></param>
+        /// <param name="member"></param>
+        /// <returns>
+        /// Returns false if a Event does not contain the key given in the argument. Returns true if member was removed from JoinedMembers.
+        /// </returns>
         public bool LeaveEvent(int eventId, Member member)
         {
             if (!Events.ContainsKey(eventId))

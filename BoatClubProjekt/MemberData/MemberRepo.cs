@@ -12,12 +12,7 @@ namespace BoatClubLibrary.MemberData
     public static class MemberRepo
     {
         private static Dictionary<int, Member> MemberList = new Dictionary<int, Member>();
-        //public List<Boat> _bookableBoats;
 
-        //public MemberRepo()
-        //{
-        //    _bookableBoats = BoatRepo.GetBoats().ToList();  
-        //}
 
         /// <summary>
         /// Adds a member to Dictionary if the Dictionary does not already contain a member with same Id.
