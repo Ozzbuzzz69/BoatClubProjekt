@@ -136,8 +136,7 @@ namespace BoatConsole1
                 length: boatTuple.Length,
                 width: boatTuple.Width,
                 isRented: boatTuple.IsOperational,
-                log: boatTuple.Log
-            );
+                log: boatTuple.Log);
 
             // Admin creates the boat (assuming CreateBoat is a method)
             admin.CreateBoat(boat);
@@ -171,8 +170,7 @@ namespace BoatConsole1
                 length: boatTuple.Length,
                 width: boatTuple.Width,
                 isRented: boatTuple.IsOperational,
-                log: boatTuple.Log
-            );
+                log: boatTuple.Log);
             // Add it to the repo
             BoatRepo.CreateBoat(boat);
 
@@ -210,6 +208,267 @@ namespace BoatConsole1
             return false;
             // There is no function for it to test, so it can only fail.
         }
+        #endregion
+        #region Tests 6-10
+        public static bool Test6A()
+        {
+            // Check for null
+            if (MemberRepo.ReadMemberList() == null) { return false; }
+
+            // Generate a full member using tuple from Randotron
+            var memberTuple = Randotron.FullMember();
+            Member member = new Member(
+                name: memberTuple.Name,
+                address: memberTuple.Address,
+                email: memberTuple.Email,
+                phoneNumber: memberTuple.PhoneNumber,
+                membershipType: memberTuple.MembershipType,
+                birthday: memberTuple.Birthday,
+                isRenting: memberTuple.IsRenting);
+            // Add the member to the repo
+            MemberRepo.CreateMember(member);
+
+            // Create an admin
+            Admin admin = new(
+                Randotron.Generate("person"),
+                Randotron.Generate("address"),
+                Randotron.Generate("email"),
+                Randotron.Generate("phone number")
+            );
+
+            // Read the number of members
+            int membernumber = MemberRepo.ReadMemberList()!.Count;
+
+            // Check for null
+            if (admin.ReadMemberList() == null) { return false; }
+
+            // Use admin's Read function and see if it gives the same number of memebers as MemberRepo's read function
+            return admin.ReadMemberList()!.Count == membernumber;
+        }
+        public static bool Test6B()
+        {
+            return false;
+            // There is no function for it to test, so it can only fail.
+        }
+        public static bool Test7A() //skal laves rigtigt
+        {
+            // Since member has no function for it, we instead test the MemberRepo
+
+            // Generate a full member using tuple from Randotron
+            var memberTuple = Randotron.FullMember();
+            Member member = new Member(
+                name: memberTuple.Name,
+                address: memberTuple.Address,
+                email: memberTuple.Email,
+                phoneNumber: memberTuple.PhoneNumber,
+                membershipType: memberTuple.MembershipType,
+                birthday: memberTuple.Birthday,
+                isRenting: memberTuple.IsRenting);
+            // Add the member to the repo
+            MemberRepo.CreateMember(member);
+
+            // Update to give it a new name
+            MemberRepo.UpdateMember(member.Id, 
+                name: "Tester",
+                address: memberTuple.Address,
+                email: memberTuple.Email,
+                phoneNumber: memberTuple.PhoneNumber,
+                membershipType: memberTuple.MembershipType,
+                birthday: memberTuple.Birthday,
+                isRenting: memberTuple.IsRenting);
+
+            // Check if the member has the new name
+            return member.Name == "Tester";
+        }
+        public static bool Test7B()
+        {
+            return false;
+            // There is no function for it to test, so it can only fail.
+        }
+        public static bool Test8A()
+        {
+            // Generate a full member using tuple from Randotron
+            var memberTuple = Randotron.FullMember();
+            Member member = new Member(
+                name: memberTuple.Name,
+                address: memberTuple.Address,
+                email: memberTuple.Email,
+                phoneNumber: memberTuple.PhoneNumber,
+                membershipType: memberTuple.MembershipType,
+                birthday: memberTuple.Birthday,
+                isRenting: memberTuple.IsRenting);
+            // Add the member to the repo
+            MemberRepo.CreateMember(member);
+
+            // Generate a full boat using the tuple from Randotron
+            var boatTuple = Randotron.FullBoat();
+            Boat boat = new Boat(
+                rentalPrice: boatTuple.Price,
+                "tester",
+                model: boatTuple.Model,
+                name: boatTuple.Name,
+                regNumber: boatTuple.RegNumber,
+                horsePower: boatTuple.HorsePower,
+                knots: boatTuple.Knots,
+                height: boatTuple.Height,
+                length: boatTuple.Length,
+                width: boatTuple.Width,
+                isRented: boatTuple.IsOperational,
+                log: boatTuple.Log);
+            // Add it to the repo
+            BoatRepo.CreateBoat(boat);
+
+            // Check if member's BookBoat method gives a valid output
+            return member.BookBoat(boat.Id);
+        }
+        public static bool Test8B()
+        {
+            // Generate two full members using tuple from Randotron
+            var memberTuple1 = Randotron.FullMember();
+            Member member1 = new Member(
+                name: memberTuple1.Name,
+                address: memberTuple1.Address,
+                email: memberTuple1.Email,
+                phoneNumber: memberTuple1.PhoneNumber,
+                membershipType: memberTuple1.MembershipType,
+                birthday: memberTuple1.Birthday,
+                isRenting: memberTuple1.IsRenting);
+            var memberTuple2 = Randotron.FullMember();
+            Member member2 = new Member(
+                name: memberTuple2.Name,
+                address: memberTuple2.Address,
+                email: memberTuple2.Email,
+                phoneNumber: memberTuple2.PhoneNumber,
+                membershipType: memberTuple2.MembershipType,
+                birthday: memberTuple2.Birthday,
+                isRenting: memberTuple2.IsRenting);
+            // Add the members to the repo
+            MemberRepo.CreateMember(member1);
+            MemberRepo.CreateMember(member2);
+
+            // Generate a full boat using the tuple from Randotron
+            var boatTuple = Randotron.FullBoat();
+            Boat boat = new Boat(
+                rentalPrice: boatTuple.Price,
+                "tester",
+                model: boatTuple.Model,
+                name: boatTuple.Name,
+                regNumber: boatTuple.RegNumber,
+                horsePower: boatTuple.HorsePower,
+                knots: boatTuple.Knots,
+                height: boatTuple.Height,
+                length: boatTuple.Length,
+                width: boatTuple.Width,
+                isRented: boatTuple.IsOperational,
+                log: boatTuple.Log);
+            // Add it to the repo
+            BoatRepo.CreateBoat(boat);
+
+            // One member books a boat
+            member1.BookBoat(boat.Id);
+
+            // Then check if the second member can book the same boat
+            return member2.BookBoat(boat.Id);
+        }
+        public static bool Test9A()
+        {
+            // Generate two full members using tuple from Randotron
+            var memberTuple1 = Randotron.FullMember();
+            Member member1 = new Member(
+                name: memberTuple1.Name,
+                address: memberTuple1.Address,
+                email: memberTuple1.Email,
+                phoneNumber: memberTuple1.PhoneNumber,
+                membershipType: memberTuple1.MembershipType,
+                birthday: memberTuple1.Birthday,
+                isRenting: memberTuple1.IsRenting);
+            var memberTuple2 = Randotron.FullMember();
+            Member member2 = new Member(
+                name: memberTuple2.Name,
+                address: memberTuple2.Address,
+                email: memberTuple2.Email,
+                phoneNumber: memberTuple2.PhoneNumber,
+                membershipType: memberTuple2.MembershipType,
+                birthday: memberTuple2.Birthday,
+                isRenting: memberTuple2.IsRenting);
+            // Add the members to the repo
+            MemberRepo.CreateMember(member1);
+            MemberRepo.CreateMember(member2);
+
+            // Generate a full boat using the tuple from Randotron
+            var boatTuple = Randotron.FullBoat();
+            Boat boat = new Boat(
+                rentalPrice: boatTuple.Price,
+                "tester",
+                model: boatTuple.Model,
+                name: boatTuple.Name,
+                regNumber: boatTuple.RegNumber,
+                horsePower: boatTuple.HorsePower,
+                knots: boatTuple.Knots,
+                height: boatTuple.Height,
+                length: boatTuple.Length,
+                width: boatTuple.Width,
+                isRented: boatTuple.IsOperational,
+                log: boatTuple.Log);
+            // Add it to the repo
+            BoatRepo.CreateBoat(boat);
+
+            // One member books a boat
+            member1.BookBoat(boat.Id);
+
+            // Check if the other member can see them out sailing
+            return member2.ViewCurrentSailors().Count > 0;
+        }
+        public static bool Test9B() //don't know what is meant with this one's text
+        {
+            return false;
+        }
+        public static bool Test10A()
+        {
+            // Create an admin
+            Admin admin = new(
+                Randotron.Generate("person"),
+                Randotron.Generate("address"),
+                Randotron.Generate("email"),
+                Randotron.Generate("phone number")
+            );
+
+            // Check if the admin's create boat function can be used to create a boat
+            // Read the initial number of boats
+            int boatnumber = BoatRepo.ReadAllBoats().Count();
+
+            // Generate a full boat using the tuple from Randotron
+            var boatTuple = Randotron.FullBoat();
+            Boat boat = new Boat(
+                rentalPrice: boatTuple.Price,
+                type: boatTuple.Type,
+                model: boatTuple.Model,
+                name: boatTuple.Name,
+                regNumber: boatTuple.RegNumber,
+                horsePower: boatTuple.HorsePower,
+                knots: boatTuple.Knots,
+                height: boatTuple.Height,
+                length: boatTuple.Length,
+                width: boatTuple.Width,
+                isRented: boatTuple.IsOperational,
+                log: boatTuple.Log);
+
+            // Use admins to create a boat
+            return admin.CreateBoat(boat);
+        }
+        public static bool Test10B()
+        {
+            return false;
+            // There is no function for it to test, so it can only fail.
+        }
+        public static bool Test10C()
+        {
+            return false;
+            // There is no function for it to test, so it can only fail.
+        }
+
+
+
         #endregion
     }
 }
