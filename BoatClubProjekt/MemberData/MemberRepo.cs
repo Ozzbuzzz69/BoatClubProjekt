@@ -61,7 +61,7 @@ namespace BoatClubLibrary.MemberData
         /// <param name="memberId"></param>
         /// <param name="member"></param>
         /// <returns>
-        /// returns the updated member
+        /// Returns the updated member
         /// </returns>
         public static Member UpdateMember(int memberId, Member member)
         {

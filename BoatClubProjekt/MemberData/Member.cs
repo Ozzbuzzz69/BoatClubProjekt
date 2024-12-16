@@ -68,7 +68,7 @@ namespace BoatClubLibrary.MemberData
         /// the members are added as sailors to the list. 
         /// </summary>
         /// <returns>
-        /// Returns the members who is currently renting boats.
+        /// Returns a list of the members who is currently renting boats.
         /// </returns>
         public List<Member>? ViewCurrentSailors()
         {
@@ -103,6 +103,15 @@ namespace BoatClubLibrary.MemberData
             return null;
         }
 
+
+        /// <summary>
+        /// Joins the event with the same id and repo as given in argument.
+        /// </summary>
+        /// <param name="eventId"></param>
+        /// <param name="repo"></param>
+        /// <returns>
+        /// Returns true if event is joined, and false if event is not joined.
+        /// </returns>
         public bool JoinEvent(int eventId, EventRepo repo)
         {
             if (MemberRepo.ReadMember(Id) != null)
@@ -114,6 +123,16 @@ namespace BoatClubLibrary.MemberData
             }
             return false;
         }
+
+
+        /// <summary>
+        /// Leaves the event with the same id and repo as given in argument.
+        /// </summary>
+        /// <param name="eventId"></param>
+        /// <param name="repo"></param>
+        /// <returns>
+        /// Returns true if event is leaved, and false if event is not leaved.
+        /// </returns>
         public bool LeaveEvent(int eventId, EventRepo repo)
         {
             if (MemberRepo.ReadMember(Id) != null)

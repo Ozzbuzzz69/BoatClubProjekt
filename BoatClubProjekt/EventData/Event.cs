@@ -29,6 +29,13 @@ namespace BoatClubLibrary.EventData
             EventDescription = eventDescription;
         }
 
+
+        /// <summary>
+        /// Method is used to see who has joined a specifik Event.
+        /// </summary>
+        /// <returns>
+        /// Returns a string of joined members.
+        /// </returns>
         public string JoinedList()
         {
             string message = "Attending: ";

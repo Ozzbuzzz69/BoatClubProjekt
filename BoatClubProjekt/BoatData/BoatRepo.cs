@@ -41,7 +41,7 @@ namespace BoatClubLibrary.BoatData
         /// </summary>
         /// <param name="id"></param>
         /// <returns>
-        /// If a Boat has the same key as argument is returns true, if not it returns false.
+        /// If a Boat has the same key as argument is returns the Boat with the same key as argument, if not it returns null.
         /// </returns>
         public static Boat? ReadBoat(int id)
         {
