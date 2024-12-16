@@ -107,7 +107,7 @@ namespace BoatClubLibrary.MemberData
         {
             if (MemberRepo.ReadMember(Id) != null)
             {
-                if (repo.JoinEvent(eventId, MemberRepo.ReadMember(Id)))
+                if (repo.JoinEvent(eventId, MemberRepo.ReadMember(Id)!))
                 {
                     return true;
                 }
@@ -118,7 +118,7 @@ namespace BoatClubLibrary.MemberData
         {
             if (MemberRepo.ReadMember(Id) != null)
             {
-                if (repo.LeaveEvent(eventId, MemberRepo.ReadMember(Id)))
+                if (repo.LeaveEvent(eventId, MemberRepo.ReadMember(Id)!))
                 {
                     return true;
                 }

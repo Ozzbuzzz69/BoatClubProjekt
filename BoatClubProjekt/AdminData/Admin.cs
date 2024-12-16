@@ -39,10 +39,7 @@ namespace BoatClubLibrary.AdminData
         {
             return BoatRepo.UpdateBoat(id, boat);
         }
-        public bool UpdateBoatAttribute(int id, string attribute, object newValue)
-        {
-            return BoatRepo.UpdateBoatAttribute(id, attribute, newValue);
-        }
+
         public bool DeleteBoat(int id)
         {
             return BoatRepo.DeleteBoat(id);
@@ -59,14 +56,8 @@ namespace BoatClubLibrary.AdminData
         { 
             BoatRepo.UnrentBoat(id); 
         }
-        public Boat? SearchBoat(string attribute, object Value)
-        {
-            return BoatRepo.SearchBoat(attribute, Value);
-        }
-        public List<Boat> FilterBoats(string attribute, object Value)
-        {
-            return BoatRepo.FilterBoats(attribute, Value);
-        }
+
+
         #endregion
         /// <summary>
         /// The member related functionalites admin has access to
@@ -91,18 +82,6 @@ namespace BoatClubLibrary.AdminData
         public bool DeleteMember(int memberId) 
         { 
             return MemberRepo.DeleteMember(memberId); 
-        }
-        public List<Member> GetMembers() 
-        { 
-            return MemberRepo.GetMembers(); 
-        }
-        public Member? SearchMember(string attribute, object Value) 
-        { 
-            return MemberRepo.SearchMember(attribute, Value);
-        }
-        public List<Member> FilterMember(string attribute, object Value) 
-        { 
-            return MemberRepo.FilterMember(attribute, Value); 
         }
         #endregion
     }
