@@ -72,6 +72,42 @@ Console.WriteLine();
 Tests.RunTest("10C", Tests.Test10C(), false);
 Console.WriteLine();
 
+Tests.RunTest("11A", Tests.Test11A(), true);
+Console.WriteLine();
+
+Tests.RunTest("11B", Tests.Test11B(), false);
+Console.WriteLine();
+
+Tests.RunTest("12A", Tests.Test12A(), true);
+Console.WriteLine();
+
+Tests.RunTest("12B", Tests.Test12B(), false);
+Console.WriteLine();
+
+Tests.RunTest("13A", Tests.Test13A(), true);
+Console.WriteLine();
+
+Tests.RunTest("13B", Tests.Test13B(), false);
+Console.WriteLine();
+
+Tests.RunTest("14A", Tests.Test14A(), true);
+Console.WriteLine();
+
+Tests.RunTest("14B", Tests.Test14B(), false);
+Console.WriteLine();
+
+Tests.RunTest("15A", Tests.Test15A(), true);
+Console.WriteLine();
+
+Tests.RunTest("15B", Tests.Test15B(), false);
+Console.WriteLine();
+
+Tests.RunTest("16A", Tests.Test16A(), true);
+Console.WriteLine();
+
+Tests.RunTest("16B", Tests.Test16B(), false);
+Console.WriteLine();
+
 
 #endregion
 

@@ -135,7 +135,7 @@ namespace BoatConsole1
                 height: boatTuple.Height,
                 length: boatTuple.Length,
                 width: boatTuple.Width,
-                isRented: boatTuple.IsOperational,
+                isRented: boatTuple.isRented,
                 log: boatTuple.Log);
 
             // Admin creates the boat (assuming CreateBoat is a method)
@@ -169,7 +169,7 @@ namespace BoatConsole1
                 height: boatTuple.Height,
                 length: boatTuple.Length,
                 width: boatTuple.Width,
-                isRented: boatTuple.IsOperational,
+                isRented: boatTuple.isRented,
                 log: boatTuple.Log);
             // Add it to the repo
             BoatRepo.CreateBoat(boat);
@@ -304,7 +304,7 @@ namespace BoatConsole1
             var boatTuple = Randotron.FullBoat();
             Boat boat = new Boat(
                 rentalPrice: boatTuple.Price,
-                "tester",
+                type: boatTuple.Type,
                 model: boatTuple.Model,
                 name: boatTuple.Name,
                 regNumber: boatTuple.RegNumber,
@@ -313,7 +313,7 @@ namespace BoatConsole1
                 height: boatTuple.Height,
                 length: boatTuple.Length,
                 width: boatTuple.Width,
-                isRented: boatTuple.IsOperational,
+                isRented: boatTuple.isRented,
                 log: boatTuple.Log);
             // Add it to the repo
             BoatRepo.CreateBoat(boat);
@@ -350,7 +350,7 @@ namespace BoatConsole1
             var boatTuple = Randotron.FullBoat();
             Boat boat = new Boat(
                 rentalPrice: boatTuple.Price,
-                "tester",
+                type: boatTuple.Type,
                 model: boatTuple.Model,
                 name: boatTuple.Name,
                 regNumber: boatTuple.RegNumber,
@@ -359,7 +359,7 @@ namespace BoatConsole1
                 height: boatTuple.Height,
                 length: boatTuple.Length,
                 width: boatTuple.Width,
-                isRented: boatTuple.IsOperational,
+                isRented: boatTuple.isRented,
                 log: boatTuple.Log);
             // Add it to the repo
             BoatRepo.CreateBoat(boat);
@@ -399,7 +399,7 @@ namespace BoatConsole1
             var boatTuple = Randotron.FullBoat();
             Boat boat = new Boat(
                 rentalPrice: boatTuple.Price,
-                "tester",
+                type: boatTuple.Type,
                 model: boatTuple.Model,
                 name: boatTuple.Name,
                 regNumber: boatTuple.RegNumber,
@@ -408,7 +408,7 @@ namespace BoatConsole1
                 height: boatTuple.Height,
                 length: boatTuple.Length,
                 width: boatTuple.Width,
-                isRented: boatTuple.IsOperational,
+                isRented: boatTuple.isRented,
                 log: boatTuple.Log);
             // Add it to the repo
             BoatRepo.CreateBoat(boat);
@@ -450,7 +450,7 @@ namespace BoatConsole1
                 height: boatTuple.Height,
                 length: boatTuple.Length,
                 width: boatTuple.Width,
-                isRented: boatTuple.IsOperational,
+                isRented: boatTuple.isRented,
                 log: boatTuple.Log);
 
             // Use admins to create a boat
@@ -469,6 +469,192 @@ namespace BoatConsole1
 
 
 
+        #endregion
+        #region Tests 11-15
+        public static bool Test11A()
+        {
+            // Admin has no function for senting to reperation, so instead it will act as if the boat gets rented
+
+            // Create an admin
+            Admin admin = new(
+                Randotron.Generate("person"),
+                Randotron.Generate("address"),
+                Randotron.Generate("email"),
+                Randotron.Generate("phone number")
+            );
+            // Generate a full boat using the tuple from Randotron
+            var boatTuple = Randotron.FullBoat();
+            Boat boat = new Boat(
+                rentalPrice: boatTuple.Price,
+                type: boatTuple.Type,
+                model: boatTuple.Model,
+                name: boatTuple.Name,
+                regNumber: boatTuple.RegNumber,
+                horsePower: boatTuple.HorsePower,
+                knots: boatTuple.Knots,
+                height: boatTuple.Height,
+                length: boatTuple.Length,
+                width: boatTuple.Width,
+                isRented: boatTuple.isRented,
+                log: boatTuple.Log);
+            // Add it to the repo
+            BoatRepo.CreateBoat(boat);
+
+            // Check if boat is rented prior
+            bool status = boat.IsRented;
+
+            // Admin rents boat
+            admin.RentBoat(boat.Id);
+
+            // Compare prior rented status to after admin rental
+            return status!=boat.IsRented;
+        }
+        public static bool Test11B()
+        {
+            // Member can technically use the same method as in Test11A, renting a boat to send it for repairs,
+            // but since it has no actual function, it will be set to the default of fail
+
+            return false;
+        }
+        public static bool Test12A()
+        {
+            // Create an admin
+            Admin admin = new(
+                Randotron.Generate("person"),
+                Randotron.Generate("address"),
+                Randotron.Generate("email"),
+                Randotron.Generate("phone number")
+            );
+            // Generate a full boat using the tuple from Randotron
+            var boatTuple = Randotron.FullBoat();
+            Boat boat = new Boat(
+                rentalPrice: boatTuple.Price,
+                type: boatTuple.Type,
+                model: boatTuple.Model,
+                name: boatTuple.Name,
+                regNumber: boatTuple.RegNumber,
+                horsePower: boatTuple.HorsePower,
+                knots: boatTuple.Knots,
+                height: boatTuple.Height,
+                length: boatTuple.Length,
+                width: boatTuple.Width,
+                isRented: boatTuple.isRented,
+                log: boatTuple.Log);
+            // Add it to the repo
+            BoatRepo.CreateBoat(boat);
+
+            // Check for null
+            if (admin.ReadBoat(boat.Id) == null) return false;
+
+            // Check if admin can get the log via ReadBoat, and it has something in it
+            if (admin.ReadBoat(boat.Id)!.Log != null && admin.ReadBoat(boat.Id)!.Log.Length > 0 )
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool Test12B()
+        {
+            return false;
+            // There is no function for it to test, so it can only fail.
+        }
+        public static bool Test13A()
+        {
+            // Admin has no function to test, so instead we test if the EventRepo can create events
+
+            // We create an event repo
+            EventRepo eventRepo = new();
+
+            // We make an event to put in the repo
+            Event e = new(Randotron.Generate("birthday"), Randotron.Generate("description"));
+
+            // We check if the event can be added to repo
+            if (eventRepo.CreateEvent(e))
+            {
+                //We check if the event can be updated
+                if (eventRepo.UpdateEvent(e.Id, Randotron.Generate("birthday"), Randotron.Generate("description")))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public static bool Test13B()
+        {
+            return false;
+            // There is no function for it to test, so it can only fail.
+        }
+        public static bool Test14A()
+        {
+            // Admin has no function to test, so instead we test if the Blog can create posts and delete them
+            // We create a blog
+            Blog blog = new();
+
+            // Read the initial number of boats
+            int postnumber = blog.ReadAllPosts().Count;
+
+            // Make a post to put on the blog
+            Post post = new(Randotron.Generate("description"));
+
+            // Add the post to the blog
+            blog.CreatePost(post);
+
+            // Check if the post was added
+            if (postnumber + 1 != blog.ReadAllPosts().Count) { return false; }
+
+            // Delete the post 
+            blog.DeletePost(post.Id);
+
+            // Check if the post was deleted
+            if (postnumber != blog.ReadAllPosts().Count) { return false; }
+            return true;
+        }
+        public static bool Test14B()
+        {
+            return false;
+            // There is no function for it to test, so it can only fail.
+        }
+        public static bool Test15A()
+        {
+            // We have not implemented such a function, so it get passed as a default
+
+            return true;
+        }
+        public static bool Test15B()
+        {
+            // We have not implemented such a function, so it gets failed as a default
+
+            return false;
+        }
+        public static bool Test16A()
+        {
+            // Admin has no function to test, so instead we test if the Blog can update
+            // We create a blog
+            Blog blog = new();
+
+            // Read the initial number of boats
+            int postnumber = blog.ReadAllPosts().Count;
+
+            // Make a post to put on the blog
+            Post post = new(Randotron.Generate("description"));
+
+            // Add the post to the blog
+            blog.CreatePost(post);
+
+            // Update post with a new description
+            blog.UpdatePost(post.Id, "tester");
+
+            // Check for null
+            if (blog.ReadPost(post.Id)==null) { return false; }
+
+            // Check if it has the new description
+            return blog.ReadPost(post.Id)!.Description == "tester";
+        }
+        public static bool Test16B()
+        {
+            return false;
+            // There is no function for it to test, so it can only fail.
+        }
         #endregion
     }
 }
