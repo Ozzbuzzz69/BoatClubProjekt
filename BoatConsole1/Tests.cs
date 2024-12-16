@@ -15,6 +15,7 @@ namespace BoatConsole1
 {
     public static class Tests
     {
+        #region Base functions
         public static void RunTest(string testname,bool test, bool result)
         {
             // Runs the test
@@ -36,6 +37,8 @@ namespace BoatConsole1
             if (test == result) Console.WriteLine("Result as expected.");
             else Console.WriteLine("Result NOT as expected");
         }
+        #endregion
+        #region Tests 1-5
         public static bool Test1A()
         {
             // Check for null
@@ -207,5 +210,6 @@ namespace BoatConsole1
             return false;
             // There is no function for it to test, so it can only fail.
         }
+        #endregion
     }
 }
