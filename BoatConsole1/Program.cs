@@ -5,8 +5,42 @@ using BoatClubLibrary.Bookingdata;
 using BoatClubLibrary.EventData;
 using BoatClubLibrary.MemberData;
 using BoatClubLibrary;
+using BoatConsole1;
 
 
+#region New Tests
+Tests.RunTest("1A", Tests.Test1A(), true);
+Console.WriteLine();
+
+Tests.RunTest("1B", Tests.Test1B(), false);
+Console.WriteLine();
+
+Tests.RunTest("2A", Tests.Test2A(), true);
+Console.WriteLine();
+
+Tests.RunTest("2B", Tests.Test2B(), false);
+Console.WriteLine(); 
+
+Tests.RunTest("3A", Tests.Test3A(), true);
+Console.WriteLine(); 
+
+Tests.RunTest("3B", Tests.Test3B(), false);
+Console.WriteLine(); 
+
+Tests.RunTest("4A", Tests.Test4A(), true);
+Console.WriteLine(); 
+
+Tests.RunTest("4B", Tests.Test4B(), false);
+Console.WriteLine(); 
+
+Tests.RunTest("5A", Tests.Test5A(), true);
+Console.WriteLine(); 
+
+Tests.RunTest("5B", Tests.Test5B(), false);
+Console.WriteLine();
+#endregion
+
+#region Old Tests
 Blog blog = new Blog();
 EventRepo eventRepo = new EventRepo();
 
@@ -99,9 +133,12 @@ Member meber3 = new Member("Test3", "Test3", "Test3", "Test3", MembershipType.Fa
 
 
 Console.WriteLine("/////Get Members");
-foreach (Member m in MemberRepo.ReadMemberList())
+if (MemberRepo.ReadMemberList() != null)
 {
-    Console.WriteLine(m);
+    foreach (Member m in MemberRepo.ReadMemberList()!)
+    {
+        Console.WriteLine(m);
+    }
 }
 
 Console.WriteLine("\n\n\n\n\n");
@@ -111,3 +148,4 @@ eventRepo.CreateEvent(new("3", "3"));
 eventRepo.JoinEvent(0, meber3);
 
 Console.WriteLine(eventRepo.ToString());
+#endregion
