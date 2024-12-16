@@ -62,7 +62,7 @@ namespace BoatConsole1
             return PhoneNumbers[random.Next(PhoneNumbers.Count())];
         }
         public static (double Price, string Type, string Model, string Name, int RegNumber, int HorsePower,
-                       int Knots, double Height, double Length, double Width, bool IsOperational, string Log) FullBoat()
+                       int Knots, double Height, double Length, double Width, bool isRented, string Log) FullBoat()
         {
             Random random = new();
 
@@ -77,7 +77,7 @@ namespace BoatConsole1
                 Height: Height[random.Next(Height.Count())],
                 Length: Length[random.Next(Length.Count())],
                 Width: Width[random.Next(Width.Count())],
-                IsOperational: false, // Example fixed value
+                isRented: false, //fixed value
                 Log: Log[random.Next(Log.Count())]
             );
         }
