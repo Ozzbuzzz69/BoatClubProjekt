@@ -1,4 +1,5 @@
 ﻿using BoatClubLibrary;
+using BoatClubLibrary.MemberData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace BoatConsole1
 {
     public static class Randotron
     {
-        public static string? Generate(string command)
+        public static string Generate(string command)
         {
             command = command.ToLower();
             switch (command) 
@@ -22,7 +23,7 @@ namespace BoatConsole1
                 case "email": return GenerateEmail();
                 case "phone number": return GeneratePhoneNumber();
 
-                default: return null;
+                default: return string.Empty;
             }
         }
         private static string GenerateName() 
@@ -60,39 +61,42 @@ namespace BoatConsole1
             Random random = new();
             return PhoneNumbers[random.Next(PhoneNumbers.Count())];
         }
-        public static List<object> FullBoat() 
+        public static (double Price, string Type, string Model, string Name, int RegNumber, int HorsePower,
+                       int Knots, double Height, double Length, double Width, bool IsOperational, string Log) FullBoat()
         {
-            List<object> boat= new();
             Random random = new();
-            boat.Add(Price[random.Next(Price.Count())]);
-            boat.Add(Type[random.Next(Type.Count())]);
-            boat.Add(Model[random.Next(Model.Count())]);
-            boat.Add(GenerateBoat());
-            boat.Add(RegNumber[random.Next(RegNumber.Count())]);
-            boat.Add(HorsePower[random.Next(HorsePower.Count())]);
-            boat.Add(Knots[random.Next(Knots.Count())]);
-            boat.Add(Height[random.Next(Height.Count())]);
-            boat.Add(Length[random.Next(Length.Count())]);
-            boat.Add(Width[random.Next(Width.Count())]);
-            boat.Add(false);
-            boat.Add(Log[random.Next(Log.Count())]);
-            
-            return boat; 
-        }
-        public static List<object> FullMember()
-        {
-            List<object> member = new();
-            Random random = new();
-            member.Add(Generate("person"));
-            member.Add(Generate("address"));
-            member.Add(Generate("email"));
-            member.Add(Generate("phone number"));
-            member.Add(1);
-            member.Add(Generate("birthday"));
-            member.Add(false);
-            return member;
 
+            return (
+                Price: Price[random.Next(Price.Count())],
+                Type: Type[random.Next(Type.Count())],
+                Model: Model[random.Next(Model.Count())],
+                Name: GenerateBoat(),
+                RegNumber: RegNumber[random.Next(RegNumber.Count())],
+                HorsePower: HorsePower[random.Next(HorsePower.Count())],
+                Knots: Knots[random.Next(Knots.Count())],
+                Height: Height[random.Next(Height.Count())],
+                Length: Length[random.Next(Length.Count())],
+                Width: Width[random.Next(Width.Count())],
+                IsOperational: false, // Example fixed value
+                Log: Log[random.Next(Log.Count())]
+            );
         }
+
+        public static (string Name, string Address, string Email, string PhoneNumber, MembershipType MembershipType, string Birthday, bool IsRenting) FullMember()
+        {
+            Random random = new();
+
+            return (
+                Name: Generate("person"),
+                Address: Generate("address"),
+                Email: Generate("email"),
+                PhoneNumber: Generate("phone number"),
+                MembershipType: 0,
+                Birthday: Generate("birthday"),
+                IsRenting: false // Default inactive status
+            )!;
+        }
+
 
         #region Storage
         private static List<string> Names = ["Steve", "Jeff", "Mikkel", "Henrik", "Jesper", "Carl", "Jessica", "Caroline", "Bella"];
