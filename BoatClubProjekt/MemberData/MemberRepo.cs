@@ -18,9 +18,17 @@ namespace BoatClubLibrary.MemberData
         /// Adds a member to Dictionary if the Dictionary does not already contain a member with same Id.
         /// </summary>
         /// <param name="member"></param>
-        public static void CreateMember(Member member)
+        /// <returns>
+        /// Returns true if member is added to MemberList, and false if member is not added.
+        /// </returns>
+        public static bool CreateMember(Member member)
         {
-            MemberList.TryAdd(member.Id, member);
+            if (member != null)
+            {
+                MemberList.TryAdd(member.Id, member);
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
