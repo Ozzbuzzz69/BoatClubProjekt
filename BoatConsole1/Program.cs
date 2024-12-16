@@ -60,7 +60,6 @@ Console.WriteLine(blog.ReadPost(1));
 
 Console.WriteLine("\n\n");
 Console.WriteLine("////////Update Post:");
-blog.UpdatePost(3, new Post("1 million beer"));
 
 Console.WriteLine("\n\n");
 Console.WriteLine("////////Delete Post:");
@@ -149,3 +148,4 @@ eventRepo.JoinEvent(0, meber3);
 
 Console.WriteLine(eventRepo.ToString());
 #endregion
+

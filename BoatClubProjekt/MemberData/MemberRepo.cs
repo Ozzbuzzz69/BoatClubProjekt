@@ -71,13 +71,20 @@ namespace BoatClubLibrary.MemberData
         /// <returns>
         /// Returns the updated member
         /// </returns>
-        public static Member UpdateMember(int memberId, Member member)
+        public static Member UpdateMember(int memberId, string name, string address, string email, string phoneNumber, MembershipType membershipType,
+            string birthday, bool isRenting)
         {
             if (ReadMember(memberId) != null)
             {
-                MemberList[memberId] = member;
+                MemberList[memberId].Name = name;
+                MemberList[memberId].Address = address;
+                MemberList[memberId].Email = email;
+                MemberList[memberId].PhoneNumber = phoneNumber;
+                MemberList[memberId].MembershipType = membershipType;
+                MemberList[memberId].Birthday = birthday;
+                MemberList[memberId].IsRenting = isRenting;
             }
-            return member;
+            return MemberList[memberId];
         }
 
         /// <summary>

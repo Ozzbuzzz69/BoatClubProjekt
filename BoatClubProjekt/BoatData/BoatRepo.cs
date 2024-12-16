@@ -60,11 +60,23 @@ namespace BoatClubLibrary.BoatData
         /// <returns>
         /// Returns true if updated, if not updated or Boat is null it returns false.
         /// </returns>
-        public static bool UpdateBoat(int boatId, Boat boat)
+        public static bool UpdateBoat(int boatId, double rentalPrice, string type, string model, string name, int regNumber, int horsePower, int knots,
+            double height, double length, double width, bool isRented, string log)
         {
             if (ReadBoat(boatId) != null)
             {
-                Boats[boatId] = boat;
+                Boats[boatId].RentalPrice = rentalPrice;
+                Boats[boatId].Type = type;
+                Boats[boatId].Model = model;
+                Boats[boatId].Name = name;
+                Boats[boatId].RegNumber = regNumber;
+                Boats[boatId].HorsePower = horsePower;
+                Boats[boatId].Knots = knots;
+                Boats[boatId].Height = height;
+                Boats[boatId].Length = length;
+                Boats[boatId].Width = width;
+                Boats[boatId].IsRented = isRented;
+                Boats[boatId].Log = log;
                 return true;
             }
             return false;

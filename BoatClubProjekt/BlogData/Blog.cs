@@ -54,11 +54,11 @@ namespace BoatClubLibrary.BlogData
         /// <returns>
         /// Returns true if Post is updated, if Post is not updated it returns false.
         /// </returns>
-        public bool UpdatePost(int id, Post post)
+        public bool UpdatePost(int id, string description)
         {
             if (Posts.ContainsKey(id))
             {
-                Posts[id] = post;
+                Posts[id].Description = description;
                 return true;
             }
             return false;

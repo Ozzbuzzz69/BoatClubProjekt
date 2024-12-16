@@ -67,11 +67,12 @@ namespace BoatClubLibrary.Bookingdata
         /// <returns>
         /// If booking is updated it returns true, if there is no booking with bookingid, and therfore nothing updated, it returns false.
         /// </returns>
-        public static bool UpdateBooking(int bookingid, Booking booking)
+        public static bool UpdateBooking(int bookingId, int memberId, int boatId)
         {
-            if (ReadBooking(bookingid) != null)
+            if (ReadBooking(bookingId) != null)
             {
-                Bookings[bookingid] = booking;
+                Bookings[bookingId].MemberId = memberId;
+                Bookings[bookingId].BoatId = boatId;
                 return true;
             }
             return false;

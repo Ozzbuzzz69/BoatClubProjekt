@@ -1,12 +1,16 @@
-﻿using BoatClubLibrary.BoatData;
+﻿using BoatClubLibrary.BlogData;
+using BoatClubLibrary.BoatData;
 using BoatClubLibrary.EventData;
 using BoatClubLibrary.MemberData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace BoatClubLibrary.AdminData
 {
@@ -35,9 +39,11 @@ namespace BoatClubLibrary.AdminData
         {
             return BoatRepo.ReadBoat(id);
         }
-        public bool UpdateBoat(int id, Boat boat)
+        public bool UpdateBoat(int id, double rentalPrice, string type, string model, string name, int regNumber, int horsePower, int knots,
+            double height, double length, double width, bool isRented, string log)
         {
-            return BoatRepo.UpdateBoat(id, boat);
+            return BoatRepo.UpdateBoat(id, rentalPrice, type, model, name, regNumber, horsePower, knots,
+            height, length, width, isRented, log);
         }
 
         public bool DeleteBoat(int id)
@@ -75,9 +81,11 @@ namespace BoatClubLibrary.AdminData
         { 
             return MemberRepo.ReadMemberList(); 
         }
-        public Member UpdateMember(int memberId, Member member) 
+        public Member UpdateMember(int memberId, string name, string address, string email, string phoneNumber, MembershipType membershipType,
+            string birthday, bool isRenting) 
         { 
-            return  MemberRepo.UpdateMember(memberId, member); 
+            return  MemberRepo.UpdateMember(memberId, name, address, email, phoneNumber, membershipType,
+            birthday, isRenting); 
         }
         public bool DeleteMember(int memberId) 
         { 
