@@ -79,6 +79,20 @@ namespace BoatConsole1
             
             return boat; 
         }
+        public static List<object> FullMember()
+        {
+            List<object> member = new();
+            Random random = new();
+            member.Add(Generate("person"));
+            member.Add(Generate("address"));
+            member.Add(Generate("email"));
+            member.Add(Generate("phone number"));
+            member.Add(1);
+            member.Add(Generate("birthday"));
+            member.Add(false);
+            return member;
+
+        }
 
         #region Storage
         private static List<string> Names = ["Steve", "Jeff", "Mikkel", "Henrik", "Jesper", "Carl", "Jessica", "Caroline", "Bella"];
