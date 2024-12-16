@@ -70,7 +70,7 @@ namespace BoatClubLibrary.MemberData
         /// <returns>
         /// Returns a list of the members who is currently renting boats.
         /// </returns>
-        public List<Member>? ViewCurrentSailors()
+        public List<Member> ViewCurrentSailors()
         {
             List<Member> Sailors = new();
             if (MemberRepo.ReadMemberList() != null)
