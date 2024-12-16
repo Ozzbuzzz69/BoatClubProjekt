@@ -53,18 +53,6 @@ namespace BoatClubLibrary.MemberData
             }
             return null;
         }
-                
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="member"></param>
-        public static void UpdateForRazor(Member member)
-        {
-            if (ReadMember(member.Id) != null)
-            {
-                MemberList[member.Id] = member;
-            }
-        }
 
         /// <summary>
         /// Checks if the ReadMember method returned a value from the given id key, if so update the value in the given key
@@ -109,15 +97,5 @@ namespace BoatClubLibrary.MemberData
             }
         }
 
-        /// <summary>
-        /// get members from the MemberList
-        /// </summary>
-        /// <returns>
-        /// Returns a list of the members values
-        /// </returns>
-        public static List<Member> GetMembers()
-        {
-            return MemberList.Values.ToList();
-        }
     }
 }
