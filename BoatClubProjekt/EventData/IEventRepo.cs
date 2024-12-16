@@ -9,10 +9,11 @@ namespace BoatClubLibrary.EventData
 {
     internal interface IEventRepo
     {
-        public Event? ReadEvent(int id);
-        public bool CreateEvent(Event e);
-        public bool UpdateEvent(int id, string eventDate, string eventDescription);
-        public bool DeleteEvent(int id);
-        public bool JoinEvent(int eventId, Member member);
+        Event? ReadEvent(int id);
+        bool CreateEvent(Event e);
+        bool UpdateEvent(int id, string eventDate, string eventDescription);
+        bool DeleteEvent(int id);
+        bool JoinEvent(int eventId, Member member);
+        bool LeaveEvent(int eventId, Member member);
     }
 }
