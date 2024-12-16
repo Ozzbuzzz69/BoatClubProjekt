@@ -77,36 +77,6 @@ namespace BoatClubLibrary.Bookingdata
             return false;
         }
 
-        public static bool UpdateBookingAttribute(int id, string attribute, object newValue)
-        {
-            //check if booking exists
-            if (ReadBooking(id) is Booking booking)
-            {
-                //set the property we are looking for
-                var property = booking.GetType().GetProperty(attribute);
-
-                //check not null
-                if (property == null) { return false; }
-                //check it can be written, so it can be changed
-                if (!property.CanWrite) { return false; }
-
-                try
-                {
-                    //set newValue to the type we looked for
-                    var newValueType = Convert.ChangeType(newValue, property.PropertyType);
-                    //set the value of newValue
-                    property.SetValue(booking, newValueType);
-
-                    //Use the newValue to make a new booking
-                    UpdateBooking(id, booking);
-                    return true;
-                }
-                //catch in case of something wrong
-                catch { return false; }
-            }
-            return false;
-        }
-
         /// <summary>
         /// Checks if the ReadBooking method returned a value from the given id key, if so remove the id and value from 
         /// dictionary Bookings.
