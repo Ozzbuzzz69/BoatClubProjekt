@@ -138,7 +138,7 @@ namespace BoatClubLibrary.BoatData
 
             foreach (Boat boat in Boats.Values)
             {
-                if (boat.Type == type)
+                if (boat.Type.ToLower() == type.ToLower())
                 {
                     MatchingBoats.Add(boat);
                 }
