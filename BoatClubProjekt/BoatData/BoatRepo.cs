@@ -123,5 +123,33 @@ namespace BoatClubLibrary.BoatData
                 ReadBoat(id)!.IsRented = false;
             }
         }
+
+        public static List<Boat> SearchBoat(string type)
+        {
+            List<Boat> MatchingBoats = new List<Boat>();
+
+            foreach (Boat boat in Boats.Values)
+            {
+                if (boat.Type == type)
+                {
+                    MatchingBoats.Add(boat);
+                }
+            }
+            return MatchingBoats;
+        }
+
+        public static List<Boat> SearchBoat(bool isRented)
+        {
+            List<Boat> MatchingBoats = new List<Boat>();
+
+            foreach (Boat boat in Boats.Values)
+            {
+                if (boat.IsRented == isRented)
+                {
+                    MatchingBoats.Add(boat);
+                }
+            }
+            return MatchingBoats;
+        }
     }
 }
