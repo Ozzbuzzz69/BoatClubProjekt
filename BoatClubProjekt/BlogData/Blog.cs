@@ -12,7 +12,7 @@ namespace BoatClubLibrary.BlogData
         public Dictionary<int, Post> Posts {  get; set; } = new Dictionary<int, Post>();
 
         /// <summary>
-        /// Creates a new post, and checks if post i added to dictionary Posts through Id.
+        /// Creates a new post, and checks if post is added to dictionary Posts through Id.
         /// </summary>
         /// <param name="post"></param>
         /// <returns>
@@ -47,7 +47,7 @@ namespace BoatClubLibrary.BlogData
 
         /// <summary>
         /// Checks if dictionary Posts contains the given key id, if so the current value from that key is getting updated,
-        /// by setting the current value = the new values.
+        /// by setting the current value = the new value.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="post"></param>
@@ -65,7 +65,7 @@ namespace BoatClubLibrary.BlogData
         }
 
         /// <summary>
-        /// Checks if dictionary Posts contains the given key id, if so remove the id from dictionary.
+        /// Checks if dictionary Posts contains the given key id, if so it removes the id from dictionary.
         /// </summary>
         /// <param name="id"></param>
         /// <returns>
