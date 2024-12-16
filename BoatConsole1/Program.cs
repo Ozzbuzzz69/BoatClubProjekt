@@ -84,7 +84,7 @@ Console.WriteLine("-----------------Test af Booking-----------------");
 
 
 
-MemberRepo.UpdateMember(2, new("Test", "osanc", "Test", "Test", MembershipType.Junior, "Test", true));
+
 
 
 
@@ -99,7 +99,7 @@ Member meber3 = new Member("Test3", "Test3", "Test3", "Test3", MembershipType.Fa
 
 
 Console.WriteLine("/////Get Members");
-foreach (Member m in MemberRepo.GetMembers())
+foreach (Member m in MemberRepo.ReadMemberList())
 {
     Console.WriteLine(m);
 }
