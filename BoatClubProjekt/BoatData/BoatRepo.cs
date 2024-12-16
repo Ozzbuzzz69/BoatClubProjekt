@@ -124,6 +124,14 @@ namespace BoatClubLibrary.BoatData
             }
         }
 
+
+        /// <summary>
+        /// Searches after boats with the same type as argument.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns>
+        /// Returns a list of all matching boats.
+        /// </returns>
         public static List<Boat> SearchBoat(string type)
         {
             List<Boat> MatchingBoats = new List<Boat>();
@@ -138,6 +146,14 @@ namespace BoatClubLibrary.BoatData
             return MatchingBoats;
         }
 
+
+        /// <summary>
+        /// Searches after boats with the same bool as argument.
+        /// </summary>
+        /// <param name="isRented"></param>
+        /// <returns>
+        /// Returns a list of all matching boats.
+        /// </returns>
         public static List<Boat> SearchBoat(bool isRented)
         {
             List<Boat> MatchingBoats = new List<Boat>();
