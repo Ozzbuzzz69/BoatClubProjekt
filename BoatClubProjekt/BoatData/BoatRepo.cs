@@ -182,13 +182,17 @@ namespace BoatClubLibrary.BoatData
 
         public static Boat DeleteBoatRazor(int boatId)
         {
-            Boat boatToBeDeleted = null;
+            Boat boatsToBeDeleted = null!;
             if (Boats.ContainsKey(boatId))
             {
-                boatToBeDeleted = boatId;
+                boatsToBeDeleted = Boats[boatId];
             }
-            
+            if (boatsToBeDeleted != null)
+            {
+                Boats.Values.ToList().Remove(boatsToBeDeleted);
+            }
+            return boatsToBeDeleted;
         }
-        
+       
     }
 }
