@@ -216,7 +216,5 @@ Console.WriteLine("----------------Test af EventRepo------------------");
 
 eventRepo.CreateEvent(new("3", "3"));
 eventRepo.JoinEvent(0, meber3);
-
-Console.WriteLine(eventRepo.ToString());
 #endregion
 

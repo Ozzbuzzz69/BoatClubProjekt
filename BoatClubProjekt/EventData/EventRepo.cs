@@ -136,19 +136,5 @@ namespace BoatClubLibrary.EventData
             Events[eventId].JoinedMembers.Remove(member);
             return true;
         }
-
-        public override string ToString()
-        {
-            string message = "Current events: ";
-            foreach (KeyValuePair<int, Event> e in Events) 
-            { 
-                message += e.Value.ToString() + ", "; 
-            }
-            if (message.Length < 20) 
-            { 
-                return "No events available"; 
-            }
-            return message;
-        }
     }
 }
