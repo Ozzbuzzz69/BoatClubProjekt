@@ -20,7 +20,7 @@ namespace BoatClubLibrary.EventData
         /// <returns>
         /// Returns true if Event is added to Events, and returns false if e is null or not added.
         /// </returns>
-        public  bool CreateEvent(Event e)
+        public bool CreateEvent(Event e)
         {
             if (e != null)
             {
