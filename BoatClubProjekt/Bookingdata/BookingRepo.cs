@@ -47,6 +47,7 @@ namespace BoatClubLibrary.Bookingdata
             return null;
         }
 
+
         /// <summary>
         /// Reads all the bookings from Bookings.
         /// </summary>
@@ -57,6 +58,7 @@ namespace BoatClubLibrary.Bookingdata
         {
             return Bookings.Values.ToList();
         }
+
 
         /// <summary>
         /// Checks if the ReadBooking method returned a value from the given id key, if so update the value in the given key
@@ -96,6 +98,5 @@ namespace BoatClubLibrary.Bookingdata
             }
             return false;
         }
-
     }
 }

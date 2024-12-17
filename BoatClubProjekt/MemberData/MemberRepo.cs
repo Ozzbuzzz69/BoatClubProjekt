@@ -69,9 +69,9 @@ namespace BoatClubLibrary.MemberData
         /// <param name="memberId"></param>
         /// <param name="member"></param>
         /// <returns>
-        /// Returns the updated member
+        /// Returns true if member is updated, and false if member is not.
         /// </returns>
-        public static Member UpdateMember(int memberId, string name, string address, string email, string phoneNumber, MembershipType membershipType,
+        public static bool UpdateMember(int memberId, string name, string address, string email, string phoneNumber, MembershipType membershipType,
             string birthday, bool isRenting)
         {
             if (ReadMember(memberId) != null)
@@ -83,8 +83,9 @@ namespace BoatClubLibrary.MemberData
                 MemberList[memberId].MembershipType = membershipType;
                 MemberList[memberId].Birthday = birthday;
                 MemberList[memberId].IsRenting = isRenting;
+                return true;
             }
-            return MemberList[memberId];
+            return false;
         }
 
         /// <summary>
@@ -104,13 +105,5 @@ namespace BoatClubLibrary.MemberData
             }
             return false;
         }
-        public static void DeteleForRazor(Member member)
-        {
-            if (ReadMember(member.Id) != null)
-            {
-                MemberList.Remove(member.Id);
-            }
-        }
-
     }
 }

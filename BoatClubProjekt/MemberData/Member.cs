@@ -63,6 +63,29 @@ namespace BoatClubLibrary.MemberData
             return false;
         }
 
+
+        /// <summary>
+        /// checks if a member is renting a boat via Id. 
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns>
+        /// Returns the given member if the member is renting a boat and out sailing. if the members property is 
+        /// false then it returns null
+        /// </returns>
+        public Member? ViewCurrentSailor(int Id)
+        {
+            if (MemberRepo.ReadMemberList() != null)
+            {
+                foreach (var Member in MemberRepo.ReadMemberList()!)
+                {
+                    if (Member.IsRenting && Member.Id == Id) return Member;
+                }
+            }
+            return null;
+        }
+
+
+
         /// <summary>
         /// Checks which members who has the property Isrenting true in the MemberRepo. If the property is true
         /// the members are added as sailors to the list. 
@@ -81,26 +104,6 @@ namespace BoatClubLibrary.MemberData
                 }
             }
             return Sailors;
-        }
-
-        /// <summary>
-        /// checks if a member is renting a boat via Id. 
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns>
-        /// Returns the given member if the member is renting a boat and out sailing. if the members property is 
-        /// false then it returns null
-        /// </returns>
-        public Member? ViewCurrentSailor(int Id)
-        {
-            if (MemberRepo.ReadMemberList() != null)
-            {
-                foreach (var Member in MemberRepo.ReadMemberList()!)
-                {
-                    if (Member.IsRenting && Member.Id==Id) return Member;
-                }
-            }
-            return null;
         }
 
 
