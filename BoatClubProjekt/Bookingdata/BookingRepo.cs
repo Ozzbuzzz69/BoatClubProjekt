@@ -47,6 +47,19 @@ namespace BoatClubLibrary.Bookingdata
             return null;
         }
 
+
+        /// <summary>
+        /// Reads all the bookings from Bookings.
+        /// </summary>
+        /// <returns>
+        /// Returns a list of Booking values.
+        /// </returns>
+        public static List<Booking> ReadAllBookings()
+        {
+            return Bookings.Values.ToList();
+        }
+
+
         /// <summary>
         /// Checks if the ReadBooking method returned a value from the given id key, if so update the value in the given key
         /// to a new value.
@@ -84,18 +97,6 @@ namespace BoatClubLibrary.Bookingdata
                 return true;
             }
             return false;
-        }
-
-
-        /// <summary>
-        /// Reads all the bookings from Bookings.
-        /// </summary>
-        /// <returns>
-        /// Returns a list of Booking values.
-        /// </returns>
-        public static List<Booking> ReadAllBookings()
-        {
-            return Bookings.Values.ToList();
         }
     }
 }
