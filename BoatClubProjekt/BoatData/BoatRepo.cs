@@ -180,6 +180,15 @@ namespace BoatClubLibrary.BoatData
             return MatchingBoats;
         }
 
+        public static Boat DeleteBoatRazor(int boatId)
+        {
+            Boat boatToBeDeleted = null;
+            if (Boats.ContainsKey(boatId))
+            {
+                boatToBeDeleted = boatId;
+            }
+            
+        }
         
     }
 }

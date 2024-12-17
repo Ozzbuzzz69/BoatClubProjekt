@@ -1,0 +1,12 @@
+﻿@page
+@model BoatClubWebsite1.Pages.Boat.DeleteBoatModel
+@{
+}
+<h1>Delete Confermation</h1>
+<div class="alert alert-danger">
+    <h5>Are you sure you want to delete Boat - @Model.Boat.Name</h5>
+    <form method="post">
+        <button type="submit" class="btn btn-danger">Yes</button>
+        <a class="btn btn-primary" asp-page="/Boat/GetAllBoats">No</a>
+    </form>
+</div>
