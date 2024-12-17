@@ -1,0 +1,69 @@
+﻿@page
+@model BoatClubWebsite1.Pages.Boat.CreateBoatModel
+@{
+}
+<h1>Create Boat</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Boat.RentalPrice" class="control-label"></label>
+        <input asp-for="Boat.RentalPrice" class="form-control" />
+        <span asp-validation-for="Boat.RentalPrice" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Boat.Type" class="control-label"></label>
+        <input asp-for="Boat.Type" class="form-control" />
+        <span asp-validation-for="Boat.Type" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Boat.Model" class="control-label"></label>
+        <input asp-for="Boat.Model" class="form-control" />
+        <span asp-validation-for="Boat.Model" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Boat.Name" class="control-label"></label>
+        <input asp-for="Boat.Name" class="form-control" />
+        <span asp-validation-for="Boat.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Boat.RegNumber" class="control-label"></label>
+        <input asp-for="Boat.RegNumber" class="form-control" />
+        <span asp-validation-for="Boat.RegNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Boat.HorsePower" class="control-label"></label>
+        <input asp-for="Boat.HorsePower" class="form-control" />
+        <span asp-validation-for="Boat.HorsePower" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Boat.Knots" class="control-label"></label>
+        <input asp-for="Boat.Knots" class="form-control" />
+        <span asp-validation-for="Boat.Knots" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Boat.Height" class="control-label"></label>
+        <input asp-for="Boat.Height" class="form-control" />
+        <span asp-validation-for="Boat.Height" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Boat.Length" class="control-label"></label>
+        <input asp-for="Boat.Length" class="form-control" />
+        <span asp-validation-for="Boat.Length" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Boat.Width" class="control-label"></label>
+        <input asp-for="Boat.Width" class="form-control" />
+        <span asp-validation-for="Boat.Width" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Boat.Log" class="control-label"></label>
+        <input asp-for="Boat.Log" class="form-control" />
+        <span asp-validation-for="Boat.Log" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <input value="Create new item" type="submit" class="btn btn-primary"><a asp-page="CreateItem"></a>
+    </div>
+
+</form>

@@ -81,12 +81,12 @@ namespace BoatClubLibrary.AdminData
         { 
             return MemberRepo.ReadMemberList(); 
         }
-        public Member UpdateMember(int memberId, string name, string address, string email, string phoneNumber, MembershipType membershipType,
-            string birthday, bool isRenting) 
-        { 
-            return  MemberRepo.UpdateMember(memberId, name, address, email, phoneNumber, membershipType,
-            birthday, isRenting); 
-        }
+        //public Member UpdateMember(int memberId, string name, string address, string email, string phoneNumber, MembershipType membershipType,
+        //    string birthday, bool isRenting) 
+        //{ 
+        //    return  MemberRepo.UpdateMember(memberId, name, address, email, phoneNumber, membershipType,
+        //    birthday, isRenting); 
+        //}
         public bool DeleteMember(int memberId) 
         { 
             return MemberRepo.DeleteMember(memberId); 

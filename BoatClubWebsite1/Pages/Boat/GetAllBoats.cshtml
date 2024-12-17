@@ -1,0 +1,121 @@
+﻿@page
+@model BoatClubWebsite1.Pages.Boat.GetAllBoatsModel
+@{
+}
+<h1>Boats</h1>
+
+<table class="table table-bordered table-hover tabel-striped">
+    <thread>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                RentalPrice
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Model
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                RegNumber
+            </th>
+            <th>
+                HorsePower
+            </th>
+            <th>
+                Knots
+            </th>
+            <th>
+                Height
+            </th>
+            <th>
+                Length
+            </th>
+            <th>
+                Width
+            </th>
+            <th>
+                IsRented
+            </th>
+            <th>
+                Log
+            </th>
+        </tr>
+    </thread>
+
+    <tbody>
+        @if (Model.Boats != null)
+        {
+            foreach (var boat in Model.Boats)
+            {
+                <tr>
+                    <td>
+                        @boat.Id
+                    </td>
+
+                    <td>
+                        @boat.RentalPrice
+                    </td>
+                    <td>
+                        @boat.Type
+                    </td>
+                    <td>
+                        @boat.Model
+                    </td>
+
+                    <td>
+                        @boat.Name
+                    </td>
+                    <td>
+                        @boat.RegNumber
+                    </td>
+                    <td>
+                        @boat.HorsePower
+                    </td>
+
+                    <td>
+                        @boat.Knots
+                    </td>
+                    <td>
+                        @boat.Height
+                    </td>
+                    <td>
+                        @boat.Length
+                    </td>
+
+                    <td>
+                        @boat.Width
+                    </td>
+                    <td>
+                        @boat.IsRented
+                    </td>
+                    <td>
+                        @boat.Log
+                    </td>
+
+
+
+
+                    @* <td>
+                        <a title="Eidt" class="btn btn-primary btn-sm" type="button" asp-page="EditItem" asp-route-id="@item.Id">Edit</a>
+                        <a class="btn btn-danger btn-sm" type="button" title="Delete" asp-page="DeleteItem" asp-route-id="@item.Id">Delete</a>
+                    </td> *@
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<div class="form-group">
+    <button type="button" class="btn btn-primary"><a class="link-dark" asp-page="CreateBoat">Create new boat</a></button>
+</div>
+
+<div>
+    <a asp-page="/Boat/GetAllBoats">Back to list</a>
+</div>

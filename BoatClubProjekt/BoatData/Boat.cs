@@ -23,6 +23,10 @@ namespace BoatClubLibrary.BoatData
         public string Log {  get; set; }
         private static int NextId = 1;
 
+        public Boat() 
+        {
+            Id = NextId++;
+        }
         public Boat(double rentalPrice, string type, string model, string name, int regNumber, int horsePower, int knots, 
             double height, double length, double width, bool isRented, string log)
         {
