@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BoatClubLibrary.EventData
 {
-    internal interface IEventRepo
+    public interface IEventRepo
     {
         bool CreateEvent(Event e);
         Event? ReadEvent(int id);
