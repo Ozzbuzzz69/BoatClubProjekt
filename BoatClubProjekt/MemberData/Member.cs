@@ -53,7 +53,7 @@ namespace BoatClubLibrary.MemberData
             Booking Booking = new Booking(Id, boatId);
             if (BookingRepo.CreateBooking(Booking) == true)
             {
-                if (Booking.ValidateBoat(boatId) && Booking.BoatRentable(boatId) && IsRenting == false)
+                if (Booking.ValidateBoat(boatId) == true && Booking.BoatRentable(boatId) == true && IsRenting == false)
                 {
                     Booking.RentBoat(boatId);
                     IsRenting = true;
