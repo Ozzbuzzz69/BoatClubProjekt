@@ -41,7 +41,7 @@ namespace BoatClubLibrary.MemberData
         #region Booking without event
 
         /// <summary>
-        /// Takes the parameter boatid to create a new booking, it also checks if the boat is valid and if
+        /// Takes the argument boatid to create a new booking, it also checks if the boat is valid and if
         /// the boat is rentable. It also checks if the member already did rent a boat via the property IsRenting.
         /// </summary>
         /// <param name="boatId"></param>
