@@ -12,7 +12,7 @@ using System.Xml.Linq;
 
 namespace BoatClubLibrary.BoatData
 {
-    public static class BoatRepo
+    public class BoatRepo
     {
         private static Dictionary<int, Boat> Boats = new Dictionary<int, Boat>();
 

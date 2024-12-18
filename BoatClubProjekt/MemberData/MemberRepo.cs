@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BoatClubLibrary.MemberData
 {
-    public static class MemberRepo
+    public  class MemberRepo
     {
         private static Dictionary<int, Member> MemberList = new Dictionary<int, Member>();
 
