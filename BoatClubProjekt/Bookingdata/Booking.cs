@@ -30,6 +30,7 @@ namespace BoatClubLibrary.Bookingdata
         /// </summary>
         /// <param name="boatId"></param>
         /// <returns>
+        /// Returns true if a boat exists, and false if it not exists.
         /// </returns>
         public bool ValidateBoat(int boatId)
         {
