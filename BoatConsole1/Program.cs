@@ -111,6 +111,7 @@ Console.WriteLine();
 
 #endregion
 
+/*
 #region Old Tests
 Blog blog = new Blog();
 EventRepo eventRepo = new EventRepo();
@@ -218,3 +219,5 @@ eventRepo.CreateEvent(new("3", "3"));
 eventRepo.JoinEvent(0, meber3);
 #endregion
 
+
+*/
