@@ -20,9 +20,10 @@ namespace BoatClubWebsite1.Pages.Boat
             return Page();
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPost(int id)
         {
-            BoatClubLibrary.BoatData.Boat deleteBoat = BoatRepo.DeleteBoatRazor(Boat.Id);
+            //Boat = BoatRepo.ReadBoat(id);
+            BoatClubLibrary.BoatData.Boat deleteBoat = BoatRepo.DeleteBoatRazor(id);
             if (deleteBoat == null)
             {
                 return RedirectToPage("/NotFound");
