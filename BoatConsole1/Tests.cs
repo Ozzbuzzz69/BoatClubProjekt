@@ -20,8 +20,15 @@ namespace BoatConsole1
         {
             // Runs the test
             Console.WriteLine($"Running test: {testname}...");
+
+            // Sets a variable so the test result can be used twice and not accidentally changed
             bool status = test;
+
+            // Does runs the test itself, to see if it was successful or not
             SuccessTest(status);
+
+            // Compares the result of the test to the result you were expecting,
+            // to tell if we got the result we were looking for
             PrintTest(status, result);
         }
         public static bool SuccessTest(bool test)
@@ -69,7 +76,6 @@ namespace BoatConsole1
 			// Compare with initial number of members
 			Console.WriteLine($"New number of members is {MemberRepo.ReadMemberList()!.Count}");
 			return membernumber + 1 == MemberRepo.ReadMemberList()!.Count;
-
         }
         public static bool Test1B()
         {
