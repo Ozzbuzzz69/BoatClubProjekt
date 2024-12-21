@@ -71,7 +71,6 @@ namespace BoatConsole1
 			return membernumber + 1 == MemberRepo.ReadMemberList()!.Count;
 
         }
-
         public static bool Test1B()
         {
 			Console.WriteLine("Running test 1B\n");
@@ -101,6 +100,7 @@ namespace BoatConsole1
                 birthday: memberTuple.Birthday,
                 isRenting: memberTuple.IsRenting);
             // Add the member to the repo
+            Console.WriteLine("Adding member to repo");
             MemberRepo.CreateMember(member);
 
 			// Create an admin
@@ -110,11 +110,13 @@ namespace BoatConsole1
                 Randotron.Generate("address"),
                 Randotron.Generate("email"),
                 Randotron.Generate("phone number")
-            ); 
+            );
             // Use admin to delete the member
+            Console.WriteLine("Use admin to delete the member");
             admin.DeleteMember(member.Id);
 
             // Compare with initial number of members
+            Console.WriteLine($"New number of members is {MemberRepo.ReadMemberList()!.Count}");
             return membernumber == MemberRepo.ReadMemberList()!.Count;
         }
         public static bool Test2B()
@@ -158,12 +160,15 @@ namespace BoatConsole1
                 log: boatTuple.Log);
 
             // Admin creates the boat (assuming CreateBoat is a method)
+            Console.WriteLine("Admin adds boat to repo");
             admin.CreateBoat(boat);
 
             // Verify the number of boats has increased
             int newBoatNumber = BoatRepo.ReadAllBoats().Count();
+            Console.WriteLine($"Repo has {boatnumber} boats");
 
             // Return true if the boat was added successfully
+            Console.WriteLine("Check if boat amount increased...");
             return newBoatNumber == boatnumber + 1;
         }
         public static bool Test3B()
@@ -195,9 +200,11 @@ namespace BoatConsole1
                 isRented: boatTuple.isRented,
                 log: boatTuple.Log);
             // Add it to the repo
+            Console.WriteLine("Adding boat to repo");
             BoatRepo.CreateBoat(boat);
 
             // Returns true if the SearchBoat method can find a boat with the "tester" type
+            Console.WriteLine("Check if boat has the new name...");
             return BoatRepo.SearchBoat("tester").Count() > 0;
         }
         public static bool Test4B()
@@ -213,17 +220,23 @@ namespace BoatConsole1
 			// As admin has no function for it, we test if the repo can do it. Admin would automatically fail.
 
 			// We create an event repo
+            Console.WriteLine("Create an event repo");
 			EventRepo eventRepo = new();
 
             // We make an event to put in the repo
+            Console.WriteLine("Generate an event");
             Event e = new(Randotron.Generate("birthday"), Randotron.Generate("description"));
-            
+
             // We check if the event can be added to repo
+            Console.WriteLine("Check if event can be added to repo");
             if (eventRepo.CreateEvent(e))
             {
+                Console.WriteLine("Adding event to repo");
+                Console.WriteLine("Check if event can be updated in repo");
                 //We check if the event can be updated
                 if (eventRepo.UpdateEvent(e.Id, Randotron.Generate("birthday"), Randotron.Generate("description")))
                 {
+                    Console.WriteLine("Updating event...");
                     return true;
                 }
             }
@@ -256,6 +269,7 @@ namespace BoatConsole1
                 birthday: memberTuple.Birthday,
                 isRenting: memberTuple.IsRenting);
             // Add the member to the repo
+            Console.WriteLine("Adding member to repo");
             MemberRepo.CreateMember(member);
 
 			// Create an admin
@@ -275,6 +289,7 @@ namespace BoatConsole1
             if (admin.ReadMemberList() == null) { return false; }
 
             // Use admin's Read function and see if it gives the same number of memebers as MemberRepo's read function
+            Console.WriteLine($"Use admin to get number of members: {admin.ReadMemberList()!.Count}");
             return admin.ReadMemberList()!.Count == membernumber;
         }
         public static bool Test6B()
@@ -284,7 +299,7 @@ namespace BoatConsole1
 			return false;
             // There is no function for it to test, so it can only fail.
         }
-        public static bool Test7A() //skal laves rigtigt
+        public static bool Test7A()
         {
 			Console.WriteLine("Running test 7A\n");
 			// Since member has no function for it, we instead test the MemberRepo
@@ -301,9 +316,11 @@ namespace BoatConsole1
                 birthday: memberTuple.Birthday,
                 isRenting: memberTuple.IsRenting);
             // Add the member to the repo
+            Console.WriteLine("Adding member to repo");
             MemberRepo.CreateMember(member);
 
             // Update to give it a new name
+            Console.WriteLine("Updating member name...");
             MemberRepo.UpdateMember(member.Id, 
                 name: "Tester",
                 address: memberTuple.Address,
@@ -314,6 +331,7 @@ namespace BoatConsole1
                 isRenting: memberTuple.IsRenting);
 
             // Check if the member has the new name
+            Console.WriteLine("Check if member has a new name...");
             return member.Name == "Tester";
         }
         public static bool Test7B()
@@ -338,6 +356,7 @@ namespace BoatConsole1
                 birthday: memberTuple.Birthday,
                 isRenting: memberTuple.IsRenting);
             // Add the member to the repo
+            Console.WriteLine("Adding member to repo");
             MemberRepo.CreateMember(member);
 
 			// Generate a full boat using the tuple from Randotron
@@ -357,9 +376,11 @@ namespace BoatConsole1
                 isRented: boatTuple.isRented,
                 log: boatTuple.Log);
             // Add it to the repo
+            Console.WriteLine("Adding boat to repo");
             BoatRepo.CreateBoat(boat);
 
             // Check if member's BookBoat method gives a valid output
+            Console.WriteLine("Check if member can book a boat...");
             return member.BookBoat(boat.Id);
         }
         public static bool Test8B()
@@ -386,6 +407,7 @@ namespace BoatConsole1
                 birthday: memberTuple2.Birthday,
                 isRenting: memberTuple2.IsRenting);
             // Add the members to the repo
+            Console.WriteLine("Adding members to repo");
             MemberRepo.CreateMember(member1);
             MemberRepo.CreateMember(member2);
 
@@ -406,12 +428,15 @@ namespace BoatConsole1
                 isRented: boatTuple.isRented,
                 log: boatTuple.Log);
             // Add it to the repo
+            Console.WriteLine("Adding boat to repo");
             BoatRepo.CreateBoat(boat);
 
             // One member books a boat
+            Console.WriteLine("One member books boat");
             member1.BookBoat(boat.Id);
 
             // Then check if the second member can book the same boat
+            Console.WriteLine("Check if second member can book boat...");
             return member2.BookBoat(boat.Id);
         }
         public static bool Test9A()
@@ -438,6 +463,7 @@ namespace BoatConsole1
                 birthday: memberTuple2.Birthday,
                 isRenting: memberTuple2.IsRenting);
             // Add the members to the repo
+            Console.WriteLine("Adding members to repo");
             MemberRepo.CreateMember(member1);
             MemberRepo.CreateMember(member2);
 
@@ -458,15 +484,18 @@ namespace BoatConsole1
                 isRented: boatTuple.isRented,
                 log: boatTuple.Log);
             // Add it to the repo
+            Console.WriteLine("Adding boat to repo");
             BoatRepo.CreateBoat(boat);
 
             // One member books a boat
+            Console.WriteLine("One member books boat");
             member1.BookBoat(boat.Id);
 
             // Check if the other member can see them out sailing
+            Console.WriteLine("Other member checks if anyone is current renting");
             return member2.ViewCurrentSailors().Count > 0;
         }
-        public static bool Test9B() //don't know what is meant with this one's text
+        public static bool Test9B()
         {
 			Console.WriteLine("Running test 9B\n");
 			Console.WriteLine("Test failed automatically");
@@ -507,6 +536,7 @@ namespace BoatConsole1
                 log: boatTuple.Log);
 
             // Use admins to create a boat
+            Console.WriteLine("Check if admin can create a boat");
             return admin.CreateBoat(boat);
         }
         public static bool Test10B()
@@ -555,15 +585,19 @@ namespace BoatConsole1
                 isRented: boatTuple.isRented,
                 log: boatTuple.Log);
             // Add it to the repo
+            Console.WriteLine("Adding boat to repo");
             BoatRepo.CreateBoat(boat);
 
             // Check if boat is rented prior
+            Console.WriteLine("Checks the rental status of boat...");
             bool status = boat.IsRented;
 
             // Admin rents boat
+            Console.WriteLine("Admin rents boat...");
             admin.RentBoat(boat.Id);
 
             // Compare prior rented status to after admin rental
+            Console.WriteLine("Check if boat has successfully been rented");
             return status!=boat.IsRented;
         }
         public static bool Test11B()
@@ -603,14 +637,17 @@ namespace BoatConsole1
                 isRented: boatTuple.isRented,
                 log: boatTuple.Log);
             // Add it to the repo
+            Console.WriteLine("Adding boat to repo");
             BoatRepo.CreateBoat(boat);
 
             // Check for null
             if (admin.ReadBoat(boat.Id) == null) return false;
 
             // Check if admin can get the log via ReadBoat, and it has something in it
+            Console.WriteLine("Check if admin can see a boat's log");
             if (admin.ReadBoat(boat.Id)!.Log != null && admin.ReadBoat(boat.Id)!.Log.Length > 0 )
             {
+                Console.WriteLine("Admin reading log...");
                 return true;
             }
             return false;
@@ -625,20 +662,26 @@ namespace BoatConsole1
         public static bool Test13A()
         {
 			Console.WriteLine("Running test 13A\n");
-			// Admin has no function to test, so instead we test if the EventRepo can create events
+            // Admin has no function to test, so instead we test if the EventRepo can create events
 
-			// We create an event repo
-			EventRepo eventRepo = new();
+            // We create an event repo
+            Console.WriteLine("Create an event repo");
+            EventRepo eventRepo = new();
 
             // We make an event to put in the repo
+            Console.WriteLine("Make an event to");
             Event e = new(Randotron.Generate("birthday"), Randotron.Generate("description"));
 
             // We check if the event can be added to repo
+            Console.WriteLine("Check if event can be added to repo");
             if (eventRepo.CreateEvent(e))
             {
+                Console.WriteLine("Adding event to repo");
+                Console.WriteLine("Check if event can be updated in repo");
                 //We check if the event can be updated
                 if (eventRepo.UpdateEvent(e.Id, Randotron.Generate("birthday"), Randotron.Generate("description")))
                 {
+                    Console.WriteLine("Updating event...");
                     return true;
                 }
             }
@@ -668,15 +711,19 @@ namespace BoatConsole1
 			Post post = new(Randotron.Generate("description"));
 
             // Add the post to the blog
+            Console.WriteLine("Adding post to blog");
             blog.CreatePost(post);
 
             // Check if the post was added
+            Console.WriteLine("Check if post was added");
             if (postnumber + 1 != blog.ReadAllPosts().Count) { return false; }
 
             // Delete the post 
+            Console.WriteLine("Use blog to delete the member");
             blog.DeletePost(post.Id);
 
             // Check if the post was deleted
+            Console.WriteLine("Check if post was deleted");
             if (postnumber != blog.ReadAllPosts().Count) { return false; }
             return true;
         }
@@ -715,20 +762,23 @@ namespace BoatConsole1
             int postnumber = blog.ReadAllPosts().Count;
 			Console.WriteLine($"Repo has {postnumber} posts");
 
-			// Make a post to put on the blog
-			Post post = new(Randotron.Generate("description"));
+            // Make a post to put on the blog
+            Console.WriteLine("Generating post for blog");
+            Post post = new(Randotron.Generate("description"));
 
 			// Add the post to the blog
-			Console.WriteLine("Generating a post");
+			Console.WriteLine("Adding post to blog");
 			blog.CreatePost(post);
 
             // Update post with a new description
+            Console.WriteLine("Updating post description using blog");
             blog.UpdatePost(post.Id, "tester");
 
             // Check for null
             if (blog.ReadPost(post.Id)==null) { return false; }
 
             // Check if it has the new description
+            Console.WriteLine("Checking if post description has been updated");
             return blog.ReadPost(post.Id)!.Description == "tester";
         }
         public static bool Test16B()
