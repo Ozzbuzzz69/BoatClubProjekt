@@ -26,7 +26,7 @@ namespace BoatClubLibrary.AdminData
         {
             return $"Id: {Id}, Name: {Name}, Address {Address}, Email: {Email}, Phonenumber: {PhoneNumber}";
         }
-
+        #region
         /// <summary>
         /// The boat related functionalites admin has access to
         /// </summary>        #region Boat Management
