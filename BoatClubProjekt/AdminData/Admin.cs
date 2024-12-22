@@ -29,8 +29,7 @@ namespace BoatClubLibrary.AdminData
 
         /// <summary>
         /// The boat related functionalites admin has access to
-        /// </summary>
-        #region Boat Management
+        /// </summary>        #region Boat Management
         public bool CreateBoat(Boat boat)
         {
             return BoatRepo.CreateBoat(boat);
@@ -65,6 +64,7 @@ namespace BoatClubLibrary.AdminData
 
 
         #endregion
+
         /// <summary>
         /// The member related functionalites admin has access to
         /// </summary>
